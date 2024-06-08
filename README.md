@@ -1,9 +1,12 @@
 # Introduction
 
 This repository aims to gather resources for using VSCode to write in LaTeX, Markdown, and python.
-Whereas TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use, VSCode offers a nice sweet of features while being extremely accessible.
-The instructions below will aim to streamline the process of adopting VSCode as your daily driver for working with LaTeX and Mardown with Python as a bonus.
-This configuration provides a place to start and easily adaptable and extensible.
+VSCode offers a nice sweet of features while being extremely accessible.
+By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
+
+The instructions below aim to streamline the process of adopting VSCode as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
+This configuration provides a place to start and is easily adaptable and extensible.
+If you run into trouble, feel free to open an issue, checking to see that you issue was not already answered.
 
 # Installation
 
