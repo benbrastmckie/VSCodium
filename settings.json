@@ -1,0 +1,52 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "pdflatex",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.invertMode.enabled": "always",
+  "latex-workshop.view.pdf.invertMode.sepia": 1,
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "editor.minimap.enabled": false,
+  "editor.wordWrap": "on",
+  "editor.wrappingIndent": "indent",
+}
