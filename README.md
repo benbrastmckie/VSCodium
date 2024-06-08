@@ -1,3 +1,5 @@
+![Screenshot of the configuration](images/screenshot.png)
+
 # Introduction
 
 This repository aims to gather resources for using VSCode to write in LaTeX, Markdown, and python.
