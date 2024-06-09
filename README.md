@@ -146,4 +146,6 @@ If you get an error, retry the command above with a lower-case 'k' or without th
 
 # Git
 
+# Bib Support
+
 # Python
