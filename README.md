@@ -15,12 +15,11 @@ If you run into trouble, feel free to open an issue, checking to see that you is
 VSCode is a free and open source project with a large ecosystem of plugins.
 Download and install [VSCode](https://code.visualstudio.com/) for your operating system.
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
-Search for and install the following plugins:
-  - LaTeX Workshop
-  - Gruvbox Theme
+Search for and install the plugin 'LaTeX Workshop'.
+
 There are many other themes and plugins which you can explore.
 For instance, 'Toggle Zen mode' eliminates distractions or you can install 'Pomodoro Timer' if you want.
-Some other popular themes include 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
+Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
 # Configuration
@@ -37,12 +36,13 @@ Additionally, you can easily clone your custom configuration down onto other mac
 Option 1 will achieve similar results but will not allow you to backup your configuration on GitHub.
 Of course, you could always create a new repository to backup your configuration at a later date, or you could backup your configuration in some other way.
 This option avoids having to run git commands in the terminal.
+The section [Git](#Git) below will include further details about how to use git to track changes for your various projects.
 
 ## Option 1: Cut and Paste
 
 Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
 Copy the contents of [settings.json](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) into this file (you can replace the empty braces).
-Save the document, confirming that the changes have taken place (e.g., numbered lines should wrap).
+Save the document, confirming that the changes have taken place (e.g., should set the theme to 'One Monokai').
 
 ## Option 2: Forked Repository
 
@@ -138,8 +138,12 @@ ssh-add -K ~/.ssh/id_rsa
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
 
+# Customization
+
 # Snippets
 
 # Markdown
+
+# Git
 
 # Python

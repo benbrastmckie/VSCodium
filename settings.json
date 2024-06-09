@@ -45,7 +45,7 @@
   "latex-workshop.view.pdf.invertMode.sepia": 1,
   "latex-workshop.synctex.afterBuild.enabled": true,
   "security.workspace.trust.untrustedFiles": "open",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "One Monokai",
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
   "editor.wrappingIndent": "indent",
