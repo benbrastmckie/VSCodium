@@ -200,13 +200,15 @@ A further avenue for exploring customization is to use ChatGPT.
 For instance, if there is something that you would like to change about VSCode, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
 In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
 
-The following sections will include more specific information about setting up bibliographic support, using markdown, snippets, and pandoc.
+The following sections will include more specific information about setting up bibliographic support, using templates, snippets, markdown and pandoc.
 
 ## Zotero
 
-## Markdown
+## Templates
 
 ## Snippets
+
+## Markdown
 
 ## Pandoc
 
