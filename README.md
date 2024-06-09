@@ -53,6 +53,8 @@ Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Setti
 Copy the contents of [settings.json](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) into this file (you can replace the empty braces).
 Save the document, confirming that the changes have taken place (e.g., the theme should change to 'One Monokai').
 
+In case you would like to also backup your configuration using git, you can proceed to Option 2.
+
 ### Option 2: Git Integration
 
 In order to create your own copy of this repository, click `Fork` in the top right of this repository.
@@ -194,13 +196,13 @@ Although the settings menu is a nice way to see all the options at once, this is
 However, any changes that you make in the settings menu will be stored in the `settings.json` file.
 It is by backing up this file with a git repository that you can easily reproduce your configuration without having to remember what settings you had before.
 
-A further avenue for customization is to use ChatGPT.
+A further avenue for exploring customization is to use ChatGPT.
 For instance, if there is something that you would like to change about VSCode, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
 In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
 
 The following sections will include more specific information about setting up bibliographic support, using markdown, snippets, and pandoc.
 
-## Bib Support
+## Zotero
 
 ## Markdown
 
