@@ -10,7 +10,7 @@ The instructions below aim to streamline the process of adopting VSCode as your 
 This configuration provides a place to start and is easily adaptable and extensible.
 If you run into trouble, feel free to open an issue, checking to see that your issue was not already answered.
 
-# Installation
+## Installation
 
 VSCode is a free and open source project with a large ecosystem of plugins.
 Download and install [VSCode](https://code.visualstudio.com/) for your operating system.
@@ -19,10 +19,11 @@ Search for and install the plugin 'LaTeX Workshop'.
 
 There are many other themes and plugins which you can explore.
 For instance, 'Toggle Zen mode' eliminates distractions or you can install 'Pomodoro Timer' if you want.
+You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as well as 'Learn Vim' (by vintharas) to learn how to use Vim.
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
-# Configuration
+## Configuration
 
 Once installed, you can configure VSCode in one of two ways:
 
@@ -38,13 +39,13 @@ Of course, you could always create a new repository to backup your configuration
 This option avoids having to run git commands in the terminal.
 The section [Git](#Git) below will include further details about how to use git to track changes for your various projects.
 
-## Option 1: Cut and Paste
+### Option 1: Cut and Paste
 
 Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
 Copy the contents of [settings.json](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) into this file (you can replace the empty braces).
 Save the document, confirming that the changes have taken place (e.g., should set the theme to 'One Monokai').
 
-## Option 2: Forked Repository
+### Option 2: Forked Repository
 
 Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
 Once open, you can hover the mouse over the `settings.json` file to see its path.
@@ -101,7 +102,7 @@ You may need to turn on hidden files by right-clicking in the menu and selecting
 VSCode should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
 
-## SSH Key
+### SSH Key
 
 If you have not already, you can add an SSH key by amending and running the following in the terminal:
 
@@ -140,12 +141,12 @@ If you get an error, retry the command above with a lower-case 'k' or without th
 
 # Customization
 
-# Snippets
+## Bib Support
 
-# Markdown
+## Markdown
+
+## Snippets
 
 # Git
-
-# Bib Support
 
 # Python
