@@ -8,7 +8,7 @@ By contrast, TexShop and TexMaker are painfully austere, offering none of the re
 
 The instructions below aim to streamline the process of adopting VSCode as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
 This configuration provides a place to start and is easily adaptable and extensible.
-If you run into trouble, feel free to open an issue, checking to see that you issue was not already answered.
+If you run into trouble, feel free to open an issue, checking to see that your issue was not already answered.
 
 # Installation
 
