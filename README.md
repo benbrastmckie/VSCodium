@@ -12,7 +12,7 @@ If you run into trouble, feel free to open an issue, checking to see that your i
 
 ## Installation
 
-VSCode is a free and open source project with a large ecosystem of plugins.
+VSCode is free and open source with a large plugin ecosystem.
 Download and install [VSCode](https://code.visualstudio.com/) for your operating system.
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
 Search for and install the plugin 'LaTeX Workshop'.
