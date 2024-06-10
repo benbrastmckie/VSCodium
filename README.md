@@ -85,7 +85,7 @@ This section will describe how to:
 In order to create your own copy of this repository, click `Fork` in the top right of this repository on GitHub.
 You will then be presented with the choice to make yourself the owner which you should accept.
 There is no need to include other branches besides the master branch which will be selected by default.
-Do not select "Keep this repository private" unless you want to setup an SSH key (not a bad idea but requires another [few steps](##SSH-Key)) or want to type in you password every time.
+Do not select "Keep this repository private" unless you want to setup an SSH key (not a bad idea but requires another [few steps](#SSH-Key)) or want to type in you password every time.
 It is also nice to keep configuration files public so that you can easily share them with others.
 
 The next sections will describe the following two ways to use git to backup your configuration:
@@ -121,7 +121,7 @@ Open `settings.json` to confirm that this file has been populated with settings.
 
 If you go on to make any changes, you can save the changes by opening the "Source Control" tab, adding a message, and committing your changes.
 Once committed, you can push your commits up to your repository with `Pull, Push -> Push`.
-Note that unless you have added an [SSH key](##SSH-Key), you will need to enter you GitHub password.
+Note that unless you have added an [SSH key](#SSH-Key), you will need to enter you GitHub password.
 You may also need to configure git by adding your email (whatever you used to open a GitHub account).
 To do so, open the terminal in VSCode with `ctrl + backtick` and enter the following:
 
@@ -155,7 +155,7 @@ ls -a
 ```
 
 Click the `Code` button in the fork that you created previously (you should see your username in the address).
-If you have an SSH Key (see [SSH Key](##SSH-Key) below), you can select the SSH address, copying it to the clipboard.
+If you have an SSH Key (see [SSH Key](#SSH-Key) below), you can select the SSH address, copying it to the clipboard.
 Otherwise, copy the HTTPS address to the clipboard.
 
 Now initialize git, link the remote repository, and pull down its contents by running each of the following commands:
