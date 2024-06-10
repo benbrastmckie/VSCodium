@@ -228,4 +228,6 @@ ssh-add -K ~/.ssh/id_rsa
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
 
+## Version Control
+
 # Python
