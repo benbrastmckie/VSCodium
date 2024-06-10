@@ -5,17 +5,18 @@ VSCode offers a nice sweet of features while being extremely accessible.
 By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, Git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
 The instructions below aim to streamline the process of adopting VSCode as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
-This configuration provides a place to start and is easily adaptable and extensible.
-Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes.
+This configuration provides a place to start and is easily adapted and extended.
+Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCode.
 These details will be described [below](#Overleaf).
 
 If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCode/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
-GitHub issues are a nice way to not only find solutions to the problems that you are facing, but also to contribute to project by expanding its documentation since others may find the answer to your problem helpful.
+Since future users may find the answer to your problem helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its documentation.
 With this in mind, make sure to adequately name the issue you create, providing a careful description of the problem and what you have tried already.
 It is also important to stay on topic, opening new issues if you have separate problems.
 
 If you find any errors in this documentation, you are welcome to submit a pull request by directly editing the `README.md` (click the pencil in the top right corner of the document).
 That way you changes will be able to be reviewed and integrated.
+If you feel that certain information is missing or would otherwise be helpful to include as a part of this project, don't hesitate to create an issue with your suggestions.
 
 ![Screenshot of the configuration](images/screenshot.png)
 
