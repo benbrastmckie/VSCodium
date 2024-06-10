@@ -44,8 +44,8 @@ You can skip this last step if you have already been using LaTeX on your machine
 ## Configuration
 
 > **NOTE:** If you prefer to use Git to clone a fork of this repository, see the [Git](#Git) section below.
-> In addition to streamlining the process, this method will allow you to easily backup your configuration as you make changes, tracking its history.
-> Alternatively, the following method is very easy, though does not backup your configuration, though this can be added later.
+> In addition to streamlining the process, using Git will allow you to easily backup your configuration as you make changes, tracking its complete history.
+> Alternatively, the following method is very easy, but does not backup your configuration (this can be added later).
 
 Open VSCode and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
 This will open the `settings.json` file where you can declare your configuration.
