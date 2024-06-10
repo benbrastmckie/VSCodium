@@ -34,34 +34,66 @@ You can skip this last step if you have already been using LaTeX on your machine
 
 ## Configuration
 
-Once installed, you can configure VSCode in one of three ways:
+Once installed, open VSCode and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
+This will open the `settings.json` file where you can declare your configuration.
+Replace the entire contents of `settings.json` (i.e., you can replace the empty braces) with the contents of [this](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) file.
+Save the document with `ctrl + s`, confirming that the changes have taken place (e.g., the theme should change to 'One Monokai').
 
-1. Cut and paste the contents of `settings.json` into the appropriate configuration file in VSCode.
-2. Use VSCode's git integration to add a fork of this repository as a remote, pulling down changes.
-3. Fork this repository, using the git CLI to clone the contents into the appropriate folder on your machine.
+Before making any changes to `settings.json`, it is advisable to fork this repository, backing up your configuration as described in [Git](#Git) below.
+Alternatively, if you do make changes to `settings.json`, details will be provided below if you later wish to backup your configuration.
 
-Option 2 and 3 will copy the contents of this repository into a repository that is all your own.
-This will allow you to backup your configuration by pushing any changes that you make to the fork that you created.
-Additionally, you can easily clone your custom configuration down onto other machines, making your configuration reproducible.
+### Customization
 
-Option 1 will achieve similar results but will not allow you to backup your configuration on GitHub.
-Of course, you could always create a new repository to backup your configuration at a later date, or you could backup your configuration in some other way.
+In order to get a better sense of what the options are within VSCode, click the settings gear in the bottom left corner.
+By scrolling through, you can explore the many different features that you can change about VSCode where the list will get longer with each plugin that you add.
 
-### Option 1: Cut and Paste
+Although the settings menu is a nice way to see all the options at once, this is not the easiest way to _reproduce_ your configuration.
+However, any changes that you make in the settings menu will be stored in the `settings.json` file.
+It is by backing up this file with a git repository that you can easily reproduce your configuration without having to remember what settings you had before.
+Although you could attempt to backup `settings.json` manually, the git integration included in VSCode provides an elegant way to stay backed up as you make changes to your configuration.
+Accordingly, the [Git](#Git) section below will describe how to use git to backup your configuration as well as your academic projects.
 
-Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
-Copy the contents of [settings.json](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) into this file (you can replace the empty braces).
-Save the document, confirming that the changes have taken place (e.g., the theme should change to 'One Monokai').
+A further avenue for exploring customization is to use ChatGPT.
+For instance, if there is something that you would like to change about VSCode, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
+In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
+You may also find helpful tutorials on YouTube.
 
-In case you would like to also backup your configuration using git, you can proceed to Option 2.
+# Academic Toolchain
 
-### Option 2: Git Integration
+The following sections will provide information about how to set up Zotero for bibliographic support as well as how to make use of templates, snippets, Markdown, and Pandoc.
 
-In order to create your own copy of this repository, click `Fork` in the top right of this repository.
-You will be presented with the choice to make yourself the owner which you should accept.
+## Zotero
+
+## Templates
+
+## Snippets
+
+## Markdown
+
+## Pandoc
+
+# Git
+
+This section will describe how to: 
+
+  1. Create a fork of this repository, using git to pull its contents on an appropriate directory on your computer.
+  2. Add an SSH key to streamline pushing and pulling changes.
+  3. Use VSCode's git integration to version control your academic projects as well as your config.
+
+## Forking the Repository
+
+In order to create your own copy of this repository, click `Fork` in the top right of this repository on GitHub.
+You will then be presented with the choice to make yourself the owner which you should accept.
 There is no need to include other branches besides the master branch which will be selected by default.
 Do not select "Keep this repository private" unless you want to setup an SSH key (not a bad idea but requires another [few steps](##SSH-Key)) or want to type in you password every time.
 It is also nice to keep configuration files public so that you can easily share them with others.
+
+The next sections will describe the following two ways to use git to backup your configuration:
+
+  1. Use VSCode's git integration to add a fork of this repository as a remote, pulling down changes.
+  2. Use the git CLI to clone the contents into the appropriate folder on your machine.
+
+### Option 1: Git Integration
 
 Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
 If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
@@ -75,6 +107,13 @@ Note that you may need to show hidden files by right-clicking inside the search 
 Open the "Source Control" tab also on the top left and select "Initialize Repository".
 You can then add a remote by clicking the three dots in the top right of the "Source Control" panel, selecting `remote -> add`.
 You can then enter the address copied to the clipboard from before, naming the remote "VSCode" or whatever you like.
+
+Note that if you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
+One easy way to do this is to temporarily rename `settings.json` as `save.settings.json`.
+That way, when you pull down the repository it will not replace your settings.
+Instead, you can go on to delete the `settings.json` file that you pull down, changing the name of `save.settings.json` back to `settings.json`.
+These extra steps can safely be ignored if you have not yet made any changes to `settings.json` as recommended above.
+
 In the bottom left corner, you will see which branch you are on currently, clicking this branch to change to 'master'.
 Next, click on the three dots in the top right corner of the "Source Control" pane to select `Pull, Push -> Pull`.
 By changing back to the "Explorer" tab you should be able to see a host of new files.
@@ -92,7 +131,7 @@ git config --global user.email "your_email@example.com"
 
 Once this information has been provided, you should be able to push the changes that you make up to your repository so that they are available to pull down anywhere.
 
-### Option 3: Git CLI
+### Option 2: Git CLI
 
 For completeness, here is the manual option, using the standard git command line interface.
 
@@ -108,21 +147,15 @@ ls -a
 
 On MacOS, the `PATH/TO/` should be `~/Library/Application Support/Code/User`.
 The `ls` command should show the `settings.json` file.
-Next remove this file with:
+If you have made extensive changes to `settings.json` that you want to preserve, you can create a backup with:
 
 ```
-rm settings.json
+mv settings.json save.settings.json
 ls -a
 ```
 
-In order to replace this file, click `Fork` in the top right of this repository.
-You will be presented with the choice to make yourself the owner which you should accept.
-There is no need to include other branches besides the master branch which will be selected by default.
-Do not select "Keep this repository private" unless you want to setup an SSH key (not a bad idea but requires another [few steps](##SSH-Key)) or want to type in you password every time.
-It is also nice to keep configuration files public so that you can easily share them with others.
-
-Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
-If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
+Click the `Code` button in the fork that you created previously (you should see your username in the address).
+If you have an SSH Key (see [SSH Key](##SSH-Key) below), you can select the SSH address, copying it to the clipboard.
 Otherwise, copy the HTTPS address to the clipboard.
 
 Now initialize git, link the remote repository, and pull down its contents by running each of the following commands:
@@ -135,8 +168,15 @@ git pull origin master
 ls -a
 ```
 
-You should now see the new `settings.json` file appear along with the `.git` directory.
 The `git remote -v` command is optional but will confirm that you succeeded in adding a remote.
+The final command should show the new `settings.json` file along with the `.git` directory you initialized.
+If you wanted to preserve your previously saved settings, you can now run the following commands:
+
+```
+rm settings.json
+mv save.settings.json settings.json
+```
+
 If you make any changes to your config, you can push these up to you repository with:
 
 ```
@@ -151,7 +191,7 @@ You may need to turn on hidden files by right-clicking in the menu and selecting
 VSCode should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
 
-### SSH Key
+## SSH Key
 
 If you have not already, you can add an SSH key by amending and running the following in the terminal:
 
@@ -187,31 +227,5 @@ ssh-add -K ~/.ssh/id_rsa
 ```
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
-
-# Customization
-
-One way to explore further customization is to click the settings gear in the bottom left corner.
-By scrolling through, you can explore the many different features that you can change about VSCode where the list will get longer with each plugin that you add.
-Although the settings menu is a nice way to see all the options at once, this is not the easiest way to reproduce your configuration.
-However, any changes that you make in the settings menu will be stored in the `settings.json` file.
-It is by backing up this file with a git repository that you can easily reproduce your configuration without having to remember what settings you had before.
-
-A further avenue for exploring customization is to use ChatGPT.
-For instance, if there is something that you would like to change about VSCode, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
-In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
-
-The following sections will include more specific information about setting up bibliographic support, using templates, snippets, markdown and pandoc.
-
-## Zotero
-
-## Templates
-
-## Snippets
-
-## Markdown
-
-## Pandoc
-
-# Git
 
 # Python
