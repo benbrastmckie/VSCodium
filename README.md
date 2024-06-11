@@ -33,53 +33,6 @@ You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as w
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
-### LaTeX
-
-If you have not already set up LaTeX, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
-
-```
-sudo apt-get install texlive-full
-sudo pacman -S texlive-most
-```
-
-If you are uncertain whether you have the right packages installed (on any operating system), you can run the following commands in the terminal:
-
-```
-latexmk -v
-synctex -v
-biblatex -v
-biber -v
-```
-
-So long as each of these commands returns a version number, you should not need to install LaTeX.
-
-<!-- Create the ‘texmf’ folder tree in your directory. -->
-<!-- For Mac users: -->
-<!-- You will first need to locate your main ‘Library’ folder in Finder. Begin by opening a new Finder window. Press cmd+shift+h to go to the home folder, and cmd+j to open an options window. Check ‘show Library folder’. -->
-<!-- Then create a folder called ‘texmf’ in your Library if it is not already there, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file (you can cut and paste the contents into a new file with the same name and extension to be saved in your bst folder if you do not intend to clone the full repository). -->
-<!-- Now add this template to Library -> TexShop -> Templates. This template includes the commands \bibliographystyle{Phil_Review} and \bibliography{Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder in Civ below. -->
-<!-- Note: if you are using my NeoVim config, you can find this template by hitting ‘space+T’ followed by ‘p’. -->
-<!-- For Windows users: -->
-<!-- In C, create a folder called ‘texmf’, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file which comes from here. -->
-<!-- Now add this template to Users -> {user name} -> AppData -> Local -> MikTex -> 2.9 -> TexWorks -> 0.4 -> Templates. This template includes the commands \bibliographystyle{C:/texmf/bibtex/bst/Phil_Review} and \bibliography{C:/texmf/bibtex/bib/Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder. -->
-<!-- If you want to save the bst and bib files elsewhere, you will need to change the path in the template file. Note the forward slashes in place of backslashes. You can also substitute other bst (bibliography style) files for Phil_Review.bst such as this one. -->
-<!-- You can now integrate Zotero and LaTeX as follows (also see this video): -->
-<!-- Download and install Better BibTex by following these instructions, restarting Zotero after completed. -->
-<!-- Under ‘Edit’ in the Zotero menu bar, select ‘Preferences’ and open up the ‘Better BibTex’ tab. Under the ‘Citation’ sub-tab, replace the citation key format with this:  auth + year. There are a lot more options for citation key style here (this is just the look up key, not the citation style included in your bibliography). Also check ‘On item change’ at the bottom left. -->
-<!-- Now switch to the ‘Automatic Export’ sub-tab and check ‘On Change’. This means that the instant you update your database with a new bib entry, or edit an old bib entry, Zotero will update the .bib files where your database is exported. If your library is extremely large, this could be slow, and so you might want to select the ‘When Idle’ option. But I have no troubles with the ‘On Change’ feature. -->
-<!-- Close the Preferences window, returning to the main Zotero window. Right-click the main library folder in the left-most blue column, select ‘Export Library’ (alternatively you can export other project folders, but I like to keep things simple). Under the ‘Format’ dropdown menu, select ‘Better BibTex’. Then check the ‘Keep Updated’ box. Save the file as ‘Zotero’ (the extension will be added automatically) to the bib folder that you previously created. -->
-<!-- You can now run a test that everything is working. -->
-<!-- Open TexShop and create a new file (or create a file from template in TexWorks). In the ‘Templates’ drop-down menu, select PhilArticle. Press cmd+T (or click ‘Typeset’). Save the document in a new folder with the appropriate project name. -->
-<!-- Note: If the file does not run, open TexLive Utility in the Tex folder in the Applications folder, and update. Restart everything and try to typeset the file again. -->
-<!-- Note: Occasionally, it can also help to click Trash Aux Files in the error console, if the pdf is not generating properly. -->
-<!-- Once your file typesets, open Zotero and click on one of the files in your library, and look for the ‘Citation Key’ in the details. If no key is present, or the key data is not of the form [auth][year], you can right-click the file in your library and click ‘Generate BibTex Key’. Once you have the key, you can cite that paper by writing ‘\citet{CITEKEY}’ in the new tex file. -->
-<!-- Note: To list multiple sources by the same, or different authors, separate the cite keys with a comma. For other citation styles, refer to the preamble of the PhilArticle template for further commands, e.g., ‘\citep’, etc. -->
-<!-- Note: It can also be helpful to customize commands as exemplified in the preamble of the PhilArticle template provided above. I have included a definition of \citepos which is useful for making citation names possessive. -->
-<!-- In TexShop, you will need to hit cmd+T, then cmd+shift+b, then cmd+T, and the cmd+T for a final time. You should see both the citation you added in the text as well as the full citation in the references. Why all the command combinations? The first cmd+T will update the .tex file you are working on, adding the citation key. The cmd+shift+b will look up the citation key in your master Zotero.bib file saved in the bib folder. Then another cmd+T will import the citation data, and the final cmd+T will typeset it altogether. Sound clunky? It is, and that’s not the least of it. However, there are much better text editors out there (see below). -->
-<!-- Note: Want to check how many words your document has? Open the ‘Macros Editor’ under the ‘Macros’ toolbar in TexShop. Select ‘New Item’ giving it a name like ‘TexCount’ and dragging it from the bottom of the list (left column) up to the top. Then cut and paste this into the content. Many more macros can be found here. (TexWorks does not include a word count macro for some reason.) -->
-<!-- Now you are ready to tex! If you get stuck, get used to googling things and reading the bottom of the error console. YouTube also has many helpful tutorials. As you figure things out, I highly suggest making notes in the preamble of your template file of the really useful bits. By adding a ‘%’ symbol after the new bit of code you add to the preamble, you can explain what it does so that next time you will remember. Lots of helpful information is also available here including a nice lookup guide. -->
-
-
 ## Configuration
 
 > **NOTE:** If you prefer to use Git to clone a fork of this repository, see the [Git](#Git) section below.
@@ -110,46 +63,146 @@ For instance, if there is something that you would like to change about VSCode, 
 In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
 You may also find helpful tutorials on YouTube.
 
-# Academic Toolchain
+# Toolchain
 
 The following sections will provide information about how to set up LaTeX, reference management with Zotero, as well as how to make use of templates, snippets, Markdown, Pandoc, and Python.
 
+## LaTeX
+
+If you have not already set up LaTeX, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
+
+```
+sudo apt-get install texlive-full
+sudo pacman -S texlive-most
+```
+
+If you are uncertain whether you have the right packages installed, you can run the following commands in the terminal (on MacOS, hit `Cmd + Space` and type 'terminal'):
+
+```
+latexmk -v
+synctex -v
+biblatex -v
+biber -v
+```
+
+So long as each of these commands returns a version number, you should not need to install LaTeX.
+Otherwise, you may need to install LaTeX as described above.
+
+The final step is to create the ‘texmf’ directory in the appropriate location depending on your operating system.
+
+### MacOS
+
+The 'texmf' directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
+To locate the ‘Library’ directory in Finder, hit `cmd + shift + h` to go to the 'Home' directory, `cmd + j` to open an options window, and check ‘show Library folder’.
+
+You will now need to copy the [texmf](https://github.com/benbrastmckie/VSCode/tree/master/texmf) directory into your 'Library' directory if it does not exist already.
+The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
+
+If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
+To do so, open the terminal and run the following commands:
+
+```
+cd ~/Downloads
+git clone https://github.com/benbrastmckie/VSCode.git
+mv VSCode/texmf ~/Library/texmf
+find ~/Library/texmf -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+```
+
+The final command will display the contents of the 'texmf' directory.
+The `bst` subdirectory contains all of the bibliographic style files (you may wish to add others).
+The `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
+Alternatively, you can always include the relevant style or class files in the local project directory.
+
+You are now free to delete the remnants of the 'VSCode' repository that you cloned into 'Downloads' with the following command:
+
+```
+rm -r VSCode
+```
+
+### Linux and Windows
+
+The 'texmf' directory lives in the user's home directory on both Linux and Windows.
+You will need to copy the [texmf](https://github.com/benbrastmckie/VSCode/tree/master/texmf) directory into your home directory if it does not exist already.
+The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
+
+If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
+To do so, open the terminal and run the following commands:
+
+```
+cd ~/Downloads
+git clone https://github.com/benbrastmckie/VSCode.git
+mv VSCode/texmf ~/texmf
+find ~/texmf -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+```
+
+You are now free to delete the remnants of the 'VSCode' repository that you cloned into 'Downloads' with the following command:
+
+```
+rm -r VSCode
+```
+
 ## Zotero
 
-Even if you have no interest in using LaTeX, Zotero is a must for managing your pdf database as well as bibliographic data.
 Zotero is an open-source reference management software which does all the work for you of saving bibliography data, pdfs, notes, or other files.
 Rather than ending up with an dizzying array of folders on your hard drive (or desktop!) crammed with documents, Zotero lets you easily create and destroy project folders without creating multiple versions of each paper (unless you want that).
-Additionally, Zotero will download and organise the associated pdf with the reference, all with the click of a single button in your web browser.
+Additionally, Zotero will download and organize the associated PDF with the reference, all with the click of a single button in your web browser.
 That way, building your reference database is the passive result of sorting through papers that interest you online.
 Most importantly, this software allows you to generate bibliographies from any selected project folders or files, and is compatible with most word processors.
-I’ve given detailed instructions below on how to install Zotero.
-(Cost: 3 minute installation, with another 10 minutes to get it linked to your LaTeX editor.)
 
 Download and install Zotero together with a plugin for your preferred browser.
-If you use Word, you can follow these tutorials to both install and use.
-Now run a simple test:
-Find a paper you would like to download.
+
+Now run a simple test, finding a paper you would like to download.
 If you use a VPN provided by your research institution, make sure that it is turned on, and if you use an AdBlocker, make sure that it is not blocking pop-ups for the journal’s website.
 Before downloading the paper as you normally would, notice the small Zotero icon in the top-right of your browser.
-If Zotero has located a single paper, the icon will look like a paper; if it has located multiple, it will look like a folder.
+If Zotero has located a single paper, the icon will look like a paper.
+If Zotero has located multiple papers, the icon will look like a folder.
 Click the icon and, if need be, select the desired paper.
-If all goes as it should, a small banner will pop up in the lower right-hand side of the screen that indicates that it has scraped the bib data and downloaded your file, giving you the chance to file the paper in a project folder if you desire.
-(Alternatively, if you open a project folder in Zotero by clicking on it on the left side of Zotero, then any papers you download will be automatically filed in that project folder.)
-Now switch from your browser to Zotero to check if the bib info (with the pdf) showed up.
-If it did not work, or did not grab the pdf with the bib data, make sure you are appropriately logged on to the journal website and repeat.
-For instance, if you are unable to download the pdf in the old fashioned way, then Zotero will not be able to download the pdf either.
+If all goes as it should, a small banner will pop up in the upper right-hand side of the screen that indicates that it has scraped the bibliographic data and downloaded the PDF, giving you the option to file the paper in a project folder if you desire.
+Alternatively, if you open a project folder in Zotero by clicking on it on the left side of Zotero, then any papers you download will be automatically filed in that project folder.
+
+Now switch from your browser to Zotero to check if the bibliographic data has been stored along with the PDF.
+If it did not work, or did not grab the PDF with the bibliographic data, make sure you are logged into the journal website and repeat.
 If problems persist, you can look for further answers here.
-You can also always add the file manually to the bib info by right-clicking the paper in question in Zotero.
+
+You can also always add the file manually by right-clicking the paper in question in Zotero.
 Some of the journal websites work better than others.
-For books, Amazon is a good resource for scraping bib data, though of course no pdf will be downloaded.
-Once you are able to capture bib data, you can check that the website provided complete and correct information, making any changes that are needed.
-I don’t typically do this if I trust the source.
-(PhilPapers is pretty inconsistent, and so I mostly avoid getting bib data from there. For books, Amazon is not half-bad.)
-Markdown Add-ons
-Zotero can be used not only to keep the pdfs associated with each citation organised, but to export the highlights and annotations you make with your preferred pdf viewer as markdown files.
-In order to include these features, you will need to download the .xpi file for MdNotes as described here, as well as the .xpi file for ZotFile.
-By then opening Zotero, navigating to the Tools –> Add-ons menu, clicking the gear symbol, and selecting ‘Install add-on from file’, you can select the .xpi files that you downloaded in order install these features.
-You may then export your notes by: (1) right-clicking on the annotated pdf and selecting Manage Attachments –> Extract Annotations; followed by (2) right-clicking on the extraction that it generates and selecting MdNotes –> Export to Markdown, specifying the project folder you would like to save the notes in.
+For books, Amazon is a good resource for scraping bibliographic data, though no PDF will be downloaded.
+
+### Better BibTeX
+
+In order to integrate Zotero and LaTeX, download and install Better BibTex by following these [instructions](https://retorque.re/zotero-better-bibtex/installation/), restarting Zotero after the installation is complete.
+
+Under ‘Edit’ in the Zotero menu bar, select ‘Preferences’ and open up the ‘Better BibTex’ tab.
+Under the ‘Citation’ sub-tab, replace the citation key format with this:  auth + year.
+> **Note:** This is just the look up key, not the citation style included in your bibliography.
+> There are a lot of options for citation key styles [here](https://retorque.re/zotero-better-bibtex/citing/).
+Also check ‘On item change’ at the bottom left.
+Now switch to the ‘Automatic Export’ sub-tab and check ‘On Change’.
+This means that the instant you update your database with a new bib entry, or edit an old bib entry, Zotero will update the .bib files where your database is exported.
+If your library is extremely large, this could be slow, and so you might want to select the ‘When Idle’ option (this is not typically a problem).
+
+Close the Preferences window, returning to the main Zotero window.
+Right-click the main library folder in the left-most blue column, select ‘Export Library’ (alternatively you can export other project folders).
+Under the ‘Format’ drop-down menu, select ‘Better BibTex’.
+Then check the ‘Keep Updated’ box.
+Save the file as ‘Zotero’ (the extension will be added automatically) to `texmf -> bibtex -> bib` directory that you [previously](#MacOS) created.
+
+You can now run a test that everything is working.
+Open VSCode, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) into the file.
+Save and click the 'Play' button on the top right corner, as well as the 'View LaTeX PDF' just beside it.
+> **Note:** Occasionally, it can help to refresh the aux files if the PDF is not generating properly.
+> You can do this by opening the 'TeX' tab on the left, clicking `Commands -> Build LaTeX project -> Clean up auxiliary files`.
+Once your file typesets, open Zotero and click on one of the files in your library, and look for the ‘Citation Key’ in the details on the right.
+If no key is present or if the key data is not of the form `[auth][year]`, you can right-click the file in your library and select ‘Generate BibTex Key’.
+Once you have the key, you can cite this paper by writing ‘\citet{CITEKEY}’ in the tex file that you are creating (this must go in the body of the document).
+> **Note:** To list multiple sources by the same, or different authors, separate the cite keys with a comma.
+> For other citation styles, refer to the preamble of the [PhilPaper](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) template for further commands, e.g., ‘\citepos’ for possessive.
+Upon saving, the citation should be automatically generated and added to the references.
+
+If you have any trouble, make sure that the 'Zotero.bib' file has been correctly stored in the `textmf -> bibtex -> bib` directory as explained above (you might open this file to make sure it contains the right contents).
+You should also confirm that `Phil_Review` is stored in `textmf -> bibtex -> bst`. 
+Additionally, you can open the log by opening the 'TeX' tab on the left, clicking `Commands -> View Log messages -> View LaTeX compiler log`.
+If you can't make out what the log is telling you, cut and paste any warnings or error messages into ChatGPT, asking it to interpret the messages for you.
 
 ## Templates
 
@@ -161,6 +214,15 @@ Instead of taking notes in LaTeX, Word, or some other note-taking application, y
 The syntax for Markdown is by design as simple as possible, but can still produce a good looking document which you can then convert via Pandoc into other formats.
 
 <!-- provide guide -->
+
+### Zotero Add-On
+
+Zotero can be used not only to keep the pdfs associated with each citation organised, but to export the highlights and annotations you make with your preferred pdf viewer as markdown files.
+In order to include these features, you will need to download the .xpi file for MdNotes as described here, as well as the .xpi file for ZotFile.
+By then opening Zotero, navigating to the Tools –> Add-ons menu, clicking the gear symbol, and selecting ‘Install add-on from file’, you can select the .xpi files that you downloaded in order install these features.
+You may then export your notes by: (1) right-clicking on the annotated pdf and selecting Manage Attachments –> Extract Annotations; followed by (2) right-clicking on the extraction that it generates and selecting MdNotes –> Export to Markdown, specifying the project folder you would like to save the notes in.
+
+
 
 ## Pandoc
 
