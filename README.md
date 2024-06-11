@@ -20,6 +20,26 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ![Screenshot of the configuration](images/screenshot.png)
 
+
+## Table of Contents
+
+- [Installation](#Installation)
+  - [Configuration](#Configuration)
+  - [Customization](#Customization)
+- [Toolchain](#Toolchain)
+  - [LaTeX](#LaTeX)
+  - [Zotero](#Zotero)
+  - [Templates](#Templates)
+  - [Snippets](#Snippets)
+  - [Markdown](#Markdown)
+	- [Pandoc](#Pandoc)
+	- [Python](#Python)
+- [Git](#Git)
+	- [Forking the Repository](#Forking the Repository)
+	- [SSH Key](#SSH Key)
+	- [Version Control](#Version Control)
+	- [Overleaf](#Overleaf)
+
 ## Installation
 
 VSCode is free and open source with a large plugin ecosystem.
@@ -47,7 +67,7 @@ Save the document with `ctrl + s`, confirming that the changes have taken place 
 Before making any changes to `settings.json`, it is advisable to fork this repository, backing up your configuration as described in [Git](#Git) below.
 Alternatively, if you do make changes to `settings.json`, details will be provided below if you later wish to backup your configuration.
 
-### Customization
+## Customization
 
 In order to get a better sense of what the options are within VSCode, click the settings gear in the bottom left corner.
 By scrolling through, you can explore the many different features that you can change about VSCode where the list will get longer with each plugin that you add.
@@ -388,7 +408,7 @@ If you get an error, retry the command above with a lower-case 'k' or without th
 
 ## Version Control
 
-### Overleaf
+## Overleaf
 
 Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL `https://git.overleaf.com/your-project-id`.
 You will then be able to add the remote with:
