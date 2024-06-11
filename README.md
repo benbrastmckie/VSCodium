@@ -35,9 +35,9 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Pandoc](#Pandoc)
 	- [Python](#Python)
 - [Git](#Git)
-	- [Forking the Repository](#Forking the Repository)
-	- [SSH Key](#SSH Key)
-	- [Version Control](#Version Control)
+	- [Forking the Repository](#Forking-the-Repository)
+	- [SSH Key](#SSH-Key)
+	- [Version Control](#Version-Control)
 	- [Overleaf](#Overleaf)
 
 ## Installation
