@@ -1,6 +1,6 @@
 # TODO
 
-- [.] readme
+- [ ] readme
   - [ ] find todo list plugin
   - [x] how to open an issue
   - [x] toc descriptions
@@ -12,5 +12,5 @@
     - [ ] markdown
     - [ ] pandoc
   - [ ] git: version control
-- [.] learning git
+- [ ] learning git
   - [ ] edit

@@ -23,22 +23,22 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Table of Contents](#Introduction)
 
-- [Installation](#Installation): install VSCode and plugins
+- [Installation](#Installation): install VSCode along with some extensions
   - [Configuration](#Configuration): add the `settings.json` file
-  - [Customization](#Customization): methods for customizing your configuration
-- [Toolchain](#Toolchain): collection of tools for academic writing
-  - [LaTeX](#LaTeX): install LaTeX, setting up the `texmf` directory
-  - [Zotero](#Zotero): install Zotero, exporting your library with Better BibTeX
-  - [Templates](#Templates): how to use LaTeX templates
-  - [Snippets](#Snippets): how to set up and edit snippets
-  - [Markdown](#Markdown): easy language for taking notes and save quotes
-  - [Pandoc](#Pandoc): how to convert between file types
-  - [Python](#Python): plugins for writing python
-- [Git](#Git): basic overview
-	- [Forking the Repository](#Forking-the-Repository): how to make a copy of this repository
+  - [Customization](#Customization): a few methods for customizing your configuration
+- [Toolchain](#Toolchain): a collection of tools for academic writing
+  - [LaTeX](#LaTeX): install LaTeX and set up the `texmf` directory
+  - [Zotero](#Zotero): install Zotero and export your library with Better BibTeX
+  - [Templates](#Templates): save and use LaTeX templates
+  - [Snippets](#Snippets): edit and use snippets
+  - [Markdown](#Markdown): use markdown to take notes and export quotes
+  - [Pandoc](#Pandoc): convert between file types
+  - [Python](#Python): install python along with some extensions
+- [Git](#Git): basic overview with links to further information
+	- [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up
 	- [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
-	- [Version Control](#Version-Control): using Git to backup and manage projects
-	- [Overleaf](#Overleaf): collaborating with others who use Overleaf
+	- [Version Control](#Version-Control): using Git to backup and collaborate on projects
+	- [Overleaf](#Overleaf): adding Overleaf remote repositories
 
 ## [Installation](#Table-of-Contents)
 
