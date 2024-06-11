@@ -40,7 +40,7 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Version Control](#Version-Control)
 	- [Overleaf](#Overleaf)
 
-## Installation
+## [Installation](#Table-of-Contents)
 
 VSCode is free and open source with a large plugin ecosystem.
 Download and install [VSCode](https://code.visualstudio.com/) for your operating system.
@@ -53,7 +53,7 @@ You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as w
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
-## Configuration
+## [Configuration](#Table-of-Contents)
 
 > **NOTE:** If you prefer to use Git to clone a fork of this repository, see the [Git](#Git) section below.
 > In addition to streamlining the process, using Git will allow you to easily backup your configuration as you make changes, tracking its complete history.
@@ -67,7 +67,7 @@ Save the document with `ctrl + s`, confirming that the changes have taken place 
 Before making any changes to `settings.json`, it is advisable to fork this repository, backing up your configuration as described in [Git](#Git) below.
 Alternatively, if you do make changes to `settings.json`, details will be provided below if you later wish to backup your configuration.
 
-## Customization
+## [Customization](#Table-of-Contents)
 
 In order to get a better sense of what the options are within VSCode, click the settings gear in the bottom left corner.
 By scrolling through, you can explore the many different features that you can change about VSCode where the list will get longer with each plugin that you add.
@@ -83,11 +83,11 @@ For instance, if there is something that you would like to change about VSCode, 
 In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
 You may also find helpful tutorials on YouTube.
 
-# Toolchain
+# [Toolchain](#Table-of-Contents)
 
 The following sections will provide information about how to set up LaTeX, reference management with Zotero, as well as how to make use of templates, snippets, Markdown, Pandoc, and Python.
 
-## LaTeX
+## [LaTeX](#Table-of-Contents)
 
 If you have not already set up LaTeX, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
 
@@ -110,7 +110,7 @@ Otherwise, you may need to install LaTeX as described above.
 
 The final step is to create the ‘texmf’ directory in the appropriate location depending on your operating system.
 
-### MacOS
+### [MacOS](#Table-of-Contents)
 
 The 'texmf' directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
 To locate the ‘Library’ directory in Finder, hit `cmd + shift + h` to go to the 'Home' directory, `cmd + j` to open an options window, and check ‘show Library folder’.
@@ -139,7 +139,7 @@ You are now free to delete the remnants of the 'VSCode' repository that you clon
 rm -r VSCode
 ```
 
-### Linux and Windows
+### [Linux and Windows](#Table-of-Contents)
 
 The 'texmf' directory lives in the user's home directory on both Linux and Windows.
 You will need to copy the [texmf](https://github.com/benbrastmckie/VSCode/tree/master/texmf) directory into your home directory if it does not exist already.
@@ -161,7 +161,7 @@ You are now free to delete the remnants of the 'VSCode' repository that you clon
 rm -r VSCode
 ```
 
-## Zotero
+## [Zotero](#Table-of-Contents)
 
 Zotero is an open-source reference management software which does all the work for you of saving bibliography data, pdfs, notes, or other files.
 Rather than ending up with an dizzying array of folders on your hard drive (or desktop!) crammed with documents, Zotero lets you easily create and destroy project folders without creating multiple versions of each paper (unless you want that).
@@ -188,7 +188,7 @@ You can also always add the file manually by right-clicking the paper in questio
 Some of the journal websites work better than others.
 For books, Amazon is a good resource for scraping bibliographic data, though no PDF will be downloaded.
 
-### Better BibTeX
+### [Better BibTeX](#Table-of-Contents)
 
 In order to integrate Zotero and LaTeX, download and install Better BibTex by following these [instructions](https://retorque.re/zotero-better-bibtex/installation/), restarting Zotero after the installation is complete.
 
@@ -224,18 +224,18 @@ You should also confirm that `Phil_Review` is stored in `textmf -> bibtex -> bst
 Additionally, you can open the log by opening the 'TeX' tab on the left, clicking `Commands -> View Log messages -> View LaTeX compiler log`.
 If you can't make out what the log is telling you, cut and paste any warnings or error messages into ChatGPT, asking it to interpret the messages for you.
 
-## Templates
+## [Templates](#Table-of-Contents)
 
-## Snippets
+## [Snippets](#Table-of-Contents)
 
-## Markdown
+## [Markdown](#Table-of-Contents)
 
 Instead of taking notes in LaTeX, Word, or some other note-taking application, you can recover some of the elegance of LaTeX without any of the trouble by writing in Markdown.
 The syntax for Markdown is by design as simple as possible, but can still produce a good looking document which you can then convert via Pandoc into other formats.
 
 <!-- provide guide -->
 
-### Zotero Add-On
+### [Zotero Add-On](#Table-of-Contents)
 
 Zotero can be used not only to keep the pdfs associated with each citation organised, but to export the highlights and annotations you make with your preferred pdf viewer as markdown files.
 In order to include these features, you will need to download the .xpi file for MdNotes as described here, as well as the .xpi file for ZotFile.
@@ -244,15 +244,15 @@ You may then export your notes by: (1) right-clicking on the annotated pdf and s
 
 
 
-## Pandoc
+## [Pandoc](#Table-of-Contents)
 
 Pandoc is a convenient utility for converting between different text formats.
 
 <!-- provide guide -->
 
-## Python
+## [Python](#Table-of-Contents)
 
-# Git
+# [Git](#Table-of-Contents)
 
 This section will describe how to: 
 
@@ -260,7 +260,7 @@ This section will describe how to:
   2. Add an SSH key to streamline pushing and pulling changes.
   3. Use VSCode's Git integration to version control your academic projects as well as your config.
 
-## Forking the Repository
+## [Forking the Repository](#Table-of-Contents)
 
 In order to create your own copy of this repository, click `Fork` in the top right of this repository on GitHub.
 You will then be presented with the choice to make yourself the owner which you should accept.
@@ -273,7 +273,7 @@ The next sections will describe the following two ways to use Git to backup your
   1. Use VSCode's Git integration to add a fork of this repository as a remote, pulling down changes.
   2. Use the Git CLI to clone the contents into the appropriate folder on your machine.
 
-### Option 1: Git Integration
+### [Option 1: Git Integration](#Table-of-Contents)
 
 Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
 If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
@@ -311,7 +311,7 @@ git config --global user.email "your_email@example.com"
 
 Once this information has been provided, you should be able to push the changes that you make up to your repository so that they are available to pull down anywhere.
 
-### Option 2: Git CLI
+### [Option 2: Git CLI](#Table-of-Contents)
 
 For completeness, here is the manual option, using the standard Git command line interface.
 
@@ -371,7 +371,7 @@ You may need to turn on hidden files by right-clicking in the menu and selecting
 VSCode should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
 
-## SSH Key
+## [SSH Key](#Table-of-Contents)
 
 If you have not already, you can add an SSH key by amending and running the following in the terminal:
 
@@ -406,9 +406,9 @@ ssh-add -K ~/.ssh/id_rsa
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
 
-## Version Control
+## [Version Control](#Table-of-Contents)
 
-## Overleaf
+## [Overleaf](#Table-of-Contents)
 
 Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL `https://git.overleaf.com/your-project-id`.
 You will then be able to add the remote with:

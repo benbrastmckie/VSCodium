@@ -2,10 +2,11 @@
 
 - [.] readme
   - [ ] find todo list plugin
-  - [ ] latex details
   - [x] how to open an issue
+  - [ ] toc descriptions
   - [ ] toolchain
-    - [ ] zotero
+    - [x] latex
+    - [x] zotero
     - [ ] templates
     - [ ] snippets
     - [ ] markdown
