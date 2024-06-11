@@ -1,4 +1,4 @@
-# Introduction
+# [Introduction](#Table-of-Contents)
 
 This repository aims to gather resources for using VSCode to write in LaTeX, Markdown, and Python.
 VSCode offers a nice sweet of features while being extremely accessible.
@@ -23,22 +23,22 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## Table of Contents
 
-- [Installation](#Installation)
-  - [Configuration](#Configuration)
-  - [Customization](#Customization)
-- [Toolchain](#Toolchain)
-  - [LaTeX](#LaTeX)
-  - [Zotero](#Zotero)
-  - [Templates](#Templates)
-  - [Snippets](#Snippets)
-  - [Markdown](#Markdown)
-  - [Pandoc](#Pandoc)
-  - [Python](#Python)
-- [Git](#Git)
-	- [Forking the Repository](#Forking-the-Repository)
-	- [SSH Key](#SSH-Key)
-	- [Version Control](#Version-Control)
-	- [Overleaf](#Overleaf)
+- [Installation](#Installation) -- install VSCode and plugins
+  - [Configuration](#Configuration) -- add the `settings.json` file
+  - [Customization](#Customization) -- methods for customizing your configuration
+- [Toolchain](#Toolchain) -- collection of tools for academic writing
+  - [LaTeX](#LaTeX) -- install LaTeX, setting up the `texmf` directory
+  - [Zotero](#Zotero) -- install Zotero, exporting your library with Better BibTeX
+  - [Templates](#Templates) -- how to use LaTeX templates
+  - [Snippets](#Snippets) -- how to set up and edit snippets
+  - [Markdown](#Markdown) -- easy language for taking notes and save quotes
+  - [Pandoc](#Pandoc) -- how to convert between file types
+  - [Python](#Python) -- plugins for writing python
+- [Git](#Git) -- basic overview
+	- [Forking the Repository](#Forking-the-Repository) -- how to make a copy of this repository
+	- [SSH Key](#SSH-Key) -- avoid having to enter your password when pushing changes
+	- [Version Control](#Version-Control) -- using Git to backup and manage projects
+	- [Overleaf](#Overleaf) -- collaborating with others who use Overleaf
 
 ## [Installation](#Table-of-Contents)
 
