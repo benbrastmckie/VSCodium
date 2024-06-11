@@ -10,12 +10,12 @@ Note that if you want to collaborate with others using Overleaf, it is possible 
 These details will be described [below](#Overleaf).
 
 If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCode/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
-Since future users may find the answer to your problem helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its documentation.
+Since future users may find the answer to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its documentation.
 With this in mind, make sure to adequately name the issue you create, providing a careful description of the problem and what you have tried already.
 It is also important to stay on topic, opening new issues if you have separate problems.
 
-If you find any errors in this documentation, you are welcome to submit a pull request by directly editing the `README.md` (click the pencil in the top right corner of the document).
-That way you changes will be able to be reviewed and integrated.
+If you find any errors in this documentation, you are welcome to submit a pull request by directly editing the `README.md` (click the pencil in the top right corner of this document).
+That way your changes will be able to be easily reviewed and integrated.
 If you feel that certain information is missing or would otherwise be helpful to include as a part of this project, don't hesitate to create an issue with your suggestions.
 
 ![Screenshot of the configuration](images/screenshot.png)
@@ -29,18 +29,56 @@ Search for and install the plugin 'LaTeX Workshop'.
 
 There are many other themes and plugins which you can explore.
 For instance, 'Toggle Zen mode' eliminates distractions or you can install 'Pomodoro Timer' if you want.
-You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as well as 'Learn Vim' (by vintharas) to learn how to use Vim.
+You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as well as 'Learn Vim' (by vintharas) to learn how to use Vim, though if you are serious about learning Vim you should probably look [elsewhere](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim).
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
-If you have not already, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
+### LaTeX
+
+If you have not already set up LaTeX, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
 
 ```
 sudo apt-get install texlive-full
 sudo pacman -S texlive-most
 ```
 
-You can skip this last step if you have already been using LaTeX on your machine.
+If you are uncertain whether you have the right packages installed (on any operating system), you can run the following commands in the terminal:
+
+```
+latexmk -v
+synctex -v
+biblatex -v
+biber -v
+```
+
+So long as each of these commands returns a version number, you should not need to install LaTeX.
+
+<!-- Create the ‘texmf’ folder tree in your directory. -->
+<!-- For Mac users: -->
+<!-- You will first need to locate your main ‘Library’ folder in Finder. Begin by opening a new Finder window. Press cmd+shift+h to go to the home folder, and cmd+j to open an options window. Check ‘show Library folder’. -->
+<!-- Then create a folder called ‘texmf’ in your Library if it is not already there, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file (you can cut and paste the contents into a new file with the same name and extension to be saved in your bst folder if you do not intend to clone the full repository). -->
+<!-- Now add this template to Library -> TexShop -> Templates. This template includes the commands \bibliographystyle{Phil_Review} and \bibliography{Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder in Civ below. -->
+<!-- Note: if you are using my NeoVim config, you can find this template by hitting ‘space+T’ followed by ‘p’. -->
+<!-- For Windows users: -->
+<!-- In C, create a folder called ‘texmf’, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file which comes from here. -->
+<!-- Now add this template to Users -> {user name} -> AppData -> Local -> MikTex -> 2.9 -> TexWorks -> 0.4 -> Templates. This template includes the commands \bibliographystyle{C:/texmf/bibtex/bst/Phil_Review} and \bibliography{C:/texmf/bibtex/bib/Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder. -->
+<!-- If you want to save the bst and bib files elsewhere, you will need to change the path in the template file. Note the forward slashes in place of backslashes. You can also substitute other bst (bibliography style) files for Phil_Review.bst such as this one. -->
+<!-- You can now integrate Zotero and LaTeX as follows (also see this video): -->
+<!-- Download and install Better BibTex by following these instructions, restarting Zotero after completed. -->
+<!-- Under ‘Edit’ in the Zotero menu bar, select ‘Preferences’ and open up the ‘Better BibTex’ tab. Under the ‘Citation’ sub-tab, replace the citation key format with this:  auth + year. There are a lot more options for citation key style here (this is just the look up key, not the citation style included in your bibliography). Also check ‘On item change’ at the bottom left. -->
+<!-- Now switch to the ‘Automatic Export’ sub-tab and check ‘On Change’. This means that the instant you update your database with a new bib entry, or edit an old bib entry, Zotero will update the .bib files where your database is exported. If your library is extremely large, this could be slow, and so you might want to select the ‘When Idle’ option. But I have no troubles with the ‘On Change’ feature. -->
+<!-- Close the Preferences window, returning to the main Zotero window. Right-click the main library folder in the left-most blue column, select ‘Export Library’ (alternatively you can export other project folders, but I like to keep things simple). Under the ‘Format’ dropdown menu, select ‘Better BibTex’. Then check the ‘Keep Updated’ box. Save the file as ‘Zotero’ (the extension will be added automatically) to the bib folder that you previously created. -->
+<!-- You can now run a test that everything is working. -->
+<!-- Open TexShop and create a new file (or create a file from template in TexWorks). In the ‘Templates’ drop-down menu, select PhilArticle. Press cmd+T (or click ‘Typeset’). Save the document in a new folder with the appropriate project name. -->
+<!-- Note: If the file does not run, open TexLive Utility in the Tex folder in the Applications folder, and update. Restart everything and try to typeset the file again. -->
+<!-- Note: Occasionally, it can also help to click Trash Aux Files in the error console, if the pdf is not generating properly. -->
+<!-- Once your file typesets, open Zotero and click on one of the files in your library, and look for the ‘Citation Key’ in the details. If no key is present, or the key data is not of the form [auth][year], you can right-click the file in your library and click ‘Generate BibTex Key’. Once you have the key, you can cite that paper by writing ‘\citet{CITEKEY}’ in the new tex file. -->
+<!-- Note: To list multiple sources by the same, or different authors, separate the cite keys with a comma. For other citation styles, refer to the preamble of the PhilArticle template for further commands, e.g., ‘\citep’, etc. -->
+<!-- Note: It can also be helpful to customize commands as exemplified in the preamble of the PhilArticle template provided above. I have included a definition of \citepos which is useful for making citation names possessive. -->
+<!-- In TexShop, you will need to hit cmd+T, then cmd+shift+b, then cmd+T, and the cmd+T for a final time. You should see both the citation you added in the text as well as the full citation in the references. Why all the command combinations? The first cmd+T will update the .tex file you are working on, adding the citation key. The cmd+shift+b will look up the citation key in your master Zotero.bib file saved in the bib folder. Then another cmd+T will import the citation data, and the final cmd+T will typeset it altogether. Sound clunky? It is, and that’s not the least of it. However, there are much better text editors out there (see below). -->
+<!-- Note: Want to check how many words your document has? Open the ‘Macros Editor’ under the ‘Macros’ toolbar in TexShop. Select ‘New Item’ giving it a name like ‘TexCount’ and dragging it from the bottom of the list (left column) up to the top. Then cut and paste this into the content. Many more macros can be found here. (TexWorks does not include a word count macro for some reason.) -->
+<!-- Now you are ready to tex! If you get stuck, get used to googling things and reading the bottom of the error console. YouTube also has many helpful tutorials. As you figure things out, I highly suggest making notes in the preamble of your template file of the really useful bits. By adding a ‘%’ symbol after the new bit of code you add to the preamble, you can explain what it does so that next time you will remember. Lots of helpful information is also available here including a nice lookup guide. -->
+
 
 ## Configuration
 
@@ -75,34 +113,6 @@ You may also find helpful tutorials on YouTube.
 # Academic Toolchain
 
 The following sections will provide information about how to set up LaTeX, reference management with Zotero, as well as how to make use of templates, snippets, Markdown, Pandoc, and Python.
-
-## LaTeX
-
-Create the ‘texmf’ folder tree in your directory.
-For Mac users:
-You will first need to locate your main ‘Library’ folder in Finder. Begin by opening a new Finder window. Press cmd+shift+h to go to the home folder, and cmd+j to open an options window. Check ‘show Library folder’.
-Then create a folder called ‘texmf’ in your Library if it is not already there, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file (you can cut and paste the contents into a new file with the same name and extension to be saved in your bst folder if you do not intend to clone the full repository).
-Now add this template to Library -> TexShop -> Templates. This template includes the commands \bibliographystyle{Phil_Review} and \bibliography{Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder in Civ below.
-Note: if you are using my NeoVim config, you can find this template by hitting ‘space+T’ followed by ‘p’.
-For Windows users:
-In C, create a folder called ‘texmf’, and another folder called ‘bibtex’ inside texmf. Inside bibtex, create folders called ‘bib’ and ‘bst’. Inside bst, place this style file which comes from here.
-Now add this template to Users -> {user name} -> AppData -> Local -> MikTex -> 2.9 -> TexWorks -> 0.4 -> Templates. This template includes the commands \bibliographystyle{C:/texmf/bibtex/bst/Phil_Review} and \bibliography{C:/texmf/bibtex/bib/Zotero} at the end of the document which will look up the file you placed in the bst folder as well as the bibliography you will place in the bib folder.
-If you want to save the bst and bib files elsewhere, you will need to change the path in the template file. Note the forward slashes in place of backslashes. You can also substitute other bst (bibliography style) files for Phil_Review.bst such as this one.
-You can now integrate Zotero and LaTeX as follows (also see this video):
-Download and install Better BibTex by following these instructions, restarting Zotero after completed.
-Under ‘Edit’ in the Zotero menu bar, select ‘Preferences’ and open up the ‘Better BibTex’ tab. Under the ‘Citation’ sub-tab, replace the citation key format with this:  auth + year. There are a lot more options for citation key style here (this is just the look up key, not the citation style included in your bibliography). Also check ‘On item change’ at the bottom left.
-Now switch to the ‘Automatic Export’ sub-tab and check ‘On Change’. This means that the instant you update your database with a new bib entry, or edit an old bib entry, Zotero will update the .bib files where your database is exported. If your library is extremely large, this could be slow, and so you might want to select the ‘When Idle’ option. But I have no troubles with the ‘On Change’ feature.
-Close the Preferences window, returning to the main Zotero window. Right-click the main library folder in the left-most blue column, select ‘Export Library’ (alternatively you can export other project folders, but I like to keep things simple). Under the ‘Format’ dropdown menu, select ‘Better BibTex’. Then check the ‘Keep Updated’ box. Save the file as ‘Zotero’ (the extension will be added automatically) to the bib folder that you previously created.
-You can now run a test that everything is working.
-Open TexShop and create a new file (or create a file from template in TexWorks). In the ‘Templates’ drop-down menu, select PhilArticle. Press cmd+T (or click ‘Typeset’). Save the document in a new folder with the appropriate project name.
-Note: If the file does not run, open TexLive Utility in the Tex folder in the Applications folder, and update. Restart everything and try to typeset the file again.
-Note: Occasionally, it can also help to click Trash Aux Files in the error console, if the pdf is not generating properly.
-Once your file typesets, open Zotero and click on one of the files in your library, and look for the ‘Citation Key’ in the details. If no key is present, or the key data is not of the form [auth][year], you can right-click the file in your library and click ‘Generate BibTex Key’. Once you have the key, you can cite that paper by writing ‘\citet{CITEKEY}’ in the new tex file.
-Note: To list multiple sources by the same, or different authors, separate the cite keys with a comma. For other citation styles, refer to the preamble of the PhilArticle template for further commands, e.g., ‘\citep’, etc.
-Note: It can also be helpful to customize commands as exemplified in the preamble of the PhilArticle template provided above. I have included a definition of \citepos which is useful for making citation names possessive.
-In TexShop, you will need to hit cmd+T, then cmd+shift+b, then cmd+T, and the cmd+T for a final time. You should see both the citation you added in the text as well as the full citation in the references. Why all the command combinations? The first cmd+T will update the .tex file you are working on, adding the citation key. The cmd+shift+b will look up the citation key in your master Zotero.bib file saved in the bib folder. Then another cmd+T will import the citation data, and the final cmd+T will typeset it altogether. Sound clunky? It is, and that’s not the least of it. However, there are much better text editors out there (see below).
-Note: Want to check how many words your document has? Open the ‘Macros Editor’ under the ‘Macros’ toolbar in TexShop. Select ‘New Item’ giving it a name like ‘TexCount’ and dragging it from the bottom of the list (left column) up to the top. Then cut and paste this into the content. Many more macros can be found here. (TexWorks does not include a word count macro for some reason.)
-Now you are ready to tex! If you get stuck, get used to googling things and reading the bottom of the error console. YouTube also has many helpful tutorials. As you figure things out, I highly suggest making notes in the preamble of your template file of the really useful bits. By adding a ‘%’ symbol after the new bit of code you add to the preamble, you can explain what it does so that next time you will remember. Lots of helpful information is also available here including a nice lookup guide.
 
 ## Zotero
 
