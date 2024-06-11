@@ -3,7 +3,7 @@
 - [.] readme
   - [ ] find todo list plugin
   - [x] how to open an issue
-  - [ ] toc descriptions
+  - [x] toc descriptions
   - [ ] toolchain
     - [x] latex
     - [x] zotero
