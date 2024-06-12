@@ -36,9 +36,9 @@ If you feel that certain information is missing or would otherwise be helpful to
   - [Python](#Python): install python along with some extensions
 - [Git](#Git): basic overview with links to further information
 	- [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up
-	- [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 	- [Version Control](#Version-Control): using Git to backup and collaborate on projects
 	- [Overleaf](#Overleaf): adding Overleaf remote repositories
+  - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
 ## [Installation](#Table-of-Contents)
 
@@ -357,7 +357,7 @@ rm settings.json
 mv save.settings.json settings.json
 ```
 
-If you make any changes to your config, you can push these up to you repository with:
+If you make any changes to your config, you can push these up to your repository with:
 
 ```
 git add . 
@@ -370,6 +370,17 @@ Instead of working in the terminal, you can open the "Explorer" tab in VSCode on
 You may need to turn on hidden files by right-clicking in the menu and selecting "Show Hidden Files".
 VSCode should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
+
+## [Version Control](#Table-of-Contents)
+
+## [Overleaf](#Table-of-Contents)
+
+Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL `https://git.overleaf.com/your-project-id`.
+You will then be able to add the remote with:
+
+```
+git remote add overleaf https://git.overleaf.com/your-project-id
+```
 
 ## [SSH Key](#Table-of-Contents)
 
@@ -405,15 +416,4 @@ ssh-add -K ~/.ssh/id_rsa
 ```
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
-
-## [Version Control](#Table-of-Contents)
-
-## [Overleaf](#Table-of-Contents)
-
-Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL `https://git.overleaf.com/your-project-id`.
-You will then be able to add the remote with:
-
-```
-git remote add overleaf https://git.overleaf.com/your-project-id
-```
 
