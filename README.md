@@ -392,7 +392,57 @@ You can then open the "Source Control" tab on the top left to commit changes, pu
 
 ## [Version Control](#Table-of-Contents)
 
-To be continued... 
+(Under construction...)
+
+Git is integrated into VSCodium by default, providing convenient utilities for:
+  - Maintaining a history of changes to your project.
+  - Backing up the project on free private and public repositories online.
+  - Managing different ways of developing the project in branches prior to knowing which way is preferable.
+  - Working on the same project from different computers.
+  - Collaborating with others on a shared project.
+
+### Initialize Repository
+
+track a new project with Git.
+
+### Staging Changes
+
+select which changes you want to commit.
+
+### Making Commits
+
+commit staged changes to the local git history.
+
+### Ignoring Files
+
+ignore all files which you do not wish to track, including any file which is not a text file, e.g. PDFs.
+
+> **Note:** if you accidentally ignore a file that you did not mean to, return to the project in NeoVim, open the "Explorer" tab and open the `.gitignore` file, deleting the appropriate line (at the end) which names the file or directory that you accidentally ignored.
+
+### Diff Commits
+
+show the differences between different commits.
+
+### Adding Remote Repositories
+
+### Pushing Changes
+
+push local commits to the git repository.
+
+> **Note:** if changes have been made to the git repository, pull down all changes and resolve any conflicts before pushing to the git repository.
+
+### Pulling Changes
+
+pull down latest commits from the git repository.
+
+> **Warning:** make sure to commit any changes made to the local files before pulling down changes from the git repository.
+
+### Creating Branch
+
+create a new branch from the current branch or merge a branch into 'Main'.
+
+### Merging Branches
+
 
 ## [Overleaf](#Table-of-Contents)
 
