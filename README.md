@@ -110,17 +110,23 @@ biber -v
 So long as each of these commands returns a version number, you should not need to install LaTeX (though you may still be missing packages if you installed "basic" in the past).
 Otherwise, you may need to install LaTeX as described above, or uninstall and reinstall to clean things up if it has been a while.
 
-The final step is to create the ‘texmf’ directory in the appropriate location depending on your operating system as described below.
+The final step is to create the `texmf` directory in the appropriate location depending on your operating system in order to store global files of the following kinds:
+  - `.bst` style files for generating bibliographies.
+  - `.cls` class files for generating documents that conform to a formatting standard (often provided by journals).
+  - `.bib` file with your complete Zotero database.
+The following subsections will describe how to use Git to clone the `texmf` directory from this repository into the correct location.
+> **Note:** If you have already pulled down the repository onto your computer as described in [Git](#Git) below, you can move the `texmf` directory from there instead of making a new copy in `Downloads`.
+> However, no harm will come from following the instruction below, making another temporary copy of the repository in `Downloads`.
 
 ### [MacOS](#Table-of-Contents)
 
-The 'texmf' directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
+The `texmf` directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
 To locate the ‘Library’ directory in Finder, hit `cmd + shift + h` to go to the 'Home' directory, `cmd + j` to open an options window, and check ‘show Library folder’.
 
 You will now need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your 'Library' directory if it does not exist already.
 The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
 
-If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
+If you don't want to fork this repository, another option is to directly clone this repository, moving the `texmf` directory to the appropriate location.
 To do so, open the terminal and run the following commands:
 
 ```
@@ -130,7 +136,7 @@ mv VSCodium/texmf ~/Library/texmf
 find ~/Library/texmf -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 ```
 
-The final command will display the contents of the 'texmf' directory.
+The final command will display the contents of the `texmf` directory.
 The `bst` subdirectory contains all of the bibliographic style files (you may wish to add others).
 The `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
 Alternatively, you can always include the relevant style or class files in the local project directory.
@@ -143,11 +149,11 @@ rm -r VSCodium
 
 ### [Linux and Windows](#Table-of-Contents)
 
-The 'texmf' directory lives in the user's home directory on both Linux and Windows.
+The `texmf` directory lives in the user's home directory on both Linux and Windows.
 You will need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your home directory if it does not exist already.
 The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
 
-If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
+If you don't want to fork this repository, another option is to directly clone this repository, moving the `texmf` directory to the appropriate location.
 To do so, open the terminal and run the following commands:
 
 ```
@@ -254,8 +260,6 @@ Zotero can be used not only to keep the pdfs associated with each citation organ
 In order to include these features, you will need to download the .xpi file for MdNotes as described here, as well as the .xpi file for ZotFile.
 By then opening Zotero, navigating to the Tools –> Add-ons menu, clicking the gear symbol, and selecting ‘Install add-on from file’, you can select the .xpi files that you downloaded in order install these features.
 You may then export your notes by: (1) right-clicking on the annotated pdf and selecting Manage Attachments –> Extract Annotations; followed by (2) right-clicking on the extraction that it generates and selecting MdNotes –> Export to Markdown, specifying the project folder you would like to save the notes in.
-
-
 
 ## [Pandoc](#Table-of-Contents)
 
