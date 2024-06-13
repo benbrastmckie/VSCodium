@@ -46,10 +46,9 @@ Although VS Code is free and open source with a large plugin ecosystem, it is ow
 However, VSCodium is a community-driven distribution of [VS Code](https://code.visualstudio.com/) that is otherwise identical.
 Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer since all the same settings will continue to apply).
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
-Search for and install the plugin 'LaTeX Workshop'.
+Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme'.
 
 There are many other themes and plugins which you can explore.
-For instance, 'Toggle Zen mode' eliminates distractions or you can install 'Pomodoro Timer' if you want.
 You can even install a NeoVim plugin (by asvetliakov) to simulate the Vim motions in VSCodium (here are some [resources](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim) for learning Vim).
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
