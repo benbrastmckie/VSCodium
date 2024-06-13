@@ -42,10 +42,9 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Installation](#Table-of-Contents)
 
-[VS Code](https://code.visualstudio.com/) is free and open source with a large plugin ecosystem.
-Nevertheless, VS Code is owned my Microsoft and so is not private as a result.
-However, VSCodium is a community-driven distribution of VS Code that is private.
-Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer).
+Although VS Code is free and open source with a large plugin ecosystem, it is owned my Microsoft and so is not private as a result.
+However, VSCodium is a community-driven distribution of [VS Code](https://code.visualstudio.com/) that is otherwise identical.
+Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer since all the same settings will continue to apply).
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
 Search for and install the plugin 'LaTeX Workshop'.
 
