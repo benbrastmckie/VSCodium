@@ -5,13 +5,13 @@ Your collaborator will then be able open the repo in GitHub, copying the address
 They may then navigate in the terminal to the directory in which they want the project folder to live with:
 
 ```
-    cd ~/<path to folder where the project folder should live>
+cd ~/<path to folder where the project folder should live>
 ```
 
 The collaborator may then pull down the repo by running:
 
 ```
-   git clone <address from the clipboard>
+git clone <address from the clipboard>
 ```
 
 By then running `ls -a` in the terminal, the collaborator may check whether the project directory has appeared.
@@ -19,7 +19,7 @@ If the collaborator is using the same configuration, then the project may be edi
 However, even without using the present configuration of NeoVim, collaborators may avoid manually entering git commands by running LazyGit in the terminal.
 In order to install LazyGit and add an SSH key, follow the instructions provided in the [README.md](https://github.com/benbrastmckie/.config/blob/master/README.md).
 
-## Collaboration Protocol
+## Git Protocol
 
 Assume collaborator A creates a repo inviting collaborator B as above.
 Upon first cloning the repo, collaborator B will be up to date with the remote repository on GitHub, and may begin making changes.

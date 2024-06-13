@@ -9,8 +9,10 @@
     - [x] zotero
     - [ ] templates
     - [ ] snippets
-    - [ ] markdown
+    - [x] markdown
     - [ ] pandoc
-  - [ ] git: version control
+  - [ ] git
+    - [ ] version control
+    - [ ] overleaf
 - [ ] learning git
   - [ ] edit
