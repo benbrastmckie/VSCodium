@@ -89,14 +89,16 @@ The following sections will provide information about how to set up LaTeX, refer
 
 ## [LaTeX](#Table-of-Contents)
 
-If you have not already set up LaTeX, you will also have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
+If you have not already set up LaTeX, you will have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
 
 ```
 sudo apt-get install texlive-full
 sudo pacman -S texlive-most
 ```
 
-If you are uncertain whether you have the right packages installed, you can run the following commands in the terminal (on MacOS, hit `Cmd + Space` and type 'terminal'):
+It is preferable to install the "full" as opposed to "basic" set of LaTeX packages so that you never need to think about what `.sty` files you have installed ("full" should be installed by default if you are not presented with an option).
+
+If you have installed LaTeX in the past but are uncertain whether you have the right packages installed, you can run the following commands in the terminal (on MacOS, hit `Cmd + Space` and type 'terminal'):
 
 ```
 latexmk -v
@@ -105,10 +107,10 @@ biblatex -v
 biber -v
 ```
 
-So long as each of these commands returns a version number, you should not need to install LaTeX.
-Otherwise, you may need to install LaTeX as described above.
+So long as each of these commands returns a version number, you should not need to install LaTeX (though you may still be missing packages if you installed "basic" in the past).
+Otherwise, you may need to install LaTeX as described above, or uninstall and reinstall to clean things up if it has been a while.
 
-The final step is to create the ‘texmf’ directory in the appropriate location depending on your operating system.
+The final step is to create the ‘texmf’ directory in the appropriate location depending on your operating system as described below.
 
 ### [MacOS](#Table-of-Contents)
 
@@ -226,14 +228,25 @@ If you can't make out what the log is telling you, cut and paste any warnings or
 
 ## [Templates](#Table-of-Contents)
 
+To be continued... 
+
+> **Note:** If you are aware of a good plugin for managing template files, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
+
 ## [Snippets](#Table-of-Contents)
+
+To be continued... 
+
+> **Note:** If you are aware of a good plugin for managing snippets, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
 
 ## [Markdown](#Table-of-Contents)
 
 Instead of taking notes in LaTeX, Word, or some other note-taking application, you can recover some of the elegance of LaTeX without any of the trouble by writing in Markdown.
 The syntax for Markdown is by design as simple as possible, but can still produce a good looking document which you can then convert via Pandoc into other formats.
 
-<!-- provide guide -->
+All that is required to use markdown is to create a file with the `.md` file extension in the "Explorer" tab.
+For instance, you might create a 'TODO.md' or 'NOTES.md', etc.
+
+More information on the markdown syntax can be found [here](https://www.markdownguide.org/basic-syntax/).
 
 ### [Zotero Add-On](#Table-of-Contents)
 
@@ -248,9 +261,15 @@ You may then export your notes by: (1) right-clicking on the annotated pdf and s
 
 Pandoc is a convenient utility for converting between different text formats.
 
-<!-- provide guide -->
+To be continued... 
+
+> **Note:** If you are aware of a good plugin for using pandoc, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
 
 ## [Python](#Table-of-Contents)
+
+Install the 'Python' and 'Pylint' packages.
+
+To be continued... 
 
 # [Git](#Table-of-Contents)
 
@@ -372,6 +391,8 @@ VSCodium should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
 
 ## [Version Control](#Table-of-Contents)
+
+To be continued... 
 
 ## [Overleaf](#Table-of-Contents)
 
