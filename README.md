@@ -1,10 +1,10 @@
 # [Introduction](#Table-of-Contents)
 
 This repository aims to gather resources for using VSCodium to write in LaTeX, Markdown, and Python.
-VSCodium offers a nice sweet of features while being extremely accessible.
+VSCodium offers a nice suite of features while being extremely accessible.
 By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, Git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
-The instructions below aim to streamline the process of adopting VSCodium as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
+The instructions below aim to streamline the process of adopting VSCodium as your daily driver for working with LaTeX and Markdown files with Python as a bonus.
 This configuration provides a place to start and is easily adapted and extended.
 Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCodium.
 These details will be described [below](#Overleaf).
@@ -42,10 +42,10 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Installation](#Table-of-Contents)
 
-Although VS Code is free and open source with a large plugin ecosystem, it is owned my Microsoft and so is not private as a result.
+Although VS Code is free and open source with a large plugin ecosystem, it is owned by Microsoft and so is not private as a result.
 However, VSCodium is a community-driven distribution of [VS Code](https://code.visualstudio.com/) that is otherwise identical.
 Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer since all the same settings will continue to apply).
-Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
+Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shift + x`.
 Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme'.
 
 There are many other themes and plugins which you can explore.
@@ -163,13 +163,13 @@ rm -r VSCodium
 
 ## [Zotero](#Table-of-Contents)
 
-Zotero is an open-source reference management software which does all the work for you of saving bibliography data, pdfs, notes, or other files.
+[Zotero](https://www.zotero.org/) is an open-source reference management software which does all the work for you of saving bibliography data, pdfs, notes, or other files.
 Rather than ending up with an dizzying array of folders on your hard drive (or desktop!) crammed with documents, Zotero lets you easily create and destroy project folders without creating multiple versions of each paper (unless you want that).
 Additionally, Zotero will download and organize the associated PDF with the reference, all with the click of a single button in your web browser.
 That way, building your reference database is the passive result of sorting through papers that interest you online.
 Most importantly, this software allows you to generate bibliographies from any selected project folders or files, and is compatible with most word processors.
 
-Download and install Zotero together with a plugin for your preferred browser.
+Download and install Zotero together with a plugin/extension for your preferred browser.
 
 Now run a simple test, finding a paper you would like to download.
 If you use a VPN provided by your research institution, make sure that it is turned on, and if you use an AdBlocker, make sure that it is not blocking pop-ups for the journal’s website.
@@ -231,7 +231,7 @@ If you can't make out what the log is telling you, cut and paste any warnings or
 ## [Markdown](#Table-of-Contents)
 
 Instead of taking notes in LaTeX, Word, or some other note-taking application, you can recover some of the elegance of LaTeX without any of the trouble by writing in Markdown.
-The syntax for Markdown is by design as simple as possible, but can still produce a good looking document which you can then convert via Pandoc into other formats.
+The syntax for Markdown is by design as simple as possible, but can still produce a good looking document (think Notion) which you can then convert via Pandoc into other formats.
 
 <!-- provide guide -->
 
