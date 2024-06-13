@@ -1,12 +1,12 @@
 # [Introduction](#Table-of-Contents)
 
-This repository aims to gather resources for using VSCode to write in LaTeX, Markdown, and Python.
-VSCode offers a nice sweet of features while being extremely accessible.
+This repository aims to gather resources for using VSCodium to write in LaTeX, Markdown, and Python.
+VSCodium offers a nice sweet of features while being extremely accessible.
 By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, Git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
-The instructions below aim to streamline the process of adopting VSCode as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
+The instructions below aim to streamline the process of adopting VSCodium as your daily driver for working with LaTeX and Mardown files with Python as a bonus.
 This configuration provides a place to start and is easily adapted and extended.
-Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCode.
+Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCodium.
 These details will be described [below](#Overleaf).
 
 If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCode/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
@@ -23,7 +23,7 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Table of Contents](#Introduction)
 
-- [Installation](#Installation): install VSCode along with some extensions
+- [Installation](#Installation): install VSCodium along with some extensions
   - [Configuration](#Configuration): add the `settings.json` file
   - [Customization](#Customization): a few methods for customizing your configuration
 - [Toolchain](#Toolchain): a collection of tools for academic writing
@@ -42,14 +42,16 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Installation](#Table-of-Contents)
 
-VSCode is free and open source with a large plugin ecosystem.
-Download and install [VSCode](https://code.visualstudio.com/) for your operating system.
+[VS Code](https://code.visualstudio.com/) is free and open source with a large plugin ecosystem.
+Nevertheless, VS Code is owned my Microsoft and so is not private as a result.
+However, VSCodium is a community-driven distribution of VS Code that is private.
+Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer).
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shif + x`.
 Search for and install the plugin 'LaTeX Workshop'.
 
 There are many other themes and plugins which you can explore.
 For instance, 'Toggle Zen mode' eliminates distractions or you can install 'Pomodoro Timer' if you want.
-You can even install 'Vim' (by vscodevim) to simulate Vim motions in VSCode as well as 'Learn Vim' (by vintharas) to learn how to use Vim, though if you are serious about learning Vim you should probably look [elsewhere](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim).
+You can even install a NeoVim plugin (by asvetliakov) to simulate the Vim motions in VSCodium (here are some [resources](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim) for learning Vim).
 Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
 It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
@@ -59,7 +61,7 @@ It is easy to switch between the themes that you have installed with `ctrl + shi
 > In addition to streamlining the process, using Git will allow you to easily backup your configuration as you make changes, tracking its complete history.
 > Alternatively, the following method is very easy, but does not backup your configuration (this can be added later with a little extra hassle).
 
-Open VSCode and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
+Open VSCodium and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
 This will open the `settings.json` file where you can declare your configuration.
 Replace the entire contents of `settings.json` (i.e., you can replace the empty braces) with the contents of [this](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) file.
 Save the document with `ctrl + s`, confirming that the changes have taken place (e.g., the theme should change to 'One Monokai').
@@ -69,17 +71,17 @@ Alternatively, if you do make changes to `settings.json`, details will be provid
 
 ## [Customization](#Table-of-Contents)
 
-In order to get a better sense of what the options are within VSCode, click the settings gear in the bottom left corner.
-By scrolling through, you can explore the many different features that you can change about VSCode where the list will get longer with each plugin that you add.
+In order to get a better sense of what the options are within VSCodium, click the settings gear in the bottom left corner.
+By scrolling through, you can explore the many different features that you can change about VSCodium where the list will get longer with each plugin that you add.
 
 Although the settings menu is a nice way to see all the options at once, this is not the easiest way to _reproduce_ your configuration.
 However, any changes that you make in the settings menu will be stored in the `settings.json` file.
 It is by backing up this file with a Git repository that you can easily reproduce your configuration without having to remember what settings you had before.
-Although you could attempt to backup `settings.json` manually, the Git integration included in VSCode provides an elegant way to stay backed up as you make changes to your configuration.
+Although you could attempt to backup `settings.json` manually, the Git integration included in VSCodium provides an elegant way to stay backed up as you make changes to your configuration.
 Accordingly, the [Git](#Git) section below will describe how to use Git to backup your configuration as well as your academic projects.
 
 A further avenue for exploring customization is to use ChatGPT.
-For instance, if there is something that you would like to change about VSCode, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
+For instance, if there is something that you would like to change about VSCodium, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
 In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
 You may also find helpful tutorials on YouTube.
 
@@ -208,7 +210,7 @@ Then check the ‘Keep Updated’ box.
 Save the file as ‘Zotero’ (the extension will be added automatically) to `texmf -> bibtex -> bib` directory that you [previously](#MacOS) created.
 
 You can now run a test that everything is working.
-Open VSCode, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) into the file.
+Open VSCodium, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) into the file.
 Save and click the 'Play' button on the top right corner, as well as the 'View LaTeX PDF' just beside it.
 > **Note:** Occasionally, it can help to refresh the aux files if the PDF is not generating properly.
 > You can do this by opening the 'TeX' tab on the left, clicking `Commands -> Build LaTeX project -> Clean up auxiliary files`.
@@ -258,7 +260,7 @@ This section will describe how to:
 
   1. Create a fork of this repository, using Git to pull its contents on an appropriate directory on your computer.
   2. Add an SSH key to streamline pushing and pulling changes.
-  3. Use VSCode's Git integration to version control your academic projects as well as your config.
+  3. Use VSCodium's Git integration to version control your academic projects as well as your config.
 
 ## [Forking the Repository](#Table-of-Contents)
 
@@ -270,7 +272,7 @@ It is also nice to keep configuration files public so that you can easily share 
 
 The next sections will describe the following two ways to use Git to backup your configuration:
 
-  1. Use VSCode's Git integration to add a fork of this repository as a remote, pulling down changes.
+  1. Use VSCodium's Git integration to add a fork of this repository as a remote, pulling down changes.
   2. Use the Git CLI to clone the contents into the appropriate folder on your machine.
 
 ### [Option 1: Git Integration](#Table-of-Contents)
@@ -279,14 +281,14 @@ Once you have forked the repository, you can click the `Code` button in the fork
 If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
 Otherwise, copy the HTTPS address to the clipboard.
 
-Open `setting.json` in VSCode with `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'. 
+Open `setting.json` in VSCodium with `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'. 
 Right-click on the file tab to 'Copy Path' to the `settings.json` file.
 Open the "Explorer" tab on the top left, navigating to the directory which contains `settings.json`.
-Note that you may need to show hidden files by right-clicking inside the search menu that VSCode will open.
+Note that you may need to show hidden files by right-clicking inside the search menu that VSCodium will open.
 
 Open the "Source Control" tab also on the top left and select "Initialize Repository".
 You can then add a remote by clicking the three dots in the top right of the "Source Control" panel, selecting `remote -> add`.
-You can then enter the address copied to the clipboard from before, naming the remote "VSCode" or whatever you like.
+You can then enter the address copied to the clipboard from before, naming the remote "VSCodium" or whatever you like.
 
 Note that if you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
 One easy way to do this is to temporarily rename `settings.json` as `save.settings.json`.
@@ -303,7 +305,7 @@ If you go on to make any changes, you can save the changes by opening the "Sourc
 Once committed, you can push your commits up to your repository with `Pull, Push -> Push`.
 Note that unless you have added an [SSH key](#SSH-Key), you will need to enter you GitHub password.
 You may also need to configure Git by adding your email (whatever you used to open a GitHub account).
-To do so, open the terminal in VSCode with `ctrl + backtick` and enter the following:
+To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following:
 
 ```
 git config --global user.email "your_email@example.com"
@@ -315,7 +317,7 @@ Once this information has been provided, you should be able to push the changes 
 
 For completeness, here is the manual option, using the standard Git command line interface.
 
-Open VSCode, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
+Open VSCodium, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
 Once open, you can hover the mouse over the `settings.json` file to see its path.
 Right-click the tab and select 'Copy Path' or hit `alt + ctrl + c` to do the same.
 Open the terminal (on MacOS, hit `Cmd + Space` and type 'terminal') and run the following commands, replacing `PATH/TO` with the copied path minus 'settings.json':
@@ -325,7 +327,7 @@ cd PATH/TO/
 ls -a
 ```
 
-On MacOS, the `PATH/TO/` should be `~/Library/Application Support/Code/User`.
+On MacOS, the `PATH/TO/` should be `~/Library/Application Support/VSCodium/User`.
 The `ls` command should show the `settings.json` file.
 If you have made extensive changes to `settings.json` that you want to preserve, you can create a backup with:
 
@@ -365,10 +367,10 @@ git commit -m "commit message of your choice"
 git push origin master
 ```
 
-Although it is good to know how to push and pull changes manually, VSCode will automate all of this for you.
-Instead of working in the terminal, you can open the "Explorer" tab in VSCode on the top left, navigating to the directory containing `settings.json`.
+Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you.
+Instead of working in the terminal, you can open the "Explorer" tab in VSCodium on the top left, navigating to the directory containing `settings.json`.
 You may need to turn on hidden files by right-clicking in the menu and selecting "Show Hidden Files".
-VSCode should automatically detect that this is a tracked directory.
+VSCodium should automatically detect that this is a tracked directory.
 You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
 
 ## [Version Control](#Table-of-Contents)
