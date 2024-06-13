@@ -9,7 +9,7 @@ This configuration provides a place to start and is easily adapted and extended.
 Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCodium.
 These details will be described [below](#Overleaf).
 
-If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCode/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
+If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCodium/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
 Since future users may find the answer to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its documentation.
 With this in mind, make sure to adequately name the issue you create, providing a careful description of the problem and what you have tried already.
 It is also important to stay on topic, opening new issues if you have separate problems.
@@ -63,7 +63,7 @@ It is easy to switch between the themes that you have installed with `ctrl + shi
 
 Open VSCodium and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
 This will open the `settings.json` file where you can declare your configuration.
-Replace the entire contents of `settings.json` (i.e., you can replace the empty braces) with the contents of [this](https://github.com/benbrastmckie/VSCode/blob/master/settings.json) file.
+Replace the entire contents of `settings.json` (i.e., you can replace the empty braces) with the contents of [this](https://github.com/benbrastmckie/VSCodium/blob/master/settings.json) file.
 Save the document with `ctrl + s`, confirming that the changes have taken place (e.g., the theme should change to 'One Monokai').
 
 Before making any changes to `settings.json`, it is advisable to fork this repository, backing up your configuration as described in [Git](#Git) below.
@@ -117,7 +117,7 @@ The final step is to create the ‘texmf’ directory in the appropriate locatio
 The 'texmf' directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
 To locate the ‘Library’ directory in Finder, hit `cmd + shift + h` to go to the 'Home' directory, `cmd + j` to open an options window, and check ‘show Library folder’.
 
-You will now need to copy the [texmf](https://github.com/benbrastmckie/VSCode/tree/master/texmf) directory into your 'Library' directory if it does not exist already.
+You will now need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your 'Library' directory if it does not exist already.
 The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
 
 If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
@@ -125,8 +125,8 @@ To do so, open the terminal and run the following commands:
 
 ```
 cd ~/Downloads
-git clone https://github.com/benbrastmckie/VSCode.git
-mv VSCode/texmf ~/Library/texmf
+git clone https://github.com/benbrastmckie/VSCodium.git
+mv VSCodium/texmf ~/Library/texmf
 find ~/Library/texmf -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 ```
 
@@ -135,16 +135,16 @@ The `bst` subdirectory contains all of the bibliographic style files (you may wi
 The `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
 Alternatively, you can always include the relevant style or class files in the local project directory.
 
-You are now free to delete the remnants of the 'VSCode' repository that you cloned into 'Downloads' with the following command:
+You are now free to delete the remnants of the 'VSCodium' repository that you cloned into 'Downloads' with the following command:
 
 ```
-rm -r VSCode
+rm -r VSCodium
 ```
 
 ### [Linux and Windows](#Table-of-Contents)
 
 The 'texmf' directory lives in the user's home directory on both Linux and Windows.
-You will need to copy the [texmf](https://github.com/benbrastmckie/VSCode/tree/master/texmf) directory into your home directory if it does not exist already.
+You will need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your home directory if it does not exist already.
 The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
 
 If you don't want to fork this repository, another option is to directly clone this repository, moving the 'texmf' directory to the appropriate location.
@@ -152,15 +152,15 @@ To do so, open the terminal and run the following commands:
 
 ```
 cd ~/Downloads
-git clone https://github.com/benbrastmckie/VSCode.git
-mv VSCode/texmf ~/texmf
+git clone https://github.com/benbrastmckie/VSCodium.git
+mv VSCodium/texmf ~/texmf
 find ~/texmf -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 ```
 
-You are now free to delete the remnants of the 'VSCode' repository that you cloned into 'Downloads' with the following command:
+You are now free to delete the remnants of the 'VSCodium' repository that you cloned into 'Downloads' with the following command:
 
 ```
-rm -r VSCode
+rm -r VSCodium
 ```
 
 ## [Zotero](#Table-of-Contents)
@@ -210,7 +210,7 @@ Then check the ‘Keep Updated’ box.
 Save the file as ‘Zotero’ (the extension will be added automatically) to `texmf -> bibtex -> bib` directory that you [previously](#MacOS) created.
 
 You can now run a test that everything is working.
-Open VSCodium, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) into the file.
+Open VSCodium, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCodium/blob/master/templates/PhilPaper.tex) into the file.
 Save and click the 'Play' button on the top right corner, as well as the 'View LaTeX PDF' just beside it.
 > **Note:** Occasionally, it can help to refresh the aux files if the PDF is not generating properly.
 > You can do this by opening the 'TeX' tab on the left, clicking `Commands -> Build LaTeX project -> Clean up auxiliary files`.
@@ -218,7 +218,7 @@ Once your file typesets, open Zotero and click on one of the files in your libra
 If no key is present or if the key data is not of the form `[auth][year]`, you can right-click the file in your library and select ‘Generate BibTex Key’.
 Once you have the key, you can cite this paper by writing ‘\citet{CITEKEY}’ in the tex file that you are creating (this must go in the body of the document).
 > **Note:** To list multiple sources by the same, or different authors, separate the cite keys with a comma.
-> For other citation styles, refer to the preamble of the [PhilPaper](https://github.com/benbrastmckie/VSCode/blob/master/templates/PhilPaper.tex) template for further commands, e.g., ‘\citepos’ for possessive.
+> For other citation styles, refer to the preamble of the [PhilPaper](https://github.com/benbrastmckie/VSCodium/blob/master/templates/PhilPaper.tex) template for further commands, e.g., ‘\citepos’ for possessive.
 Upon saving, the citation should be automatically generated and added to the references.
 
 If you have any trouble, make sure that the 'Zotero.bib' file has been correctly stored in the `textmf -> bibtex -> bib` directory as explained above (you might open this file to make sure it contains the right contents).
