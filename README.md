@@ -106,9 +106,9 @@ If you have installed LaTeX in the past but are uncertain whether you have the r
 
 ```
 latexmk -v
-synctex -v
 biblatex -v
 biber -v
+synctex -v
 ```
 
 So long as each of these commands returns a version number, you should not need to install LaTeX (though you may still be missing packages if you installed "basic" in the past).
@@ -119,6 +119,7 @@ The final step is to create the `texmf` directory in the appropriate location de
   - `.cls` class files for generating documents that conform to a formatting standard (often provided by journals).
   - `.bib` file with your complete Zotero database.
 The following subsections will describe how to use Git to clone the `texmf` directory from this repository into the correct location.
+
 > **Note:** If you have already pulled down the repository onto your computer as described in [Git](#Git) below, you can move the `texmf` directory from there instead of making a new copy in `Downloads`.
 > However, no harm will come from following the instruction below, making another temporary copy of the repository in `Downloads`.
 
@@ -222,11 +223,13 @@ Save the file as ‘Zotero’ (the extension will be added automatically) to `te
 You can now run a test that everything is working.
 Open VSCodium, create a new file, and copy this [template](https://github.com/benbrastmckie/VSCodium/blob/master/templates/PhilPaper.tex) into the file.
 Save and click the 'Play' button on the top right corner, as well as the 'View LaTeX PDF' just beside it.
+
 > **Note:** Occasionally, it can help to refresh the aux files if the PDF is not generating properly.
 > You can do this by opening the 'TeX' tab on the left, clicking `Commands -> Build LaTeX project -> Clean up auxiliary files`.
 Once your file typesets, open Zotero and click on one of the files in your library, and look for the ‘Citation Key’ in the details on the right.
 If no key is present or if the key data is not of the form `[auth][year]`, you can right-click the file in your library and select ‘Generate BibTex Key’.
 Once you have the key, you can cite this paper by writing ‘\citet{CITEKEY}’ in the tex file that you are creating (this must go in the body of the document).
+
 > **Note:** To list multiple sources by the same, or different authors, separate the cite keys with a comma.
 > For other citation styles, refer to the preamble of the [PhilPaper](https://github.com/benbrastmckie/VSCodium/blob/master/templates/PhilPaper.tex) template for further commands, e.g., ‘\citepos’ for possessive.
 Upon saving, the citation should be automatically generated and added to the references.
