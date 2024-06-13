@@ -40,13 +40,17 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Overleaf](#Overleaf): adding Overleaf remote repositories
   - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
+> **Note:** To facilitate navigation, headers are linked back to the table of contents given here.
+
 ## [Installation](#Table-of-Contents)
 
 Although VS Code is free and open source with a large plugin ecosystem, it is owned by Microsoft and so is not private as a result.
-However, VSCodium is a community-driven distribution of [VS Code](https://code.visualstudio.com/) that is otherwise identical.
-Download and install [VSCodium](https://vscodium.com/) for your operating system (or [VS Code](https://code.visualstudio.com/) if you prefer since all the same settings will continue to apply).
+By contrast, VSCodium is a community-driven distribution of [VS Code](https://code.visualstudio.com/) that is otherwise identical.
+Download and install [VSCodium](https://vscodium.com/) for your operating system.
+> **Note:** If you prefer to install [VS Code](https://code.visualstudio.com/), all the same settings will continue to apply, though some of the paths will differ.
+> For instance, on MacOS, VS Code stores the `settings.json` file in `~/Library/Application Support/Code/User` instead of in `~/Library/Application Support/VSCodium/User`.
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shift + x`.
-Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme'.
+Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme' (optional).
 
 There are many other themes and plugins which you can explore.
 You can even install a NeoVim plugin (by asvetliakov) to simulate the Vim motions in VSCodium (here are some [resources](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim) for learning Vim).
