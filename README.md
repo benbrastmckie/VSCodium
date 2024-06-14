@@ -500,12 +500,19 @@ At some point you may want to delete old branches so that it is easier to find b
 
 ## [Overleaf](#Table-of-Contents)
 
-Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL `https://git.overleaf.com/your-project-id`.
-You will then be able to add the remote with:
+Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL which should look something like:
+
+```
+https://git.overleaf.com/your-project-id
+```
+
+You will then be able to add the remote by making the appropriate substitution to the following:
 
 ```
 git remote add overleaf https://git.overleaf.com/your-project-id
 ```
+
+To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
 
 ## [SSH Key](#Table-of-Contents)
 
