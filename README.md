@@ -40,6 +40,8 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Overleaf](#Overleaf): adding Overleaf remote repositories
   - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
+The most important sections include: [Installation](#Installation), [Configuration](#Configuration), [LaTeX](#LaTeX), and [Zotero](#Zotero).
+
 > **Note:** To facilitate navigation, headers are linked back to the table of contents given here.
 
 ## [Installation](#Table-of-Contents)
@@ -295,8 +297,8 @@ This section will describe how to:
 In order to create your own copy of this repository, click `Fork` in the top right of this repository on GitHub.
 You will then be presented with the choice to make yourself the owner which you should accept.
 There is no need to include other branches besides the master branch which will be selected by default.
-Do not select "Keep this repository private" unless you want to setup an SSH key (not a bad idea but requires another [few steps](#SSH-Key)) or want to type in you password every time.
-It is also nice to keep configuration files public so that you can easily share them with others.
+You do not need to "Keep this repository private". 
+In general, it is nice to keep configuration files public so that you can easily share them with others.
 
 The next sections will describe the following two ways to use Git to backup your configuration:
 
@@ -306,7 +308,7 @@ The next sections will describe the following two ways to use Git to backup your
 ### Option 1: Git Integration
 
 Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
-If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
+If you have setup an [SSH Key](#SSH-Key), you can select the SSH address, copying it to the clipboard.
 Otherwise, copy the HTTPS address to the clipboard.
 
 Open `setting.json` in VSCodium with `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'. 
@@ -330,9 +332,10 @@ By changing back to the "Explorer" tab you should be able to see a host of new f
 Open `settings.json` to confirm that this file has been populated with settings.
 
 If you go on to make any changes, you can save the changes by opening the "Source Control" tab, adding a message, and committing your changes.
-Once committed, you can push your commits up to your repository with `Pull, Push -> Push`.
-Note that unless you have added an [SSH key](#SSH-Key), you will need to enter you GitHub password.
-You may also need to configure Git by adding your email (whatever you used to open a GitHub account).
+Once committed, you can click 'Sync' to automatically pull and push changes.
+Note that you will either have to add an [SSH key](#SSH-Key) or link your GitHub account to VSCodium (much easier).
+
+If you have not done so already, you may also need to configure Git by adding your email (whatever you used to open a GitHub account).
 To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following:
 
 ```
@@ -399,7 +402,7 @@ Although it is good to know how to push and pull changes manually, VSCodium will
 Instead of working in the terminal, you can open the "Explorer" tab in VSCodium on the top left, navigating to the directory containing `settings.json`.
 You may need to turn on hidden files by right-clicking in the menu and selecting "Show Hidden Files".
 VSCodium should automatically detect that this is a tracked directory.
-You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository.
+You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository by clicking 'Sync'.
 
 ## [Version Control](#Table-of-Contents)
 
@@ -515,6 +518,8 @@ git remote add overleaf https://git.overleaf.com/your-project-id
 To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
 
 ## [SSH Key](#Table-of-Contents)
+
+> **Note:** It is possible to link your GitHub account to VSCodium, obviating the need for an SSH key in most cases.
 
 If you have not already, you can add an SSH key by amending and running the following in the terminal:
 
