@@ -40,7 +40,7 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Overleaf](#Overleaf): adding Overleaf remote repositories
   - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
-The most important sections include: [Installation](#Installation), [Configuration](#Configuration), [LaTeX](#LaTeX), and [Zotero](#Zotero).
+The most important sections include: [Installation](#Installation), [Configuration](#Configuration), [LaTeX](#LaTeX), [Zotero](#Zotero), and [Git](#Git).
 
 > **Note:** To facilitate navigation, headers are linked back to the table of contents given here.
 
