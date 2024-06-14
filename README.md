@@ -403,57 +403,100 @@ You can then open the "Source Control" tab on the top left to commit changes, pu
 
 ## [Version Control](#Table-of-Contents)
 
-(Under construction...)
-
 Git is integrated into VSCodium by default, providing convenient utilities for:
-  - Maintaining a history of changes to your project.
-  - Backing up the project on free private and public repositories online.
-  - Managing different ways of developing the project in branches prior to knowing which way is preferable.
+  - Maintaining a history of all versions of your project.
+  - Backing up the project on free repositories online.
+  - Managing different ways of developing the project in branches.
   - Working on the same project from different computers.
   - Collaborating with others on a shared project.
+The following subsection will describe some of the basic protocols for using Git effectively in VSCodium.
 
 ### Initialize Repository
 
-track a new project with Git.
+In order to use Git to track a project, make sure you are in the right project directory by opening the "Explorer" tab.
+Next, you can open the "Source Control" tab, selecting 'Initialize Repository'.
+
+> **Note:** Alternatively, you can click "Publish to GitHub" to both create a local repository and to add a remote repository on GitHub.
+> You will be asked to verify your account, select between public and private for the repository you are creating, and will be given the option to have Git occasionally fetch (detecting if there have been changes) which you can accept.
 
 ### Staging Changes
 
-select which changes you want to commit.
+As you make changes, you can commit those changes locally by first staging them.
+In the "Source Control" tab you will see all modified files (indicated with an 'M').
+If you click on the file, you can see the changes that have been made.
+If you click the '+', all changes will be staged.
+If you click the arrow, all changes will be discarded.
 
 ### Making Commits
 
-commit staged changes to the local git history.
+Once you have staged the changes that you want to commit (you don't have to stage everything), you can add a short message and click "Commit".
+It is good practice to add make commits often, marking any milestone in the project.
 
 ### Ignoring Files
 
-ignore all files which you do not wish to track, including any file which is not a text file, e.g. PDFs.
+Open the "Extensions" tab and install the 'gitignore' plugin.
+After restarting VSCodium, you will be able to ignore files by opening them and hitting `Ctrl + Shift + p` and typing 'Git: add to .gitignore' and hitting `Return`.
+Ignore all files are not text files (e.g., PDFs) as well as those which you do not wish to track.
 
-> **Note:** if you accidentally ignore a file that you did not mean to, return to the project in NeoVim, open the "Explorer" tab and open the `.gitignore` file, deleting the appropriate line (at the end) which names the file or directory that you accidentally ignored.
+> **Note:** If you accidentally ignore a file that you did not mean to, open the `.gitignore` file in the "Explorer" tab, deleting the appropriate line (at the end) which names the file or directory that you accidentally ignored.
 
 ### Diff Commits
 
-show the differences between different commits.
+If you open the "Source Control" tab, under 'main' you should see the commit history.
+Clicking on a commit should reveal all files included in that commit.
+Clicking on a file will show the `diff`, i.e., what changes at that commit.
 
 ### Adding Remote Repositories
 
+If you have not already published to GitHub, you can add a remote repository at any point by clicking the three dots in the top right corner of the "Source Controls" tab, followed by `Remote -> Add Remote`.
+You will then need to add a URL, or select "Add Remote from GitHub" which (assuming you have linked VSCodium to GitHub) will present all of the repositories that you have already created.
+You may then choose a remote name (can be the same as on GitHub).
+
+If you have not already created a repository for your current project, you will need to do so now by navigating to your account on GitHub and clicking the "Repositories" tab, followed by clicking the 'New' button in green on the top right.
+You will be asked to add a name, description, and select between 'Private' and 'Public'.
+Once you have created your repository, you can copy the address by clicking the 'Code' button on the top right and selecting 'HTTPS' and copying the link to the clipboard.
+You can then past this address into VSCodium after selecting `Remote -> Add Remote` as described just above.
+
 ### Pushing Changes
 
-push local commits to the git repository.
-
-> **Note:** if changes have been made to the git repository, pull down all changes and resolve any conflicts before pushing to the git repository.
+You should always make sure to pull changes before pushing.
+VSCodium streamlines this process by adding a 'Sync' button which is activated once you commit new changes.
 
 ### Pulling Changes
 
-pull down latest commits from the git repository.
+Pulling down changes is typically just as easy as pushing changes.
+Assuming new changes have been made to the remote repository, VSCodium will detect the existence of these changes, presenting you with the option to 'Sync' as before.
 
-> **Warning:** make sure to commit any changes made to the local files before pulling down changes from the git repository.
+### Merge Conflicts
 
-### Creating Branch
+Occasionally, pulling down changes will conflict with the changes that you have made locally.
+Accordingly, you may have to configure Git so that it knows how to attempt to resolve the conflict.
+To do so, open the terminal in VSCodium with `Ctrl + backtick` and enter:
 
-create a new branch from the current branch or merge a branch into 'Main'.
+```
+git config pull.rebase false
+```
+
+You can then try to click 'Sync' again.
+If there is a merge conflict, you will have to edit the files which have conflicts, removing the erroneous lines used to mark the conflicts.
+VSCodium will provide links which may streamline this process, but you can also make these changes manually, committing the changes once you have finished.
+
+### Creating Branches
+
+If you click the branches tab in the bottom left corner, a drop-down menu will appear giving you the option to create a new branch.
+You can then develop your project on this new branch, publishing it to GitHub to keep it backed up.
+If the changes that you make in your branch don't end up working out, you can always switch back to the 'Main' branch, saving the branch you created to perhaps return to later.
 
 ### Merging Branches
 
+Once you are satisfied with the development of your branch, you can merge those changes back into the 'Main' branch.
+To do so, select the 'Main' branch in the lower left corner.
+Then select the three dots in the top right of the "Source Controls" tab, clicking `Branch -> Merge`.
+You will then be given the chance to select the branch that you want to merge into 'Main', adding the commits from the selected branch to 'Main'.
+Once you have merged your branch into 'Main', you are free to delete that branch with `Branch -> Delete Branch` after clicking the three dots in "Source Controls".
+
+If you published your branch to GitHub, it will remain on GitHub.
+At some point you may want to delete old branches so that it is easier to find branches that you may wish to return to develop further.
 
 ## [Overleaf](#Table-of-Contents)
 

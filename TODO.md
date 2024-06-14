@@ -12,7 +12,7 @@
     - [x] markdown
     - [ ] pandoc
   - [ ] git
-    - [ ] version control
+    - [x] version control
     - [ ] overleaf
 - [ ] learning git
   - [ ] edit
