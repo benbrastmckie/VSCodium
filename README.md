@@ -123,7 +123,7 @@ The following subsections will describe how to use Git to clone the `texmf` dire
 > **Note:** If you have already pulled down the repository onto your computer as described in [Git](#Git) below, you can move the `texmf` directory from there instead of making a new copy in `Downloads`.
 > However, no harm will come from following the instruction below, making another temporary copy of the repository in `Downloads`.
 
-### [MacOS](#Table-of-Contents)
+### MacOS
 
 The `texmf` directory lives in the (user) 'Library' directory which is hidden by default on MacOS.
 To locate the ‘Library’ directory in Finder, hit `cmd + shift + h` to go to the 'Home' directory, `cmd + j` to open an options window, and check ‘show Library folder’.
@@ -152,7 +152,7 @@ You are now free to delete the remnants of the 'VSCodium' repository that you cl
 rm -r VSCodium
 ```
 
-### [Linux and Windows](#Table-of-Contents)
+### Linux and Windows
 
 The `texmf` directory lives in the user's home directory on both Linux and Windows.
 You will need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your home directory if it does not exist already.
@@ -201,7 +201,7 @@ You can also always add the file manually by right-clicking the paper in questio
 Some of the journal websites work better than others.
 For books, Amazon is a good resource for scraping bibliographic data, though no PDF will be downloaded.
 
-### [Better BibTeX](#Table-of-Contents)
+### Better BibTeX
 
 In order to integrate Zotero and LaTeX, download and install Better BibTex by following these [instructions](https://retorque.re/zotero-better-bibtex/installation/), restarting Zotero after the installation is complete.
 
@@ -261,7 +261,7 @@ For instance, you might create a 'TODO.md' or 'NOTES.md', etc.
 
 More information on the markdown syntax can be found [here](https://www.markdownguide.org/basic-syntax/).
 
-### [Zotero Add-On](#Table-of-Contents)
+### Zotero Add-On
 
 Zotero can be used not only to keep the pdfs associated with each citation organised, but to export the highlights and annotations you make with your preferred pdf viewer as markdown files.
 In order to include these features, you will need to download the .xpi file for MdNotes as described here, as well as the .xpi file for ZotFile.
@@ -303,7 +303,7 @@ The next sections will describe the following two ways to use Git to backup your
   1. Use VSCodium's Git integration to add a fork of this repository as a remote, pulling down changes.
   2. Use the Git CLI to clone the contents into the appropriate folder on your machine.
 
-### [Option 1: Git Integration](#Table-of-Contents)
+### Option 1: Git Integration
 
 Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
 If you have setup an SSH Key, you can select the SSH address, copying it to the clipboard.
@@ -341,7 +341,7 @@ git config --global user.email "your_email@example.com"
 
 Once this information has been provided, you should be able to push the changes that you make up to your repository so that they are available to pull down anywhere.
 
-### [Option 2: Git CLI](#Table-of-Contents)
+### Option 2: Git CLI
 
 For completeness, here is the manual option, using the standard Git command line interface.
 
