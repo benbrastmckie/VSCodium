@@ -288,9 +288,10 @@ To be continued...
 
 This section will describe how to: 
 
-  1. Create a fork of this repository, using Git to pull its contents on an appropriate directory on your computer.
-  2. Add an SSH key to streamline pushing and pulling changes.
-  3. Use VSCodium's Git integration to version control your academic projects as well as your config.
+  1. Create a fork of this repository, using Git to clone its contents into an appropriate directory on your computer.
+  2. Use VSCodium's Git integration to version control your academic projects as well as your config.
+  3. Add Overleaf remotes to collaborate with Overleaf users without using Overleaf yourself.
+  4. Add an SSH key (extra).
 
 ## [Forking the Repository](#Table-of-Contents)
 
