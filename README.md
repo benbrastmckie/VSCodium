@@ -18,7 +18,13 @@ If you find any errors in this documentation, you are welcome to submit a pull r
 That way your changes will be able to be easily reviewed and integrated.
 If you feel that certain information is missing or would otherwise be helpful to include as a part of this project, don't hesitate to create an issue with your suggestions.
 
-![Screenshot of the configuration](images/screenshot.png)
+### LaTeX Screenshot
+
+![Screenshot of the configuration](images/latex.png)
+
+### Markdown Screenshot
+
+![Screenshot of the configuration](images/markdown.png)
 
 ## [Table of Contents](#Introduction)
 
