@@ -43,6 +43,7 @@ If you feel that certain information is missing or would otherwise be helpful to
 	- [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up
 	- [Version Control](#Version-Control): using Git to backup and collaborate on projects
 	- [Overleaf](#Overleaf): add Overleaf remote repositories
+  - [Pull Requests](#Pull-Requests): how to contribute changes to this repository
   - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
 The most important sections include: [Installation](#Installation), [Configuration](#Configuration), [LaTeX](#LaTeX), [Zotero](#Zotero), and [Git](#Git).
@@ -292,6 +293,18 @@ In order to include these features, you will need to download the .xpi file for 
 By then opening Zotero, navigating to the Tools –> Add-ons menu, clicking the gear symbol, and selecting ‘Install add-on from file’, you can select the .xpi files that you downloaded in order install these features.
 You may then export your notes by: (1) right-clicking on the annotated PDF and selecting Manage Attachments –> Extract Annotations; followed by (2) right-clicking on the extraction that it generates and selecting MdNotes –> Export to Markdown, specifying the project folder you would like to save the notes in.
 
+### Obsidian 
+
+To be continued... 
+
+> **Note:** If you know how to setup VSCode for working with Obsidian, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
+
+### TODO
+
+To be continued... 
+
+> **Note:** If you are aware of a good plugin for managing TODOs, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
+
 ## [Pandoc](#Table-of-Contents)
 
 Pandoc is a convenient utility for converting between different text formats.
@@ -366,6 +379,9 @@ git config --global user.email "your_email@example.com"
 ```
 
 Once this information has been provided, you should be able to push the changes that you make up to your repository so that they are available to pull down anywhere.
+
+You will be notified on your GitHub repository if new commits have been added to the original repository.
+If you want to update your fork to include these changes, click `Sync Fork` in your GitHub repository (this is not necessary).
 
 ### Option 2: Git CLI
 
@@ -539,6 +555,10 @@ git remote add overleaf https://git.overleaf.com/your-project-id
 ```
 
 To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
+
+## [Pull Requests](#Table-of-Contents)
+
+To be continued... 
 
 ## [SSH Key](#Table-of-Contents)
 
