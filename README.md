@@ -88,7 +88,7 @@ By scrolling through, you can explore the many different features that you can c
 
 Although the settings menu is a nice way to see all the options at once, this is not the easiest way to save or reproduce your configuration.
 However, any changes that you make in the settings menu will be stored in the `settings.json` file.
-It is by backing up this settings file in a Git remote repository that you can easily reproduce your configuration without having to remember what settings you had before or scroll through endless options.
+It is by backing up this settings file with a Git remote repository that you can easily reproduce your configuration without having to remember what settings you had before or scroll through endless options.
 Although you could attempt to backup `settings.json` manually, the Git integration included in VSCodium provides an elegant way to stay backed up as you make changes to your configuration.
 Accordingly, the [Git](#Git) section below will describe how to use Git to backup your configuration as well as your academic projects.
 
@@ -160,14 +160,38 @@ Alternatively, you can always include the relevant style or class files in the l
 You are now free to delete the remnants of the `VSCodium` repository that you cloned into `Downloads` with the following command:
 
 ```
-rm -r VSCodium
+rm -r ~/Downloads/VSCodium
 ```
 
 ### Windows
 
 For some reason Windows does not come with Git installed by default.
+Go to the [Git Website](https://git-scm.com/) to download and install the version for Windows.
+Once the installation is complete, open the terminal and run `git --version` to confirm that the installation was successful.
 
-(To be continued... )
+Next you will need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your home directory if it does not exist already.
+The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
+
+If you don't want to fork this repository, another option is to directly clone this repository, moving the `texmf` directory to the appropriate location (this is slightly easier but does not backup your configuration).
+To do so, open the terminal and run the following commands:
+
+```
+cd ~/Downloads
+git clone https://github.com/benbrastmckie/VSCodium.git
+move VSCodium/texmf ~/texmf
+tree /F
+```
+
+The final command will display the contents of the `texmf` directory and is optional.
+The `bst` subdirectory contains some bibliographic style files (you may wish to add others).
+The `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
+Alternatively, you can always include the relevant style or class files in the local project directory.
+
+You are now free to delete the remnants of the 'VSCodium' repository that you cloned into 'Downloads' with the following command:
+
+```
+rmdir /S ~/Downloads/VSCodium
+```
 
 ### Linux
 
@@ -193,7 +217,7 @@ Alternatively, you can always include the relevant style or class files in the l
 You are now free to delete the remnants of the 'VSCodium' repository that you cloned into 'Downloads' with the following command:
 
 ```
-rm -r VSCodium
+rm -r ~/Downloads/VSCodium
 ```
 
 ## [Zotero](#Table-of-Contents)
@@ -299,7 +323,7 @@ To be continued...
 
 > **Note:** If you know how to setup VSCode for working with Obsidian, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
 
-### TODO
+### TODO List
 
 To be continued... 
 
