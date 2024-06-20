@@ -22,9 +22,9 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ![Screenshot of the configuration](images/latex.png)
 
-### Markdown Screenshot
-
-![Screenshot of the configuration](images/markdown.png)
+<!-- ### Markdown Screenshot -->
+<!---->
+<!-- ![Screenshot of the configuration](images/markdown.png) -->
 
 ## [Table of Contents](#Introduction)
 
