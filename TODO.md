@@ -1,13 +1,20 @@
 # TODO
 
-- [ ] readme
+- [ ] `README.md`
   - [x] how to open an issue
   - [x] toc descriptions
   - [ ] toolchain
     - [x] latex
     - [x] zotero
+    - [ ] keybindings
+      - [ ] comments
+      - [ ] drag lines
     - [ ] templates
+      - [ ] edit
+      - [ ] plugin
     - [ ] snippets
+      - [ ] edit
+      - [ ] plugin
     - [ ] markdown
       - [ ] zotero add-on
       - [ ] obsidian
@@ -17,5 +24,5 @@
     - [x] version control
     - [ ] overleaf
     - [ ] pull requests
-- [ ] learning git
+- [ ] `LearningGit.md`
   - [ ] edit

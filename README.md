@@ -1,21 +1,26 @@
 # [Introduction](#Table-of-Contents)
 
-This repository aims to gather resources for using VSCodium to write in LaTeX, Markdown, and Python.
-VSCodium offers a nice suite of features while being extremely accessible.
-By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern editor (e.g., LSP support, snippets, Git integration, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
+This repository gathers resources for using [VSCodium](https://vscodium.com/)--- the private but otherwise identical version of [VS Code](https://code.visualstudio.com/)--- to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), or any programming languages that you might want to use.
+VSCodium offers a nice suite of features while being extremely accessible and easy to configure.
+By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern text editor (e.g., LSP support, snippets, Git integration, syntax highlighting, etc.), Overleaf leaves its users stuck in the browser, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
-The instructions below aim to streamline the process of adopting VSCodium as your daily driver for working with LaTeX and Markdown files with Python as a bonus.
-This configuration provides a place to start and is easily adapted and extended.
-Note that if you want to collaborate with others using Overleaf, it is possible to add Overleaf projects as remotes from which you can push and pull changes right from within VSCodium.
+The instructions below aim to streamline the process of adopting VSCodium as your daily driver for composing and editing text of all kinds.
+Even if you are new to LaTeX and Mardown or do not already have LaTeX installed, this configuration provides a place to start with all the information and instructions that you will need in one place.
+Once you have everything set up, the configuration is easily adapted and extended to include further utilities (there is a large ecosystem of plugins) or for working with other languages such as Python etc.
+
+Resources will also be provided for how to use [Zotero](https://www.zotero.org/) to manage your references with associated PDFs, providing citation key autocompletion within VSCodium.
+Additionally, information will be included for how to use [Git](https://git-scm.com/)--- a sophisticated version control software that is widely used and already integrated into VSCodium--- to manage your projects, backup your work as you go, work on the same project from multiple computers, and collaborate with others.
+Note that if you want to collaborate with others using Overleaf, it is possible to [add Overleaf projects as remotes](https://www.overleaf.com/learn/how-to/Git_integration#Synchronizing_with_another_remote) from which you can push and pull changes right from within VSCodium, though you will need a subscription for that (boo!).
 These details will be described [below](#Overleaf).
 
-If you run into trouble, feel free to open an [issue](https://github.com/benbrastmckie/VSCodium/issues) in this repository, checking first to see that your issue was not already answered (search for both closed and open issues).
-Since future users may find the answer to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its documentation.
-With this in mind, make sure to adequately name the issue you create, providing a careful description of the problem and what you have tried already.
-It is also important to stay on topic, opening new issues if you have separate problems.
+This repository also aims to provide community support.
+For instance, if you run into trouble you can open an issue by clicking the [issues tab](https://github.com/benbrastmckie/VSCodium/issues) above, checking first to see that your issue was not already answered (search for both open and closed issues).
+Since future users may find the responses to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but also to contribute to the project by expanding its surrounding documentation.
+With this in mind, make sure to appropriately name the issue you create, providing a careful description of the problem and what you have tried already.
+It is also important to stay on topic, opening new issues if you have separate problems rather than lumping them altogether.
 
-If you find any errors in this documentation, you are welcome to submit a pull request by directly editing the `README.md` (click the edit icon in the top right corner of this [document](https://github.com/benbrastmckie/VSCodium/blob/master/README.md)).
-That way your changes will be able to be easily reviewed and integrated.
+If you find any errors in this documentation, you are welcome to submit a pull request by directly editing this `README.md` [document](https://github.com/benbrastmckie/VSCodium/blob/master/README.md) (click the edit icon in the top right corner).
+That way your changes will be able to be easily reviewed and integrated into the project.
 If you feel that certain information is missing or would otherwise be helpful to include as a part of this project, don't hesitate to create an issue with your suggestions.
 
 ### LaTeX Screenshot
