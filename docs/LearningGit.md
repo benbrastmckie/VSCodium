@@ -1,4 +1,4 @@
-# Collaborating with Git
+## Collaborating with Git
 
 In order to add a collaborator to an existing repository, open the repository in GitHub and navigate to `Settings -> Manage acess` and click `invite a collaborator`, entering their GitHub username or email address.
 Your collaborator will then be able open the repo in GitHub, copying the address by clicking the `Code` drop-down menu, selecting SSH, and hitting the icon for copy-to-clipboard.
@@ -19,7 +19,7 @@ If the collaborator is using the same configuration, then the project may be edi
 However, even without using the present configuration of NeoVim, collaborators may avoid manually entering git commands by running LazyGit in the terminal.
 In order to install LazyGit and add an SSH key, follow the instructions provided in the [README.md](https://github.com/benbrastmckie/.config/blob/master/README.md).
 
-## Git Protocol
+### Git Protocol
 
 Assume collaborator A creates a repo inviting collaborator B as above.
 Upon first cloning the repo, collaborator B will be up to date with the remote repository on GitHub, and may begin making changes.
@@ -38,7 +38,7 @@ These are to be negotiated by both collaborators running the following procedure
 
 In order to reduce the number of conflicts, collaborators can may choose to avoid working on the same parts of the project, though this is not required.
 
-## GitHub CLI
+### GitHub CLI
 
 Especially while collaborating with others on a common project, it is convenient to use GitHub Issues in order to facilitate exchange the development of the project.
 Although one could attempt to limit all such exchange to a Markdown file in a shared repository, such files can quickly become cluttered or overlooked.
@@ -50,7 +50,7 @@ GitHub Cli also permits users to create pull-requests, along with a range of fur
 However, assuming that all collaborators of a shared repo will have administrator access, there is no need for pull-requests, and so I have not included further mappings, though one could easily do so.
 In order to include this functionality in your configuration, refer to the **GitHub Cli** section in the [installation instructions](https://github.com/benbrastmckie/.config/blob/master/README.md) for setting up Git for use in NeoVim.
 
-## Further Resources
+### Further Resources
 
 The resources below are organised from the most immediately applicable to the most theoretical.
 
