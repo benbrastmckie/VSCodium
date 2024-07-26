@@ -1,6 +1,9 @@
 # TODO
 
 - [ ] `README.md`
+  - [ ] tone down ideology
+  - [ ] divide into separate pages
+    - [ ] mention forking once
   - [x] how to open an issue
   - [x] toc descriptions
   - [ ] toolchain
