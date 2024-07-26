@@ -1,6 +1,6 @@
 # Zotero
 
-- [Zotero](#Zotero): install Zotero and export your library with Better BibTeX
+The following sections provide information about how to install Zotero and export your library with Better BibTeX.
 
 ## [Zotero](#Table-of-Contents)
 
@@ -28,7 +28,7 @@ You can also always add the file manually by right-clicking the paper in questio
 Some of the journal websites work better than others.
 For books, Amazon is a good resource for scraping bibliographic data, though no PDF will be downloaded.
 
-### Better BibTeX
+## Better BibTeX
 
 In order to integrate Zotero and LaTeX, download and install Better BibTex by following these [instructions](https://retorque.re/zotero-better-bibtex/installation/), restarting Zotero after the installation finishes.
 

@@ -1,10 +1,11 @@
 # Git
 
-This section will describe how to: 
+This document will include the following sections:
 
 - [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up
 - [Version Control](#Version-Control): using Git to backup and collaborate on projects
 - [Overleaf](#Overleaf): add Overleaf remote repositories
+- [Collaborating with Git](#Collaborating-with-Git)
 - [Pull Requests](#Pull-Requests): how to contribute changes to this repository
 - [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
 
@@ -236,49 +237,7 @@ git remote add overleaf https://git.overleaf.com/your-project-id
 
 To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
 
-## [Pull Requests](#Table-of-Contents)
-
-To be continued... 
-
-## [SSH Key](#Table-of-Contents)
-
-> **Note:** It is possible to link your GitHub account to VSCodium, obviating the need for an SSH key in most cases.
-
-If you have not already, you can add an SSH key by amending and running the following in the terminal:
-
-```
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-```
-
-Hit `return` once, entering your GitHub passphrase in response to the prompt.
-Next run:
-
-```
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-```
-
-Run the following to copy the SSH key to your system clipboard:
-
-```
-pbcopy < ~/.ssh/id_rsa.pub
-```
-
-In the top right corner of your GitHub page, click `Profile -> Settings -> SSH and GPG Keys` selecting `New SSH Key`.
-Name the authentication key after the devise you are using, pasting the SSH key from the clipboard into the appropriate field.
-Saving the key completes the addition.
-
-Check to make sure that the SSH key is working by pushing commits up to one of your repositories as directed above.
-If your SSH key stops working after rebooting, run the following command:
-
-```
-ssh-add -K ~/.ssh/id_rsa
-```
-
-If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
-
-
-## Collaborating with Git
+## [Collaborating with Git](#Table-of-Contents)
 
 In order to add a collaborator to an existing repository, open the repository in GitHub and navigate to `Settings -> Manage acess` and click `invite a collaborator`, entering their GitHub username or email address.
 Your collaborator will then be able open the repo in GitHub, copying the address by clicking the `Code` drop-down menu, selecting SSH, and hitting the icon for copy-to-clipboard.
@@ -341,4 +300,46 @@ The resources below are organised from the most immediately applicable to the mo
 - [Manual Commands (Short)](https://www.youtube.com/watch?v=USjZcfj8yxE)
 - [Manual Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE)
 - [Theory](https://www.youtube.com/watch?v=2sjqTHE0zok)
+
+## [Pull Requests](#Table-of-Contents)
+
+To be continued... 
+
+## [SSH Key](#Table-of-Contents)
+
+> **Note:** It is possible to link your GitHub account to VSCodium, obviating the need for an SSH key in most cases.
+
+If you have not already, you can add an SSH key by amending and running the following in the terminal:
+
+```
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Hit `return` once, entering your GitHub passphrase in response to the prompt.
+Next run:
+
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
+
+Run the following to copy the SSH key to your system clipboard:
+
+```
+pbcopy < ~/.ssh/id_rsa.pub
+```
+
+In the top right corner of your GitHub page, click `Profile -> Settings -> SSH and GPG Keys` selecting `New SSH Key`.
+Name the authentication key after the devise you are using, pasting the SSH key from the clipboard into the appropriate field.
+Saving the key completes the addition.
+
+Check to make sure that the SSH key is working by pushing commits up to one of your repositories as directed above.
+If your SSH key stops working after rebooting, run the following command:
+
+```
+ssh-add -K ~/.ssh/id_rsa
+```
+
+If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
+
 
