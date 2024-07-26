@@ -35,24 +35,33 @@ This way you can store global files of the following kinds:
   - `.cls` class files for generating documents that conform to a formatting standard (often provided by journals).
   - `.bib` file with your complete Zotero database.
 
+Whereas the `bst` subdirectory contains some bibliographic style files (you may wish to add others), the `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
+Alternatively, you can always include the relevant style or class files in the local project directory.
+
 The following subsections will describe how to set up the `texmf` directory for the following operating systems:
 
 - [MacOS](#MacOS)
 - [Windows](#Windows)
 - [Linux](#Linux)
 
-An option will be provided to use [Git](https://github.com/benbrastmckie/VSCodium/blob/master/docs/git.md) as well as a brute force method.
+<!-- TODO: simplify below -->
 
-### MacOS
+An option will be provided to use [Git](https://github.com/benbrastmckie/VSCodium/blob/master/docs/git.md) as well as a method that avoids using the terminal.
 
-The `texmf` directory lives in the (user) `Library` directory which is hidden by default on MacOS.
-To locate the `Library` directory in Finder, hit `cmd + shift + h` to go to the `Home` directory, `cmd + j` to open an options window, and check ‘show Library folder’ (because MacOS is full of child-locks).
+## MacOS
+
+The `texmf` directory lives in the (user) `Library` directory (as opposed to the system `Library` directory) which is hidden by default on MacOS.
+To locate the `Library` directory in Finder, hit `cmd + shift + h` to go to the `Home` directory, `cmd + j` to open an options window, and check ‘show Library folder’.
 
 You will now need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your `Library` directory if it does not exist already.
-The best way to do this is to begin by forking this repository on GitHub as described [below](#Git).
+The best way to do this is to begin by forking this repository on GitHub as described in the documentation for [Git](https://github.com/benbrastmckie/VSCodium/blob/master/docs/git.md).
+If you have not already forked the repository and don't want to do so now, you could clone this repository or download a zip.
+These latter methods will be described below.
 
-If you don't want to fork this repository, another option is to directly clone this repository, moving the `texmf` directory to the appropriate location (this is slightly easier but does not backup your configuration).
-To do so, open the terminal and run the following commands:
+### Clone
+
+To clone this repository and move the `texmf` directory to the appropriate location, begin by opening the terminal with `Cmd + Space` typing 'terminal'.
+You can then run the following commands, cutting and pasting each line into the terminal and hitting `return` before proceeding to the next line:
 
 ```
 cd ~/Downloads
@@ -72,7 +81,14 @@ You are now free to delete the remnants of the `VSCodium` repository that you cl
 rm -r ~/Downloads/VSCodium
 ```
 
-### Windows
+### Zip
+
+If you don't want to use the terminal command above, you can download a `.zip` file by clicking the 'Code' button [here](https://github.com/benbrastmckie/VSCodium/tree/master).
+You will then need to run the `.zip` file, extracting the contents to your `Downloads` directory, or elsewhere.
+Navigate to this directory, opening it to find the `texmf` directory.
+You can then move this directory to `~/Library/`.
+
+## Windows
 
 For some reason Windows does not come with Git installed by default.
 Go to the [Git Website](https://git-scm.com/) to download and install the version for Windows.
@@ -92,17 +108,13 @@ tree /F
 ```
 
 The final command will display the contents of the `texmf` directory and is optional.
-The `bst` subdirectory contains some bibliographic style files (you may wish to add others).
-The `latex` subdirectory contains the class files which you can use to typeset LaTeX documents (often provided by journals).
-Alternatively, you can always include the relevant style or class files in the local project directory.
-
 You are now free to delete the remnants of the 'VSCodium' repository that you cloned into 'Downloads' with the following command:
 
 ```
 rmdir /S ~/Downloads/VSCodium
 ```
 
-### Linux
+## Linux
 
 The `texmf` directory lives in the user's home directory on both Linux and Windows.
 You will need to copy the [texmf](https://github.com/benbrastmckie/VSCodium/tree/master/texmf) directory into your home directory if it does not exist already.

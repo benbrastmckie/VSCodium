@@ -57,11 +57,10 @@ To get started, download and install [VSCodium](https://vscodium.com/) for your 
 > For instance, on MacOS, VS Code stores the `settings.json` file in `~/Library/Application Support/Code/User` instead of in `~/Library/Application Support/VSCodium/User`.
 
 Once installed, open the "Extensions" tab on the top left, or hit `ctrl + shift + x`.
-Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme'.
+Search for and install the plugins 'LaTeX Workshop' as well as 'Two Monokai Theme' (this is required for the `settings.json` configuration to "just work").
+It is easy to switch between themes, where these details will be covered [below](#Customization).
 
 There are many other themes and plugins which you can try out.
-Some other popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
-It is easy to switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 You can even install a NeoVim plugin (by asvetliakov) to simulate the Vim motions in VSCodium. 
 Here are some additional [resources](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim).
 If you are serious about learning to use the Vim motions, you would do best to use [NeoVim](https://github.com/benbrastmckie/.config).
@@ -84,6 +83,8 @@ This completes the basic configuration of VSCodium.
 
 In order to get a better sense of what the options are within VSCodium, click the settings gear in the bottom left corner.
 By scrolling through, you can explore the many different features that you can change about VSCodium where the list will get longer with each plugin that you add.
+In particular, some popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
+You can switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
 Although the settings menu is a nice way to see all the options at once, this is not the easiest way to save or reproduce your configuration.
 However, any changes that you make in the settings menu will be stored in the `settings.json` file.
