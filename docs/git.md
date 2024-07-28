@@ -15,8 +15,8 @@ The following sections will introduce some of the most basic functionality that 
 
 Although this configuration provides a collection of basic settings that will help you to get started with VSCodium, you may wish to make certain changes both now and in the future, adapting the configuration to your own needs.
 In order to do so while backing up your configuration on GitHub, you will want to create a copy of [this repository](https://github.com/benbrastmckie/VSCodium) by clicking `Fork` in the top right-hand corner.
-If you have not already created an account on GitHub, you will need to do so in order to host the repository.
-This will make it easy to not only to maintain your configuration (keeping it backed up as it evolves), but also streamline the process of reproducing this configuration on other machines (or if you reformat your computer), as well as making it easy to share your configuration with others.
+If you have not already created an account on GitHub, you will need to do so in order to host the repository (alternatively you could use [GitLab](https://gitlab.com/users/sign_in) to host your repository).
+This will make it easy to not only to maintain your configuration (keeping it backed up as it evolves), but will also streamline the process of reproducing this configuration on other machines (or if you reformat your computer), as well as making it easy to share your configuration with others.
 
 Upon clicking `Fork`, you will be presented with the choice to make yourself the owner which you should accept.
 There is no need to include other branches besides the master branch which will be selected by default (branches allow for the project to develop in different directions simultaneously and will be discussed below).
@@ -29,7 +29,7 @@ The next subsections will describe the following two ways to use Git to backup y
 - [Option 1](#Option-1:-VSCodium): Use Git within VSCodium to add a fork of this repository as a remote, pulling down changes.
 - [Option 2](#Option-2:-Git-CLI): Use the Git CLI (command line interface) from the terminal to clone the contents of your fork into the appropriate directory on your machine.
 
-In addition to being easier, the first option will provide an opportunity to practice using Git from within VSCodium which will make it easy to continue using Git in the future.
+In addition to being easier, the first option will provide an opportunity to practice using Git from within VSCodium which will make it easy to continue using Git from VSCodium in the future.
 The second option has been included only for completeness so that you can get some sense of what VSCodium is automating for you, giving you a better sense of what Git is actually doing to manage your project as it changes.
 
 ### Option 1: VSCodium
@@ -52,7 +52,7 @@ You can then enter the address copied to the clipboard from before, naming the r
 > **Note:** If you have not yet made changes to your configuration `settings.json` file, you can ignore this note. 
 > If, however, you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
 > Otherwise, when you pull down your fork of this repository, you will overwrite current `settings.json` file.
-> Although this won't break anything, you will lose the changes that you have already made.
+> Although this won't break anything, you will lose the changes that you have already made (though you could always revert to the older commit).
 > If you have made changes to your `settings.json` file that you want to preserve, one easy way to avoid losing changes is to temporarily rename `settings.json` as `save.settings.json`.
 > That way, when you pull down the repository it will not replace your configuration.
 > After pulling down the configuration, you can go on to delete the `settings.json` file that you just pulled down, changing the name of `save.settings.json` back to `settings.json`.
@@ -70,24 +70,23 @@ Next, click on the three dots in the top right corner of the "Source Control" ta
 By changing back to the "Explorer" tab you should be able to see a host of new files that you have just pulled down.
 Open `settings.json` to confirm that this file has been populated with settings.
 
-If you go on to make any changes to your configuration, you can save the changes by opening the "Source Control" tab, adding a message, and "committing" your changes (this creates a save point in its history).
+If you go on to make any changes to your configuration, you can save the changes and then open the "Source Control" tab, adding a message, and "committing" your changes (this creates a save point in its history).
 Once committed, you can click 'Sync' to automatically pull and push changes from/to your remote.
 Note that you will either have to add an [SSH key](#SSH-Key) and link your GitHub account to VSCodium or enter your GitHub password each time you sync.
 
-> **Note:** By creating a fork, you are no longer tethered to the original repository that you forked, allowing you to make changes that depart from what is included in the repository that you forked.
+> **Note:** If you forked this repository, you are no longer tethered to the original repository that you forked, allowing each of these repositories to evolve independently.
 > If changes are made to the original repository (the repository that is "upstream" of your fork), you will be notified on your GitHub repository when new commits have been added to the original repository.
-> If you want to update your fork to include these changes, click `Sync Fork` in your GitHub repository (this is not necessary).
-> You do not need to keep your fork up to date with the upstream repository, and doing so could potentially cause conflicts that you will have to resolve.
+> If you want to update your fork to include these changes, click `Sync Fork` in your GitHub repository (doing so is optional and may lead to conflicts you will need to resolve).
 > Although it is useful to know that it is possible to sync your remote with the upstream repository, this option can be safely ignored.
 
 ### Option 2: Git CLI
 
-For completeness, here is the manual option, using the standard Git command line interface.
+For completeness, here is the manual option, using the standard Git command line interface (CLI).
 
 Open VSCodium, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
 Once open, you can hover the mouse over the `settings.json` file to see its path.
 Right-click the tab and select 'Copy Path' or hit `alt + ctrl + c` to do the same.
-Open the terminal (on MacOS, hit `Cmd + Space` and type 'terminal') and run the following commands, replacing `PATH/TO` with the copied path minus 'settings.json':
+Open the terminal (separately or in VSCodium with `ctrl + backtick`) and run the following commands, replacing `PATH/TO` with the copied path minus 'settings.json' (often `ctrl + shift + v` is required to paste in the terminal):
 
 ```
 cd PATH/TO/
@@ -95,7 +94,7 @@ ls -a
 ```
 
 On MacOS, the `PATH/TO/` should be `~/Library/Application Support/VSCodium/User`.
-The `ls` command should show the `settings.json` file.
+The `ls -a` command should show the `settings.json` file.
 If you have made extensive changes to `settings.json` that you want to preserve, you can create a backup with:
 
 ```
@@ -104,8 +103,10 @@ ls -a
 ```
 
 Click the `Code` button in the fork that you created previously (you should see your username in the address).
-If you have an SSH Key (see [SSH Key](#SSH-Key) below), you can select the SSH address, copying it to the clipboard.
-Otherwise, copy the HTTPS address to the clipboard.
+If you have already set up an [SSH Key](#SSH-Key), you can select the SSH address, copying it to the clipboard.
+The SSH Key will allow you to push and pull changes from your remote repository without having to enter your password every time.
+Although it is recommended that you take the time to set up an SSH Key now as described in the [SSH Key](#SSH-Key) section below (should only take a few minutes), this is step is optional.
+If you have not created an SSH Key, copy the HTTPS address to the clipboard upon clicking `Code`.
 
 Now initialize Git, link the remote repository, and pull down its contents by running each of the following commands:
 
@@ -126,19 +127,15 @@ rm settings.json
 mv save.settings.json settings.json
 ```
 
-If you make any changes to your config, you can push these up to your repository with:
+If you make any changes to your configuration in the future, you can push these up to your repository with:
 
 ```
-git add . 
+git add settings.json 
 git commit -m "commit message of your choice"
 git push origin master
 ```
 
-Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you.
-Instead of working in the terminal, you can open the "Explorer" tab in VSCodium on the top left, navigating to the directory containing `settings.json`.
-You may need to turn on hidden files by right-clicking in the menu and selecting "Show Hidden Files".
-VSCodium should automatically detect that this is a tracked directory.
-You can then open the "Source Control" tab on the top left to commit changes, pushing commits up to your repository by clicking 'Sync'.
+Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you as described above in [Option 1](#Option-1:-VSCodium)
 
 ## [Version Control](#Table-of-Contents)
 
