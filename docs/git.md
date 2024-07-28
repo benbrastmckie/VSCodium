@@ -1,68 +1,84 @@
 # Git
 
-This document will include the following sections:
+[Git](https://git-scm.com/) is an extremely powerful and versatile tool for version controlling projects, managing the development of selected contents of your project's root directory, keeping their entire history backed up and synchronized between your local machine, a remote repository on GitHub or elsewhere, as well as the local machines of the other collaborators on the project if any.
+The following sections will introduce some of the most basic functionality that Git provides, describing specific functions that Git provides for maintaining your configuration and version controlling your projects, perhaps in collaboration with others:
 
-- [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up
-- [Version Control](#Version-Control): using Git to backup and collaborate on projects
-- [Overleaf](#Overleaf): add Overleaf remote repositories
-- [Collaborating with Git](#Collaborating-with-Git)
-- [Pull Requests](#Pull-Requests): how to contribute changes to this repository
-- [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes
+- [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up.
+- [Version Control](#Version-Control): using Git to backup and collaborate on projects.
+- [Collaborating with Git](#Collaborating-with-Git): how to use Git to collaborate on projects with others.
+- [Overleaf](#Overleaf): how to add Overleaf remote repositories.
+- [Pull Requests](#Pull-Requests): how to contribute changes to this repository.
+- [SSH Key](#SSH-Key): avoid having to enter your password when pushing changes.
+- [Further Resources](#Further-Resources): a collection links for finding out more about how to use Git.
 
 ## [Forking the Repository](#Table-of-Contents)
 
-In order to create your own copy of this repository, click `Fork` in the top right of this repository on GitHub.
-You will then be presented with the choice to make yourself the owner which you should accept.
-There is no need to include other branches besides the master branch which will be selected by default.
+Although this configuration provides a collection of basic settings that will help you to get started with VSCodium, you may wish to make certain changes both now and in the future, adapting the configuration to your own needs.
+In order to do so while backing up your configuration on GitHub, you will want to create a copy of [this repository](https://github.com/benbrastmckie/VSCodium) by clicking `Fork` in the top right-hand corner.
+If you have not already created an account on GitHub, you will need to do so in order to host the repository.
+This will make it easy to not only to maintain your configuration (keeping it backed up as it evolves), but also streamline the process of reproducing this configuration on other machines (or if you reformat your computer), as well as making it easy to share your configuration with others.
+
+Upon clicking `Fork`, you will be presented with the choice to make yourself the owner which you should accept.
+There is no need to include other branches besides the master branch which will be selected by default (branches allow for the project to develop in different directions simultaneously and will be discussed below).
 You do not need to "Keep this repository private". 
 In general, it is nice to keep configuration files public so that you can easily share them with others.
+The configuration will not (and should not) include any personal or private data, just settings and documentation.
 
 The next subsections will describe the following two ways to use Git to backup your configuration:
 
-  1. Use VSCodium's Git integration to add a fork of this repository as a remote, pulling down changes.
-  2. Use the Git CLI to clone the contents into the appropriate folder on your machine.
+- [Option 1](#Option-1:-VSCodium): Use Git within VSCodium to add a fork of this repository as a remote, pulling down changes.
+- [Option 2](#Option-2:-Git-CLI): Use the Git CLI (command line interface) from the terminal to clone the contents of your fork into the appropriate directory on your machine.
 
-### Option 1: Git Integration
+In addition to being easier, the first option will provide an opportunity to practice using Git from within VSCodium which will make it easy to continue using Git in the future.
+The second option has been included only for completeness so that you can get some sense of what VSCodium is automating for you, giving you a better sense of what Git is actually doing to manage your project as it changes.
 
-Once you have forked the repository, you can click the `Code` button in the fork that you have created (you should see your username in the address).
-If you have setup an [SSH Key](#SSH-Key), you can select the SSH address, copying it to the clipboard.
-Otherwise, copy the HTTPS address to the clipboard.
+### Option 1: VSCodium
+
+Once you have forked the repository (this creates a remote repository on GitHub which you will sync with), you can click the `Code` button in the fork that you have created (you should see your username in the address that you copy).
+If you have already set up an [SSH Key](#SSH-Key), you can select the SSH address, copying it to the clipboard.
+The SSH Key will allow you to push and pull changes from your remote repository without having to enter your password every time.
+Although it is recommended that you take the time to set up an SSH Key now as described in the [SSH Key](#SSH-Key) section below (should only take a few minutes), this is step is optional.
+If you have not created an SSH Key, copy the HTTPS address to the clipboard upon clicking `Code`.
 
 Open `setting.json` in VSCodium with `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'. 
-Right-click on the file tab to 'Copy Path' to the `settings.json` file.
-Open the "Explorer" tab on the top left, navigating to the directory which contains `settings.json`.
+Right-click on the file tab to 'Copy Path' for the `settings.json` file.
+Open the "Explorer" tab on the top left, navigating to the directory which contains `settings.json` provided by the path you just copied.
 Note that you may need to show hidden files by right-clicking inside the search menu that VSCodium will open.
 
-Open the "Source Control" tab also on the top left and select "Initialize Repository".
+Once you have opened the right directory in the "Explorer" tab, open the "Source Control" tab also on the top left and select "Initialize Repository".
 You can then add a remote by clicking the three dots in the top right of the "Source Control" panel, selecting `remote -> add`.
 You can then enter the address copied to the clipboard from before, naming the remote "VSCodium" or whatever you like.
 
-Note that if you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
-One easy way to do this is to temporarily rename `settings.json` as `save.settings.json`.
-That way, when you pull down the repository it will not replace your settings.
-Instead, you can go on to delete the `settings.json` file that you pull down, changing the name of `save.settings.json` back to `settings.json`.
-These extra steps can safely be ignored if you have not yet made any changes to `settings.json` as recommended above.
+> **Note:** If you have not yet made changes to your configuration `settings.json` file, you can ignore this note. 
+> If, however, you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
+> Otherwise, when you pull down your fork of this repository, you will overwrite current `settings.json` file.
+> Although this won't break anything, you will lose the changes that you have already made.
+> If you have made changes to your `settings.json` file that you want to preserve, one easy way to avoid losing changes is to temporarily rename `settings.json` as `save.settings.json`.
+> That way, when you pull down the repository it will not replace your configuration.
+> After pulling down the configuration, you can go on to delete the `settings.json` file that you just pulled down, changing the name of `save.settings.json` back to `settings.json`.
 
-In the bottom left corner, you will see which branch you are on currently, clicking this branch to change to 'master'.
-Next, click on the three dots in the top right corner of the "Source Control" pane to select `Pull, Push -> Pull`.
-By changing back to the "Explorer" tab you should be able to see a host of new files.
-Open `settings.json` to confirm that this file has been populated with settings.
-
-If you go on to make any changes, you can save the changes by opening the "Source Control" tab, adding a message, and committing your changes.
-Once committed, you can click 'Sync' to automatically pull and push changes.
-Note that you will either have to add an [SSH key](#SSH-Key) or link your GitHub account to VSCodium (much easier).
-
-If you have not done so already, you may also need to configure Git by adding your email (whatever you used to open a GitHub account).
+If you have not done so already, you will also need to configure Git by adding your email (whatever you used to open a GitHub account).
 To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following:
 
 ```
 git config --global user.email "your_email@example.com"
 ```
 
-Once this information has been provided, you should be able to push the changes that you make up to your repository so that they are available to pull down anywhere.
+Once this information has been provided, you should be able to push the changes that you make to your configuration so that they are available to pull down from anywhere.
+To do so, look in the bottom left corner of VSCodium where you will see the branch that you are on currently, clicking the current branch and changing to 'master'.
+Next, click on the three dots in the top right corner of the "Source Control" tab to select `Pull, Push -> Pull`.
+By changing back to the "Explorer" tab you should be able to see a host of new files that you have just pulled down.
+Open `settings.json` to confirm that this file has been populated with settings.
 
-You will be notified on your GitHub repository if new commits have been added to the original repository.
-If you want to update your fork to include these changes, click `Sync Fork` in your GitHub repository (this is not necessary).
+If you go on to make any changes to your configuration, you can save the changes by opening the "Source Control" tab, adding a message, and "committing" your changes (this creates a save point in its history).
+Once committed, you can click 'Sync' to automatically pull and push changes from/to your remote.
+Note that you will either have to add an [SSH key](#SSH-Key) and link your GitHub account to VSCodium or enter your GitHub password each time you sync.
+
+> **Note:** By creating a fork, you are no longer tethered to the original repository that you forked, allowing you to make changes that depart from what is included in the repository that you forked.
+> If changes are made to the original repository (the repository that is "upstream" of your fork), you will be notified on your GitHub repository when new commits have been added to the original repository.
+> If you want to update your fork to include these changes, click `Sync Fork` in your GitHub repository (this is not necessary).
+> You do not need to keep your fork up to date with the upstream repository, and doing so could potentially cause conflicts that you will have to resolve.
+> Although it is useful to know that it is possible to sync your remote with the upstream repository, this option can be safely ignored.
 
 ### Option 2: Git CLI
 
@@ -221,22 +237,6 @@ Once you have merged your branch into 'Main', you are free to delete that branch
 If you published your branch to GitHub, it will remain on GitHub.
 At some point you may want to delete old branches so that it is easier to find branches that you may wish to return to develop further.
 
-## [Overleaf](#Table-of-Contents)
-
-Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL which should look something like:
-
-```
-https://git.overleaf.com/your-project-id
-```
-
-You will then be able to add the remote by making the appropriate substitution to the following:
-
-```
-git remote add overleaf https://git.overleaf.com/your-project-id
-```
-
-To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
-
 ## [Collaborating with Git](#Table-of-Contents)
 
 In order to add a collaborator to an existing repository, open the repository in GitHub and navigate to `Settings -> Manage acess` and click `invite a collaborator`, entering their GitHub username or email address.
@@ -289,17 +289,21 @@ GitHub Cli also permits users to create pull-requests, along with a range of fur
 However, assuming that all collaborators of a shared repo will have administrator access, there is no need for pull-requests, and so I have not included further mappings, though one could easily do so.
 In order to include this functionality in your configuration, refer to the **GitHub Cli** section in the [installation instructions](https://github.com/benbrastmckie/.config/blob/master/README.md) for setting up Git for use in NeoVim.
 
-### Further Resources
+## [Overleaf](#Table-of-Contents)
 
-The resources below are organised from the most immediately applicable to the most theoretical.
+Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the Git URL which should look something like:
 
-- [Overview](https://www.youtube.com/watch?v=uXv4poPOdvM&t=119s)
-- [Branches](https://www.youtube.com/watch?v=FyAAIHHClqI)
-- [LazyGit Features](https://www.youtube.com/watch?v=CPLdltN7wgE&t=307s)
-- [LazyGit Rebasing](https://www.youtube.com/watch?v=4XaToVut_hs&t=150s)
-- [Manual Commands (Short)](https://www.youtube.com/watch?v=USjZcfj8yxE)
-- [Manual Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE)
-- [Theory](https://www.youtube.com/watch?v=2sjqTHE0zok)
+```
+https://git.overleaf.com/your-project-id
+```
+
+You will then be able to add the remote by making the appropriate substitution to the following:
+
+```
+git remote add overleaf https://git.overleaf.com/your-project-id
+```
+
+To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
 
 ## [Pull Requests](#Table-of-Contents)
 
@@ -341,5 +345,17 @@ ssh-add -K ~/.ssh/id_rsa
 ```
 
 If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
+
+## [Further Resources](#Table-of-Contents)
+
+If you are interested in finding out more about Git, the resources provided below are organized from the most immediately applicable to the most theoretical:
+
+- [Overview](https://www.youtube.com/watch?v=uXv4poPOdvM&t=119s)
+- [Branches](https://www.youtube.com/watch?v=FyAAIHHClqI)
+- [LazyGit Features](https://www.youtube.com/watch?v=CPLdltN7wgE&t=307s)
+- [LazyGit Rebasing](https://www.youtube.com/watch?v=4XaToVut_hs&t=150s)
+- [Manual Commands (Short)](https://www.youtube.com/watch?v=USjZcfj8yxE)
+- [Manual Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE)
+- [Theory](https://www.youtube.com/watch?v=2sjqTHE0zok)
 
 
