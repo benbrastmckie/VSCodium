@@ -26,8 +26,8 @@ The configuration will not (and should not) include any personal or private data
 
 The next subsections will describe the following two ways to use Git to backup your configuration:
 
-- [Option 1](#Option-1:-VSCodium): Use Git within VSCodium to add a fork of this repository as a remote, pulling down changes.
-- [Option 2](#Option-2:-Git-CLI): Use the Git CLI (command line interface) from the terminal to clone the contents of your fork into the appropriate directory on your machine.
+- [Option 1](#Option-1-VSCodium): Use Git within VSCodium to add a fork of this repository as a remote, pulling down changes.
+- [Option 2](#Option-2-Git-CLI): Use the Git CLI (command line interface) from the terminal to clone the contents of your fork into the appropriate directory on your machine.
 
 In addition to being easier, the first option will provide an opportunity to practice using Git from within VSCodium which will make it easy to continue using Git from VSCodium in the future.
 The second option has been included only for completeness so that you can get some sense of what VSCodium is automating for you, giving you a better sense of what Git is actually doing to manage your project as it changes.
