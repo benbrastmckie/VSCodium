@@ -40,8 +40,8 @@ The SSH Key will allow you to push and pull changes from your remote repository 
 Although it is recommended that you take the time to set up an SSH Key now as described in the [SSH Key](#SSH-Key) section below (should only take a few minutes), this is step is optional.
 If you have not created an SSH Key, copy the HTTPS address to the clipboard upon clicking `Code`.
 
-Open `setting.json` in VSCodium with `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'. 
-Right-click on the file tab to 'Copy Path' for the `settings.json` file.
+Open `setting.json` in VSCodium with `ctrl + shift + p` and typing "Preferences: Open User Settings (JSON)". 
+Right-click on the file tab to "Copy Path" for the `settings.json` file.
 Open the "Explorer" tab on the top left, navigating to the directory which contains `settings.json` provided by the path you just copied.
 Note that you may need to show hidden files by right-clicking inside the search menu that VSCodium will open.
 
@@ -65,13 +65,13 @@ git config --global user.email "your_email@example.com"
 ```
 
 Once this information has been provided, you should be able to push the changes that you make to your configuration so that they are available to pull down from anywhere.
-To do so, look in the bottom left corner of VSCodium where you will see the branch that you are on currently, clicking the current branch and changing to 'master'.
+To do so, look in the bottom left corner of VSCodium where you will see the branch that you are on currently, clicking the current branch and changing to "Master".
 Next, click on the three dots in the top right corner of the "Source Control" tab to select `Pull, Push -> Pull`.
 By changing back to the "Explorer" tab you should be able to see a host of new files that you have just pulled down.
 Open `settings.json` to confirm that this file has been populated with settings.
 
 If you go on to make any changes to your configuration, you can save the changes and then open the "Source Control" tab, adding a message, and "committing" your changes (this creates a save point in its history).
-Once committed, you can click 'Sync' to automatically pull and push changes from/to your remote.
+Once committed, you can click "Sync" to automatically pull and push changes from/to your remote.
 Note that you will either have to add an [SSH key](#SSH-Key) and link your GitHub account to VSCodium or enter your GitHub password each time you sync.
 
 > **Note:** If you forked this repository, you are no longer tethered to the original repository that you forked, allowing each of these repositories to evolve independently.
@@ -83,10 +83,10 @@ Note that you will either have to add an [SSH key](#SSH-Key) and link your GitHu
 
 For completeness, here is the manual option, using the standard Git command line interface (CLI).
 
-Open VSCodium, hitting `ctrl + shift + p` and typing 'Preferences: Open User Settings (JSON)'.
+Open VSCodium, hitting `ctrl + shift + p` and typing "Preferences: Open User Settings (JSON)".
 Once open, you can hover the mouse over the `settings.json` file to see its path.
-Right-click the tab and select 'Copy Path' or hit `alt + ctrl + c` to do the same.
-Open the terminal (separately or in VSCodium with `ctrl + backtick`) and run the following commands, replacing `PATH/TO` with the copied path minus 'settings.json' (often `ctrl + shift + v` is required to paste in the terminal):
+Right-click the tab and select "Copy Path" or hit `alt + ctrl + c` to do the same.
+Open the terminal (separately or in VSCodium with `ctrl + backtick`) and run the following commands, replacing `PATH/TO` with the copied path minus "settings.json" (often `ctrl + shift + v` is required to paste in the terminal):
 
 ```
 cd PATH/TO/
@@ -135,73 +135,80 @@ git commit -m "commit message of your choice"
 git push origin master
 ```
 
-Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you as described above in [Option 1](#Option-1:-VSCodium)
+Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you as described above in [Option 1](#Option-1-VSCodium)
 
 ## [Version Control](#Table-of-Contents)
 
 Git is integrated into VSCodium by default, providing convenient utilities for:
+
   - Maintaining a history of all versions of your project.
-  - Backing up the project on free repositories online.
+  - Backing up the project in a repository online for free.
   - Managing different ways of developing the project in branches.
   - Working on the same project from different computers.
   - Collaborating with others on a shared project.
+
 The following subsection will describe some of the basic protocols for using Git effectively in VSCodium.
 
 ### Initialize Repository
 
 In order to use Git to track a project, make sure you are in the right project directory by opening the "Explorer" tab.
-Next, you can open the "Source Control" tab, selecting 'Initialize Repository'.
+Next, you can open the "Source Control" tab, selecting "Initialize Repository".
 
 > **Note:** Alternatively, you can click "Publish to GitHub" to both create a local repository and to add a remote repository on GitHub.
 > You will be asked to verify your account, select between public and private for the repository you are creating, and will be given the option to have Git occasionally fetch (detecting if there have been changes) which you can accept.
+> You may need to enter your GitHub password or else add an [SSH Key](#SSH-Key) as described below.
+
+Look in the bottom left corner of VSCodium where you will see which branch you are on currently, clicking the current branch and change to "Master".
 
 ### Staging Changes
 
 As you make changes, you can commit those changes locally by first staging them.
-In the "Source Control" tab you will see all modified files (indicated with an 'M').
+In the "Source Control" tab you will see all modified files (indicated with an "M").
 If you click on the file, you can see the changes that have been made.
-If you click the '+', all changes will be staged.
-If you click the arrow, all changes will be discarded.
+Not all changes need to be staged and committed at once.
+If you do want to stage all changes for a new commit, click the "+".
+If you click the arrow, all changes will be permanently discarded.
 
 ### Making Commits
 
-Once you have staged the changes that you want to commit (you don't have to stage everything), you can add a short message and click "Commit".
-It is good practice to add make commits often, marking any milestone in the project.
+Once you have staged the changes that you want to commit, you can add a short message and click "Commit".
+It is good practice to add make commits often, marking any milestone in the project or what you are in the middle of before transitioning to something else.
 
 ### Ignoring Files
 
-Open the "Extensions" tab and install the 'gitignore' plugin.
-After restarting VSCodium, you will be able to ignore files by opening them and hitting `Ctrl + Shift + p` and typing 'Git: add to .gitignore' and hitting `Return`.
-Ignore all files are not text files (e.g., PDFs) as well as those which you do not wish to track.
+Open the "Extensions" tab and install the "gitignore" plugin.
+After restarting VSCodium, you will be able to ignore files by opening them and hitting `Ctrl + Shift + p` and typing "Git: add to .gitignore" and hitting `Return`.
+In general, you should ignore all files that are not text files (e.g., `.pdf` files) as well as those which you do not wish to track the changes of (e.g., `.aux` files, etc.).
 
 > **Note:** If you accidentally ignore a file that you did not mean to, open the `.gitignore` file in the "Explorer" tab, deleting the appropriate line (at the end) which names the file or directory that you accidentally ignored.
 
 ### Diff Commits
 
-If you open the "Source Control" tab, under 'main' you should see the commit history.
+If you open the "Source Control" tab, under "Main" you should see the commit history.
 Clicking on a commit should reveal all files included in that commit.
-Clicking on a file will show the `diff`, i.e., what changes at that commit.
+Clicking on a file will show the `diff`, i.e., what changed at that commit in the file's history.
+
+### Creating Remote Repositories
+
+If you have not already created a repository for your current project, you will need to do so now by navigating to your account on GitHub and clicking the "Repositories" tab, followed by clicking the "New" button in green on the top right.
+You will be asked to add a name, description, and select between "Private" and "Public".
+Once you have created your repository, you can copy the address by clicking the "Code" button on the top right and selecting "SSH" if you have an [SSH Key](#SSH-Key) as described below, or "HTTPS" otherwise, copying the link to the clipboard.
 
 ### Adding Remote Repositories
 
 If you have not already published to GitHub, you can add a remote repository at any point by clicking the three dots in the top right corner of the "Source Controls" tab, followed by `Remote -> Add Remote`.
-You will then need to add a URL, or select "Add Remote from GitHub" which (assuming you have linked VSCodium to GitHub) will present all of the repositories that you have already created.
+You will then need to add the URL copied in the previous step, or else select "Add Remote from GitHub" which (assuming you have linked VSCodium to GitHub) will present all of the repositories that you have already created.
 You may then choose a remote name (can be the same as on GitHub).
-
-If you have not already created a repository for your current project, you will need to do so now by navigating to your account on GitHub and clicking the "Repositories" tab, followed by clicking the 'New' button in green on the top right.
-You will be asked to add a name, description, and select between 'Private' and 'Public'.
-Once you have created your repository, you can copy the address by clicking the 'Code' button on the top right and selecting 'HTTPS' and copying the link to the clipboard.
-You can then past this address into VSCodium after selecting `Remote -> Add Remote` as described just above.
 
 ### Pushing Changes
 
 You should always make sure to pull changes before pushing.
-VSCodium streamlines this process by adding a 'Sync' button which is activated once you commit new changes.
+VSCodium streamlines this process by adding a "Sync" button which is activated once you commit new changes.
 
 ### Pulling Changes
 
 Pulling down changes is typically just as easy as pushing changes.
-Assuming new changes have been made to the remote repository, VSCodium will detect the existence of these changes, presenting you with the option to 'Sync' as before.
+Assuming new changes have been made to the remote repository, VSCodium will detect the existence of these changes, presenting you with the option to "Sync" as before.
 
 ### Merge Conflicts
 
@@ -213,35 +220,48 @@ To do so, open the terminal in VSCodium with `Ctrl + backtick` and enter:
 git config pull.rebase false
 ```
 
-You can then try to click 'Sync' again.
-If there is a merge conflict, you will have to edit the files which have conflicts, removing the erroneous lines used to mark the conflicts.
+You can then try to click "Sync" again.
+If there is a merge conflict, you will have to edit the files which have conflicts by searching throughout for "HEAD", removing the erroneous lines used to mark the conflicting blocks.
 VSCodium will provide links which may streamline this process, but you can also make these changes manually, committing the changes once you have finished.
 
 ### Creating Branches
 
 If you click the branches tab in the bottom left corner, a drop-down menu will appear giving you the option to create a new branch.
 You can then develop your project on this new branch, publishing it to GitHub to keep it backed up.
-If the changes that you make in your branch don't end up working out, you can always switch back to the 'Main' branch, saving the branch you created to perhaps return to later.
+If the changes that you make in your branch don't end up working out, you can always switch back to the "Master" branch (sometimes also called "Main"), saving the branch you created to perhaps return to later.
 
 ### Merging Branches
 
-Once you are satisfied with the development of your branch, you can merge those changes back into the 'Main' branch.
-To do so, select the 'Main' branch in the lower left corner.
+Once you are satisfied with the development of your branch, you can merge those changes back into the "Master" branch.
+To do so, select the "Master" branch in the lower left corner.
 Then select the three dots in the top right of the "Source Controls" tab, clicking `Branch -> Merge`.
-You will then be given the chance to select the branch that you want to merge into 'Main', adding the commits from the selected branch to 'Main'.
-Once you have merged your branch into 'Main', you are free to delete that branch with `Branch -> Delete Branch` after clicking the three dots in "Source Controls".
+You will then be given the chance to select the branch that you want to merge into "Master", adding the commits from the selected branch to "Master".
+Once you have merged your branch into "Master", you are free to delete that branch with `Branch -> Delete Branch` after clicking the three dots in "Source Controls".
+There is typically no good reason to save branches that you have merged.
 
 If you published your branch to GitHub, it will remain on GitHub.
 At some point you may want to delete old branches so that it is easier to find branches that you may wish to return to develop further.
 
 ## [Collaborating with Git](#Table-of-Contents)
 
-In order to add a collaborator to an existing repository, open the repository in GitHub and navigate to `Settings -> Manage acess` and click `invite a collaborator`, entering their GitHub username or email address.
-Your collaborator will then be able open the repo in GitHub, copying the address by clicking the `Code` drop-down menu, selecting SSH, and hitting the icon for copy-to-clipboard.
-They may then navigate in the terminal to the directory in which they want the project folder to live with:
+In order to add a collaborator to an existing repository, open the repository in GitHub and navigate to `Settings -> Manage acess` and click `Invite a collaborator`, entering their GitHub username or email address.
+Your collaborator will then be able open the repository on GitHub, copying the address by clicking the `Code` drop-down menu, selecting SSH (or HTTPS if they have not set up an [SSH Key](#SSH-Key)), and clicking the icon to copy the link to the clipboard.
+
+- [Option 1](#Option-1-VSCodium): Use Git within VSCodium to clone the repository.
+- [Option 2](#Option-2-Git-CLI): Use the Git CLI (command line interface) to clone the repository.
+
+Although Option 1 is easier if your collaborator is also using VSCodium, Option 2 has been included for completeness.
+
+### Option 1: VSCodium
+
+To be continued...
+
+### Option 2: Git CLI
+
+They may then navigate in the terminal to the desired project directory with:
 
 ```
-cd ~/<path to folder where the project folder should live>
+cd ~/path/to/project/directory
 ```
 
 The collaborator may then pull down the repo by running:
@@ -254,8 +274,6 @@ By then running `ls -a` in the terminal, the collaborator may check whether the 
 If the collaborator is using the same configuration, then the project may be edited by moving into the project directory with `cd <project directory name>`, running `nvim` and hitting `<space>e` to open the explorer in the project folder, selecting the files to be edited.
 However, even without using the present configuration of NeoVim, collaborators may avoid manually entering git commands by running LazyGit in the terminal.
 In order to install LazyGit and add an SSH key, follow the instructions provided in the [README.md](https://github.com/benbrastmckie/.config/blob/master/README.md).
-
-### Git Protocol
 
 Assume collaborator A creates a repo inviting collaborator B as above.
 Upon first cloning the repo, collaborator B will be up to date with the remote repository on GitHub, and may begin making changes.
@@ -273,18 +291,6 @@ These are to be negotiated by both collaborators running the following procedure
 - Push these commits to the remote repository by hitting `P`.
 
 In order to reduce the number of conflicts, collaborators can may choose to avoid working on the same parts of the project, though this is not required.
-
-### GitHub CLI
-
-Especially while collaborating with others on a common project, it is convenient to use GitHub Issues in order to facilitate exchange the development of the project.
-Although one could attempt to limit all such exchange to a Markdown file in a shared repository, such files can quickly become cluttered or overlooked.
-By contrast, GitHub Issues allows collaborators to exchange ideas in an exchange of markdown files, where each thread corresponds to a given issue.
-
-GitHub Cli allows you to submit new issues to a repository without leaving the terminal.
-Accordingly, I have included a mapping in Which-Key to permit users to easily create and log a new issue without leaving the project they are working on.
-GitHub Cli also permits users to create pull-requests, along with a range of further features, and is currently being actively developed.
-However, assuming that all collaborators of a shared repo will have administrator access, there is no need for pull-requests, and so I have not included further mappings, though one could easily do so.
-In order to include this functionality in your configuration, refer to the **GitHub Cli** section in the [installation instructions](https://github.com/benbrastmckie/.config/blob/master/README.md) for setting up Git for use in NeoVim.
 
 ## [Overleaf](#Table-of-Contents)
 
@@ -341,18 +347,20 @@ If your SSH key stops working after rebooting, run the following command:
 ssh-add -K ~/.ssh/id_rsa
 ```
 
-If you get an error, retry the command above with a lower-case 'k' or without the 'K' altogether.
+If you get an error, retry the command above with a lower-case "k" or without the "K" altogether.
 
 ## [Further Resources](#Table-of-Contents)
 
 If you are interested in finding out more about Git, the resources provided below are organized from the most immediately applicable to the most theoretical:
 
-- [Overview](https://www.youtube.com/watch?v=uXv4poPOdvM&t=119s)
-- [Branches](https://www.youtube.com/watch?v=FyAAIHHClqI)
-- [LazyGit Features](https://www.youtube.com/watch?v=CPLdltN7wgE&t=307s)
-- [LazyGit Rebasing](https://www.youtube.com/watch?v=4XaToVut_hs&t=150s)
-- [Manual Commands (Short)](https://www.youtube.com/watch?v=USjZcfj8yxE)
-- [Manual Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE)
-- [Theory](https://www.youtube.com/watch?v=2sjqTHE0zok)
+- [Brief Overview](https://www.youtube.com/watch?v=hwP7WQkmECE): Git in 100 seconds
+- [Conceptual Overview](https://www.youtube.com/watch?v=e9lnsKot_SQ): Git in 4 minutes
+- [Overview 1](https://www.youtube.com/watch?v=z5jZ9lrSpqk): how to use Git in VS Code (same as VSCodium)
+- [Overview 2](https://www.youtube.com/watch?v=i_23KUAEtUM&t=3s): official guided tour in VS Code (same as VSCodium)
+- [Overview 3](https://www.youtube.com/watch?v=Xe9OA18PF_o): installing Git in Windows, adding gitignore and githistory plugins
+- [CLI Commands (Short)](https://www.youtube.com/watch?v=USjZcfj8yxE): how to use Git in the terminal
+- [CLI Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE): how to use Git in the terminal
+- [Theory (Short)](https://www.youtube.com/watch?v=RxHJdapz2p0): Git under the hood
+- [Theory (Long)](https://www.youtube.com/watch?v=2sjqTHE0zok): Git under the hood
 
 
