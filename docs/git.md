@@ -319,7 +319,10 @@ Alternatively, your collaborator can create a "Pull Request" on GitHub as descri
 
 ## [Pull Requests](#Table-of-Contents)
 
-To be continued... 
+Pull requests are a convenient way to request for your changes to be reviewed and merged into the "Master" branch.
+To create a new pull request, go to the GitHub repository online, clicking the "Pull Request" tab and select "New Pull Request".
+If you have previously created and pushed a feature branch, you may now select that feature branch to compare with the "Master" branch.
+You may now provide a description of the changes that the branch include, submitting the pull request.
 
 ## [Overleaf](#Table-of-Contents)
 
@@ -329,17 +332,16 @@ Open Overleaf, click on the Git icon or go to `Menu -> Git -> Sync` and get the 
 https://git.overleaf.com/your-project-id
 ```
 
-You will then be able to add the remote by making the appropriate substitution to the following:
+You will then be able to add the remote in the same way described above in [Adding Remote Repositories](#Adding-Remote-Repositories) described above.
+Alternatively, you can open the terminal with `ctrl + backtick` and run the following command after substituting the appropriate URL:
 
 ```
 git remote add overleaf https://git.overleaf.com/your-project-id
 ```
 
-To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
+Once you have added the remote, you can proceed in the manner described above in the [Version Control](#Version-Control) section above.
 
 ## [SSH Key](#Table-of-Contents)
-
-> **Note:** It is possible to link your GitHub account to VSCodium, obviating the need for an SSH key in most cases.
 
 If you have not already, you can add an SSH key by amending and running the following in the terminal:
 
