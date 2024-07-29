@@ -58,10 +58,11 @@ You can then enter the address copied to the clipboard from before, naming the r
 > After pulling down the configuration, you can go on to delete the `settings.json` file that you just pulled down, changing the name of `save.settings.json` back to `settings.json`.
 
 If you have not done so already, you will also need to configure Git by adding your email (whatever you used to open a GitHub account).
-To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following:
+To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following two commands, replacing "Your Name" and "your.email@example" with the same information you provided in your GitHub account:
 
 ```
-git config --global user.email "your_email@example.com"
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
 ```
 
 Once this information has been provided, you should be able to push the changes that you make to your configuration so that they are available to pull down from anywhere.
@@ -254,43 +255,71 @@ Although Option 1 is easier if your collaborator is also using VSCodium, Option 
 
 ### Option 1: VSCodium
 
-To be continued...
+Your collaborator will need to clone the repository which they can do by opening the "Source Control" tab and clicking "Clone Repository", entering the URL for the repository copied in the previous step.
+After selecting the appropriate directory to store the cloned repository, your collaborator can proceed to create a new branch in order to contribute to the repository.
+To do so, click on the branch icon in the bottom left corner, selecting "Create new branch", giving it an appropriate name for the changes that your collaborator intends to make.
+
+Once the branch is created, you collaborator can proceed as described above in [Version Control](#Version-Control) by:
+
+  - Making changes
+  - Staging the changes by clicking the "+" icon in the "Source Control" tab
+  - Adding a commit message
+  - And clicking the check mark to commit the staged changes.
+
+You collaborator may then push the branch to GitHub by clicking on the `...` menu in the "Source Control" tab and selecting "Push".
+Since this is a new branch, your collaborator will have to confirm that they want to publish the branch to GitHub.
+
+The new branch complete with all of its changes is now ready for review by all collaborators on the project.
+If the branch evolves to a point where it achieves what it was aiming to contribute, your collaborator can proceed to merge the changes into the "Master" branch as described in [Version Control](#Version-Control) above.
+Alternatively, your collaborator can create a [Pull Request](#Pull-Requests) as described below if they do not have privileges to merge the changes into "Master" themselves, or in order to request that their changes be reviewed before those changes are merged.
 
 ### Option 2: Git CLI
 
-They may then navigate in the terminal to the desired project directory with:
+If your collaborator wishes to use Git in the terminal to contribute changes, then may begin by navigating in the terminal to their desired project directory with:
 
 ```
 cd ~/path/to/project/directory
 ```
 
-The collaborator may then pull down the repo by running:
+The collaborator may then pull down the repository by running:
 
 ```
-git clone <address from the clipboard>
+git clone /address/from/clipboard/copied/above
 ```
 
 By then running `ls -a` in the terminal, the collaborator may check whether the project directory has appeared.
-If the collaborator is using the same configuration, then the project may be edited by moving into the project directory with `cd <project directory name>`, running `nvim` and hitting `<space>e` to open the explorer in the project folder, selecting the files to be edited.
-However, even without using the present configuration of NeoVim, collaborators may avoid manually entering git commands by running LazyGit in the terminal.
-In order to install LazyGit and add an SSH key, follow the instructions provided in the [README.md](https://github.com/benbrastmckie/.config/blob/master/README.md).
+Your collaborator may then create a new branch replacing "feature-branch" with an appropriate name for their branch given the changes they intend to make:
 
-Assume collaborator A creates a repo inviting collaborator B as above.
-Upon first cloning the repo, collaborator B will be up to date with the remote repository on GitHub, and may begin making changes.
-At the same time, collaborator A may also make changes, leading to possible conflicts.
-These are to be negotiated by both collaborators running the following procedure in order to make and commit changes to the project.
+```
+git checkout -b feature-branch
+```
+After making any changes to the project, your collaborator can stage all changes with the following command (or else replacing `.` with the files that they wish to stage):
 
-- Open LazyGit, checking in the local branches window whether the right-most number next to the active branch marked by a `*` is 0.
-- If the right-most number is greater than 0, pull down the most recent commits by hitting `p`.
-- If there are conflicts, hit `<return>` upon being asked by LazyGit whether to proceed.
-- Close LazyGit, searching through the files with conflicts for `HEAD`, choosing which alternative is preferable and deleting the other alternative along with all marker syntax.
-- Once all conflicts have been resolved, return to LazyGit.
-- Attempting to stage the files with conflicts should register a message which asks if all conflicts have been resolved, where hitting `<return>` will stage the file in question.
-- If conflicts remain, the staging will fail, requiring that you return to resolve whatever conflicts have been missed, perhaps in another file in the project.
-- Once the staging is successful, commit the changes with `c` noting that you have resolved conflicts in your message in addition to noting the most recent changes you made to the project.
-- Push these commits to the remote repository by hitting `P`.
+```
+git add .
+```
 
-In order to reduce the number of conflicts, collaborators can may choose to avoid working on the same parts of the project, though this is not required.
+You collaborator can then commit the staged changes with the following two commands, replacing "feature-branch" with the name of the branch that they created before:
+
+```
+git commit -m "Replace with an appropriate description of the changes"
+git push origin feature-branch
+```
+
+If the branch evolves to a point where it achieves what it was aiming to contribute, your collaborator can proceed to merge the changes into the "Master" branch by switching to the "Master" branch and pulling the changes they just pushed with:
+
+```
+git checkout master
+git pull origin master
+git merge feature-branch
+```
+
+Note that you may need to resolve any merge conflicts as described in [Version Control](#Version-Control) above.
+Alternatively, your collaborator can create a "Pull Request" on GitHub as described below if they do not have privileges to merge the changes into "Master" themselves, or in order to request that their changes be reviewed before those changes are merged.
+
+## [Pull Requests](#Table-of-Contents)
+
+To be continued... 
 
 ## [Overleaf](#Table-of-Contents)
 
@@ -307,10 +336,6 @@ git remote add overleaf https://git.overleaf.com/your-project-id
 ```
 
 To be continued... (If anyone wants to add the rest of these details, that would be much appreciated. Please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).)
-
-## [Pull Requests](#Table-of-Contents)
-
-To be continued... 
 
 ## [SSH Key](#Table-of-Contents)
 
@@ -362,5 +387,3 @@ If you are interested in finding out more about Git, the resources provided belo
 - [CLI Commands (Long)](https://www.youtube.com/watch?v=8JJ101D3knE): how to use Git in the terminal
 - [Theory (Short)](https://www.youtube.com/watch?v=RxHJdapz2p0): Git under the hood
 - [Theory (Long)](https://www.youtube.com/watch?v=2sjqTHE0zok): Git under the hood
-
-
