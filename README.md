@@ -1,6 +1,6 @@
 # [Introduction](#Table-of-Contents)
 
-This repository gathers resources for using [VSCodium](https://vscodium.com/) (the private but otherwise identical version of [VS Code](https://code.visualstudio.com/)) to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), or any programming languages that you might want to use.
+This repository gathers resources for using [VSCodium](https://vscodium.com/) (the open source and **private** but otherwise identical version of [VS Code](https://code.visualstudio.com/)) to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), or any programming languages that you might want to use.
 VSCodium offers a nice suite of features while being extremely accessible and easy to configure.
 By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern text editor (e.g., LSP support, snippets, Git integration, syntax highlighting, etc.), Overleaf is limited to the browser and requires internet access, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
