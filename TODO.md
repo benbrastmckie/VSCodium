@@ -1,0 +1,28 @@
+# TODO
+
+- [.] `README.md`
+  - [ ] toolchain
+    - [ ] markdown
+      - [ ] zotero add-on
+      - [ ] obsidian
+      - [ ] todo list
+    - [ ] pandoc
+    - [ ] templates
+      - [ ] edit
+      - [ ] plugin
+    - [ ] snippets
+      - [ ] edit
+      - [ ] plugin
+    - [ ] keybindings
+      - [ ] comments
+      - [ ] drag lines
+  - [x] revise `zotero.md`
+  - [x] revise `git.md`
+    - [x] version control
+    - [x] pull requests
+    - [x] overleaf
+  - [x] tone down ideology
+  - [x] divide into separate pages
+    - [x] mention forking once
+  - [x] how to open an issue
+  - [x] toc descriptions
