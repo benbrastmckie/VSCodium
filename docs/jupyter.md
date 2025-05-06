@@ -1,14 +1,6 @@
 # Jupyter Notebooks
 
-This document provides some overview of what a Jupyter Notebook is and how to
-use one. Theory specific information can be found in the `notebooks/README.md`
-document for the `model-checker` theories that you load with:
-
-```bash
-model-checker -l THEORY_NAME
-```
-
-The sections below provide some overview.
+> This document provides some overview of what a Jupyter Notebook is and how to use one.
 
 ## What is a Jupyter Notebook?
 
@@ -93,39 +85,15 @@ Jupyter Notebooks are stored as JSON files with the `.ipynb` extension, making
 them easily shareable and version-controllable, though the latter works best
 when combined with tools specifically designed to handle notebook versioning.
 
-# Installing and Using Jupyter Notebooks in VSCodium
+# Using Jupyter Notebooks in VSCodium
 
-## Installation Process
+## Creating a New Notebook
 
-### Step 1: Install Jupyter packages
-
-Open a terminal or command prompt and run:
-```
-pip install jupyter notebook ipykernel
-```
-
-### Step 2: Install Jupyter extension in VSCodium
-
-1. Open VSCodium
-2. Navigate to the Extensions view (click the Extensions icon in the Activity 
-   Bar or press Ctrl+Shift+X)
-3. Search for "Jupyter"
-   - Install the "Jupyter" extension by ms-toolsai in VSCodium
-   - Install the "Jupyter" extension by Microsoft in VSCodium
-
-## Creating and Using Jupyter Notebooks
-
-Open [exclusion_demo.ipynb](exclusion_demo.ipynb) and click 'Run All' to test.
-
-Note that each theory in the `model_checker/theory_lib/` has a `notebooks` directory with some demos and documentation.
-
-### Creating a New Notebook
-
-1. In VSCodium, press Ctrl+Shift+P to open the Command Palette
+1. In VSCodium, press `Ctrl+Shift+P` to open the Command Palette
 2. Type "Jupyter: Create New Blank Notebook" and select it
 3. Save the notebook with a .ipynb extension
 
-### Working with Notebooks
+## Working with Notebooks
 
 1. **Add a code cell:**
    - Click the "+ Code" button in the notebook toolbar
