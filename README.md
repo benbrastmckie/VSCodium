@@ -26,10 +26,6 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ![Screenshot of the configuration](images/latex.png)
 
-<!-- ### Markdown Screenshot -->
-<!---->
-<!-- ![Screenshot of the configuration](images/markdown.png) -->
-
 ## [Table of Contents](#Introduction)
 
 The follow sections will be devoted to installing and configuring VSCodium.
@@ -44,6 +40,7 @@ Additional documentation is provided for installing [LaTeX](https://github.com/b
   - [Markdown](#Markdown): use markdown to take notes and export quotes
   - [Pandoc](#Pandoc): convert between file types
   - [Python](#Python): install python along with some extensions
+  - [Jupyter Notebooks](#jupyter-notebooks): install python along with some extensions
 
 > **Note:** To facilitate navigation, headers are linked back to the table of contents given here.
 
@@ -156,6 +153,49 @@ To be continued...
 
 ## [Python](#Table-of-Contents)
 
-Install the 'Python' and 'Pylint' packages.
+If you are unsure if you have Python 3 already, run the following command in the terminal (open the terminal in VSCodium with `ctrl + backtick`):
 
-To be continued...
+```bash
+python3 --version
+```
+
+If you get a version number, that is the version you have installed.
+
+### Installation
+
+Install [Python 3](https://www.python.org/downloads/) for your operating system.
+Once this process completes, run the command given above to confirm installation by checking the version number.
+
+If you have not already, add the following extensions to VSCodium:
+
+- Python
+- Pylint
+
+These will allow you to easily run Python scripts as well as detect syntax/type errors.
+
+### Jupyter Notebooks
+
+[Jupyter Notebooks](https://jupyter.org/) provide an interactive way to write and execute code, create visualizations, and document your work all in one place. VSCodium offers excellent support for Jupyter Notebooks through extensions.
+You can find more information about Jupyter Notebooks in the [Jupyter Notebooks Documentation](docs/jupyter.md).
+
+To get started with Jupyter Notebooks in VSCodium:
+
+1. Install the required packages:
+```bash
+pip install jupyter notebook ipykernel
+```
+
+2. Install VSCodium extensions:
+   - Open the Extensions tab (`ctrl + shift + x`) and install the following extension:
+     * "Jupyter" by ms-toolsai (provides core Jupyter notebook support)
+   - Optional but recommended extensions:
+     * "Jupyter Keymap" by ms-toolsai (adds Jupyter keyboard shortcuts)
+     * "Jupyter Slide Show" (for creating presentations from notebooks)
+
+Once installed, you can:
+- Create new notebooks using `ctrl + shift + p` and typing "Jupyter: Create New Blank Notebook"
+- Open existing `.ipynb` files directly in VSCodium
+- Run code cells using `shift + enter`
+- Add markdown cells for documentation
+- View rich output including plots and visualizations directly in VSCodium
+
