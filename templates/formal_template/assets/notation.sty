@@ -1,0 +1,269 @@
+%!TEX root = LogicNotes.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{notation}[2025/02/15 Support for MIT logic texts]
+
+%%%%%%%%%%%%%%%%%%%%
+%%% INSTRUCTIONS %%%
+%%%%%%%%%%%%%%%%%%%%
+
+% This is where a collection of definitions have been provided for your convenience
+% Note that every definition has a name, and it is important that the name not conflict with others
+% The more definitions, the more we pollute the name space (using up possible good names)
+% Also, good collections definitions require good conventions (I will attempt to maintain these)
+% So it is a trade off between usability and complexity
+% If there is a definition you'd like to add, you are welcome to do so, but don't get carried away!
+
+%    ****************************************
+%    *         MATH PACKAGES                *
+%    ****************************************
+
+\usepackage{amsmath}            % Core math support
+\usepackage{amssymb}            % Additional math symbols
+\usepackage{mathtools}          % Enhancements for amsmath
+\usepackage{mathabx}            % Additional math alphabets
+\usepackage{stmaryrd}           % For \llbracket and \rrbracket
+\usepackage{colonequals}        % For := notation
+% amsthm is now loaded in formatting.sty
+\usepackage{lipsum}             % For generating dummy text/lorem ipsum
+\usepackage{lplfitch}           % Fitch-style proofs
+\usepackage{tikz}               % For commutative diagrams
+
+%    ****************************************
+%    *         OTHER DEFINITIONS            *
+%    ****************************************
+
+\makeatletter
+\newcommand{\superimpose}[2]{%
+  {\ooalign{$#1\@firstoftwo#2$\cr\hfil$#1\@secondoftwo#2$\hfil\cr}}}
+\makeatother
+
+%    ****************************************
+%    *         DELIMITERS & BRACKETS        *
+%    ****************************************
+
+% Basic delimiters
+\newcommand{\corner}[1]{\ulcorner#1\urcorner}                   % Corner quotes ⌜x⌝
+\newcommand{\ceil}[1]{\lceil#1\rceil}                           % Ceiling brackets ⌈x⌉
+\newcommand{\tuple}[1]{\langle#1\rangle}                        % Angle brackets ⟨x⟩
+\newcommand{\set}[1]{\lbrace#1\rbrace}                          % Set brackets {x}
+\renewcommand{\vert}[1]{\lvert#1\rvert}                         % Vertical bars |x|
+\renewcommand{\Vert}[1]{\ldbrack#1\rdbrack}                     % Double vertical bars ⟦x⟧
+\newcommand{\interpret}[2]{\lvert#2\rvert_{\scriptscriptstyle#1}} % Semantic brackets ⟦x⟧
+\newcommand{\concat}[2]{{#1}{\raisebox{4pt}{\smallfrown}}{#2}}  % Concatenation x⁀y
+\newcommand{\img}[1]{\mathtt{img}(#1)}                          % Relational Image
+
+%    ****************************************
+%    *         LOGICAL CONNECTIVES          *
+%    ****************************************
+
+% Basic logical symbols
+\def\eor{\ensuremath{\vee}}                % Disjunction ∨
+\def\eand{\ensuremath{\wedge}}             % Conjunction ∧  
+\def\eif{\ensuremath{\rightarrow}}         % Conditional →
+\def\eiff{\ensuremath{\leftrightarrow}}    % Biconditional ↔
+\def\enot{\ensuremath{\neg}}               % Negation ¬
+
+% Modal operators
+\newcommand{\sometimes}{\ensuremath \raisebox{1.3pt}{\rotatebox[origin=c]{180}{$\triangle$}}}    % Necessity □
+\newcommand{\always}{\ensuremath \raisebox{-1.3pt}{$\triangle$}}                           % Possibility ◇
+
+% Strict conditional symbol
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\strictif}{\mathrel}{symbolsC}{74}
+
+% Other logical symbols
+\newcommand{\down}[0]{{\downarrow}}        % Downarrow ↓
+\newcommand{\up}[0]{{\uparrow}}            % Uparrow ↑
+\newcommand{\veebf}{\ensuremath{\pmb{\vee}}}
+
+% Tense operators
+\newcommand{\TL}{\mathcal{L}^{\textsc{t}}}             % Tensed Language
+\newcommand{\TLI}{\mathcal{L}^{\textsc{t}}_\square}    % Tensed Language with Indeterminacy
+\newcommand{\past}{\mathpalette\superimpose{{\Diamond}{\raisebox{1.5pt}{\tiny \hspace{.4pt}\textsc{p}}}}}
+\newcommand{\Past}{\mathpalette\superimpose{{\Box}{\raisebox{1.2pt}{\tiny \textsc{p}}}}}
+\newcommand{\future}{\mathpalette\superimpose{{\Diamond}{\raisebox{1.5pt}{\tiny \textsc{f}}}}}
+\newcommand{\Future}{\mathpalette\superimpose{{\Box}{\raisebox{1.2pt}{\tiny \textsc{f}}}}}
+\newcommand{\Next}{\mathpalette\superimpose{{\bigcirc}{\raisebox{1.2pt}{\tiny \textsc{f}}}}}
+\newcommand{\Previous}{\mathpalette\superimpose{{\bigcirc}{\raisebox{1.2pt}{\tiny \textsc{p}}}}}
+\newcommand{\since}{\lhd}
+\newcommand{\until}{\rhd}
+\newcommand{\Inevitably}{\mathpalette\superimpose{{\Box}{\cdot}}}
+\newcommand{\inevitably}{\mathpalette\superimpose{{\Diamond}{\raisebox{.5pt}{$\cdot$}}}}
+
+
+% Bimodal systems
+\newcommand{\BL}{\mathcal{L}^{\textsc{b}}}             % Bimodal Language
+\newcommand{\BLP}{\mathcal{L}^{\textsc{b}}_+}             % Extended bimodal Language
+\newcommand{\BLC}{\mathcal{L}^{\textsc{b}}_\times}             % Bimodal Language with Montague modal
+\newcommand{\diamondtimes}{\mathpalette\superimpose{{\Diamond}{\raisebox{1.65pt}{\tiny $\times$}}}}
+\newcommand{\Relative}{\mathpalette\superimpose{{\Box}{\circ}}}
+\newcommand{\relative}{\mathpalette\superimpose{{\Diamond}{\raisebox{.5pt}{$\circ$}}}}
+
+% Mixed Operators
+\newcommand{\Openfuture}{\mathpalette\superimpose{{\Box}{\smalltriangleright}}}
+\newcommand{\Openpast}{\mathpalette\superimpose{{\Box}{\smalltriangleleft}}}
+\newcommand{\Will}{\mathpalette\superimpose{{\Box}{\raisebox{.7pt}{\tiny !}}}}
+\newcommand{\will}{\mathpalette\superimpose{{\Diamond}{\raisebox{1.1pt}{\tiny !}}}}
+\newcommand{\Could}{\mathpalette\superimpose{{\Box}{\raisebox{.7pt}{\tiny ?}}}}
+\newcommand{\could}{\mathpalette\superimpose{{\Diamond}{\raisebox{1pt}{\tiny ?}}}}
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\braket}[1]{\left\langle#1\right\rangle}
+\newcommand{\ketbra}[2]{\left|#1\right\rangle\left\langle#2\right|}
+
+%    ****************************************
+%    *         METALOGICAL SYMBOLS          *
+%    ****************************************
+
+% Function symbols
+\newcommand{\comp}[1]{\texttt{comp}(#1)}   % Complexity
+\newcommand{\wfs}[1]{\texttt{wfs}(#1)}     % Well-formed formulas
+\renewcommand{\max}[1]{\texttt{max}(#1)}   % Maximum
+\newcommand{\length}{\texttt{length}}      % Length
+
+%    ****************************************
+%    *         MATHEMATICAL SETS            *
+%    ****************************************
+
+% Number systems
+\newcommand{\N}{\mathbb{N}}                % Natural numbers ℕ
+\newcommand{\Z}{\mathbb{Z}}                % Integers ℤ
+\newcommand{\C}{\mathbb{C}}                % Complex numbers ℂ
+\newcommand{\D}{\mathbb{D}}                % Domain D
+\newcommand{\W}{\mathbb{W}}                % World set W
+
+% Calligraphic letters for sets and structures
+\newcommand{\A}{\mathcal{A}}               % Structure A
+\newcommand{\B}{\mathcal{B}}               % Structure B
+\newcommand{\F}{\mathcal{F}}               % Structure F
+\newcommand{\I}{\mathcal{I}}               % Structure I
+\newcommand{\J}{\mathcal{J}}               % Structure J
+\renewcommand{\P}{\mathcal{P}}             % Structure P
+\newcommand{\R}{\mathcal{R}}               % Structure R
+
+% Syntax and model theory
+\renewcommand{\L}{\mathcal{L}}             % Language L
+\newcommand{\M}{\mathcal{M}}               % Model M
+
+% Propositional logic symbols
+\newcommand{\PL}{\mathcal{L}}                       % Propositional Logic
+\newcommand{\SL}{\mathbb{L}}                        % Propositional Logic
+\newcommand{\PLmodels}{\vDash_{\textsc{pl}}}        % Propositional Logic
+\newcommand{\PLaxioms}{\mathcal{A}^{\textsc{pl}}}   % Propositional Logic
+\newcommand{\PLrules}{\mathcal{R}^{\textsc{pl}}}    % Propositional Logic
+\newcommand{\PLsystem}{\mathcal{F}_{\textsc{pl}}}   % Propositional Logic
+\newcommand{\PLproves}{\vdash_{\textsc{pl}}}        % Propositional Logic
+\newcommand{\PLlogic}{\Lambda_{\textsc{pl}}}        % Propositional Logic
+
+% Propositional logic symbols (Fitch)
+\newcommand{\PLP}{\mathcal{L}^+}                    % Propositional Logic
+\newcommand{\PLPmodels}{\vDash_{\textsc{pl}}^{+}}   % Propositional Logic
+\newcommand{\PLPaxioms}{\mathcal{A}^{\textsc{f}}}   % Propositional Logic
+\newcommand{\PLPrules}{\mathcal{R}^{\textsc{f}}}    % Propositional Logic
+\newcommand{\PLPsystem}{\mathcal{F}_{\textsc{f}}}   % Propositional Logic
+\newcommand{\PLPproves}{\vdash_{\textsc{f}}}        % Propositional Logic
+\newcommand{\PLPlogic}{\Lambda_{\textsc{f}}}        % Propositional Logic
+
+% % First-order logic symbols
+% \newcommand{\FOL}{\mathcal{L}^{\textsc{fol}}}       % First-Order Logic
+% \newcommand{\FOLmodels}{\vDash_{\textsc{fol}}}      % Propositional Logic
+% \newcommand{\FOLaxioms}{\mathcal{A}^{\textsc{fol}}} % Propositional Logic
+% \newcommand{\FOLrules}{\mathcal{R}^{\textsc{fol}}}  % Propositional Logic
+% \newcommand{\FOLsystem}{\mathcal{F}_{\textsc{fol}}} % Propositional Logic
+% \newcommand{\FOLproves}{\vdash_{\textsc{fol}}}      % Propositional Logic
+% \newcommand{\FOLlogic}{\Lambda_{\textsc{fol}}}      % Propositional Logic
+
+% First-order logic with identity symbols
+\newcommand{\FI}{\mathcal{L}^1}                     % First-Order Logic with Identity
+\newcommand{\FIproves}{\vdash_1}                    % First-Order Logic with Identity
+\newcommand{\FImodels}{\vDash_1}                    % First-Order Logic with Identity
+\newcommand{\FIaxioms}{\mathcal{A}^1}               % First-Order Logic with Identity
+\newcommand{\FIrules}{\mathcal{R}^1}                % First-Order Logic with Identity
+\newcommand{\FIsystem}{\mathcal{F}_1}               % First-Order Logic with Identity
+\newcommand{\FIlogic}{\Lambda_1}                    % First-Order Logic with Identity
+
+% Modal Logic derivation symbols
+\newcommand{\ML}{\mathcal{L}^{\square}}             % Modal Logic
+\newcommand{\MLproves}{\vdash_{\square}}            % Modal Logic
+\newcommand{\MLmodels}[1][]{\vDash_{#1}}            % Modal Logic
+\newcommand{\nMLmodels}[1][]{\nvDash_{#1}}            % Modal Logic
+\newcommand{\MLequiv}[1][]{\equiv_{#1}}            % Modal Logic
+\newcommand{\MLaxioms}{\mathcal{A}^{\square}}       % Modal Logic
+\newcommand{\MLrules}{\mathcal{R}^{\square}}        % Modal Logic
+\newcommand{\MLsystem}{\mathcal{F}_{\square}}       % Modal Logic
+\newcommand{\MLlogic}{\Lambda_{\square}}            % Modal Logic
+
+% Modal systems
+\newcommand{\K}{\mathcal{K}}                  % Normal modal logic
+\newcommand{\T}{\mathcal{T}}                  % Alethic
+\newcommand{\De}{\mathcal{D}}                 % Deontic
+\newcommand{\Sfour}{\mathcal{S}4}             % Alethic + Transitive 
+\newcommand{\Sfive}{\mathcal{S}5}             % Alethic + Euclidean
+\newcommand{\Q}{\mathcal{Q}}                  % Arbitrary
+
+% Modal proofs
+\newcommand{\Kproves}{\vdash_\K}              % System K
+\newcommand{\Tproves}{\vdash_\T}              % System T
+\newcommand{\Fourproves}{\vdash_{\Sfour}}     % System S4
+\newcommand{\Fiveproves}{\vdash_{\Sfive}}     % System S5
+\newcommand{\Dproves}{\vdash_\De}             % System D
+\newcommand{\Bproves}{\vdash_\B}              % System B
+\newcommand{\Qproves}{\vdash_\Q}              % Arbitrary
+
+% Variable and valuation notation
+\newcommand{\V}[1]{\mathcal{V}_{#1}}          % Valuation
+\newcommand{\VV}[2]{\mathcal{V}_{#1}^{#2}}    % Indexed valuation
+\newcommand{\ext}[3]{|#1|_{#2}^{#3}}          % Extension
+\newcommand{\va}[1]{\hat{#1}}                 % Variable with hat
+\renewcommand{\v}[1]{\mathbf{#1}}             % Bold variable
+
+
+%    ****************************************
+%    *         METALANGUAGE VARIABLES       *
+%    ****************************************
+
+% Greek letters for metavariables
+\def\metaA{\ensuremath{\varphi}}           % Meta-variable φ
+\def\metaB{\ensuremath{\psi}}              % Meta-variable ψ
+\def\metaC{\ensuremath{\chi}}              % Meta-variable χ
+\def\metaD{\ensuremath{\delta}}            % Meta-variable δ
+\def\metaG{\ensuremath{\gamma}}            % Meta-variable γ
+
+% Capital Greek letters for sets
+\def\MetaG{\ensuremath{\Gamma}}            % Meta-set Γ
+\def\MetaS{\ensuremath{\Sigma}}            % Meta-set Σ
+\def\MetaD{\ensuremath{\Delta}}            % Meta-set Δ
+\def\metaSetX{\ensuremath{\Gamma}}         % Meta-set X (Γ)
+\def\metaSetY{\ensuremath{\Sigma}}         % Meta-set Y (Σ)
+\def\metaSetZ{\ensuremath{\varPhi}}        % Meta-set Z (Φ)
+
+
+%    ****************************************
+%    *         MISCELLANEOUS                *
+%    ****************************************
+
+\newcommand{\qt}[2]{#1 #2}                 % Quantifier-variable pair styling
+\newcommand{\bref}[1]{\textbf{\ref{#1}}}   % Bold reference
+\newcommand{\unisub}[2]{[#1/#2]}
+\newcommand{\freesub}[2]{(#1/#2)}
+\newcommand{\qedp}{\hfill$\diamondsuit$}
+
+
+
+%    ****************************************
+%    *         TIKZ PICTURES                *
+%    ****************************************
+
+\usetikzlibrary{arrows.meta,positioning,calc}
+
+%% World styling for modal logic diagrams
+\tikzset{
+  world/.style={
+    draw,
+    circle,
+    thick,
+    minimum size=1em
+  },
+  arrow/.style={->, thick},
+  node distance=2cm
+}

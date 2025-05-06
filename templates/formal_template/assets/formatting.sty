@@ -1,0 +1,300 @@
+%!TEX root = LogicNotes.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{formatting}[2025/05/05 Support for MIT graduate seminar]
+
+%% ==========================================================
+%% =================== PACKAGE IMPORTS =====================
+%% ==========================================================
+
+%% ========== Bibliography and Citations ==========
+\usepackage[round]{natbib}       % Bibliography support
+\usepackage{bibentry}            % Inline bibliography entries
+\usepackage{verbatim}            % Verbatim text support
+\setcitestyle{aysep={}}
+ %   \citet{key} ==>>                Jones et al. (1990)
+ %   \citet*{key} ==>>               Jones, Baker, and Smith (1990)
+ %   \citep{key} ==>>                (Jones et al., 1990)
+ %   \citep*{key} ==>>               (Jones, Baker, and Smith, 1990)
+ %   \citep[chap. 2]{key} ==>>       (Jones et al., 1990, chap. 2)
+ %   \citep[e.g.][]{key} ==>>        (e.g. Jones et al., 1990)
+ %   \citep[e.g.][p. 32]{key} ==>>   (e.g. Jones et al., p. 32)
+ %   \citeauthor{key} ==>>           Jones et al.
+ %   \citeauthor*{key} ==>>          Jones, Baker, and Smith
+ %   \citeyear{key} ==>>             1990
+\usepackage{etoolbox}            % For \citepos and other command patching
+\usepackage{xstring}             % For string manipulation in \citepos
+
+%% ========== Font Configuration ==========
+\usepackage[T1]{fontenc}         % Required for accented characters
+\usepackage{lmodern}             % Latin Modern fonts
+\usepackage{mathpazo}            % Use Palatino font
+\usepackage{microtype}           % Micro-typographic refinements
+% \usepackage{bold-extra}        % Bold+small caps (uncomment if needed)
+
+%% ========== Layout and Structure ==========
+\usepackage{geometry}            % Page layout control
+\usepackage{multicol}            % Multiple column support
+\usepackage{adjmulticol}         % Enhanced multicol
+\usepackage{array}               % Enhanced table support
+\usepackage[breakable]{tcolorbox} % Colored boxes for answers
+\usepackage{enumitem}            % Customizable lists
+\usepackage{wrapfig}             % Wrapped figures
+\usepackage{setspace}            % Line spacing control
+\usepackage{titlesec}            % Section title formatting
+\usepackage{apptools}            % Appendix tools
+\usepackage{scrextend}           % For footnote customization
+\usepackage{amsthm}              % For theorem environments
+
+%% ========== Graphics and Color ==========
+\usepackage{graphicx}            % Image support
+\usepackage{adjustbox}           % Graphics adjustments
+\usepackage[dvipsnames]{xcolor}  % Color support
+% \usepackage{rotating}          % For rotating images and tables (uncomment if needed)
+
+%% ========== Header and Footer ==========
+\usepackage{fancyhdr}            % Header/footer customization
+\pagestyle{fancy}                % Use fancy page style
+\headsep=12pt                    % Separation between header and text
+\headheight=15pt                 % Height of the header
+
+%% ========== Hyperlinks (load last) ==========
+\usepackage[
+    linktocpage=true,
+    pdfusetitle
+]{hyperref}
+
+%% ==========================================================
+%% =================== CUSTOM COMMANDS =====================
+%% ==========================================================
+
+%% ========== Citation Commands ==========
+\makeatletter 
+% Define possessive citation command \citepos
+\DeclareRobustCommand\citepos{%
+  \begingroup
+   \let\NAT@nmfmt\NAT@posfmt% Same as for \citet but with possessive name format
+   \NAT@swafalse\let\NAT@ctype\z@\NAT@partrue
+   \@ifstar{\NAT@fulltrue\NAT@citetp}{\NAT@fullfalse\NAT@citetp}
+  }
+   
+\let\NAT@orig@nmfmt\NAT@nmfmt % Makes adaptation to last names ending with an 's'
+\def\NAT@posfmt#1{%
+  \StrRemoveBraces{#1}[\NAT@temp]%
+  \IfEndWith{\NAT@temp}{s}
+    {\NAT@orig@nmfmt{#1'}}
+    {\NAT@orig@nmfmt{#1's}}}
+\makeatother
+
+%% ========== Hyperlinked Section Commands ==========
+\newcommand{\hypsection}[1]{\section[#1]{\hyperlink{toc}{#1}}}            % Section that jumps back to TOC
+\newcommand{\hypsubsection}[1]{\subsection[#1]{\hyperlink{toc}{#1}}}      % Subsection that jumps back to TOC
+\newcommand{\hypsubsubsection}[1]{\subsubsection[#1]{\hyperlink{toc}{#1}}} % Subsubsection that jumps back to TOC
+
+%% ========== Footnote Formatting ==========
+% Custom footnote format: no indent, superscript marker with space after
+\deffootnote[1em]{0in}{1em}{\textsuperscript{\thefootnotemark \ }} 
+\setlength{\footnotesep}{0.125in} % Space between footnotes
+
+%% ========== Box Styling ==========
+% Default answer box colors - can be redefined in individual documents
+\definecolor{headercolor}{RGB}{235,241,233}  % Light olive green
+\definecolor{framecolor}{RGB}{106,142,95}    % Darker olive green
+\definecolor{URLblue}{RGB}{0,0,150}          % Hyperlink blue
+
+% Configure hyperlink colors
+\hypersetup{
+    colorlinks   = true,         % Use colored links instead of boxes
+    urlcolor     = URLblue,      % Color for external hyperlinks
+    linkcolor    = URLblue,      % Color of internal links
+    citecolor    = URLblue       % Color of citations
+}
+
+% Command to set answer box colors - takes two arguments:
+% #1: background color name or specification
+% #2: frame color name or specification
+\newcommand{\setanswerboxcolors}[2]{%
+  % Allow both named colors and direct RGB/etc specifications
+  \colorlet{headercolor}{#1}%
+  \colorlet{framecolor}{#2}%
+}
+
+% Predefined box for solutions
+\newcommand{\answer}[2]{%
+  \par\noindent
+  \begin{tcolorbox}[
+    colback=headercolor,
+    colframe=framecolor,
+    title={Solution\hfill\mbox{#1}},
+    before upper={\parindent=1em},
+    breakable,
+  ]
+    \noindent
+    #2
+  \end{tcolorbox}
+}
+
+% Additional box types
+\newcommand{\factoidbox}[1]{\begin{quote}\framebox{\parbox{\dimexpr\linewidth-3\fboxsep\relax}{#1}}\end{quote}}
+\newcommand{\tablefbox}[1]{\multicolumn{1}{|p{10em}|}{#1}}
+
+%% ========== Enumeration Settings ==========
+\setenumerate{label=(\arabic*), wide=\parindent} % Default enumeration style with parenthesized numbers
+
+%% ========== Title Customization ==========
+\makeatletter
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+
+% Define commands for class and problem set title/number
+\def\class#1{\gdef\@class{#1}}
+\def\pset#1{\gdef\@pset{#1}}
+% \def\@pset{\@latex@error{No \noexpand\pset given}\@ehc} % Error if \pset not set (uncomment if needed)
+
+\raggedbottom    % Put gaps at bottom of pages with insufficient content
+
+% Custom title format for academic papers matching old_template.tex exactly
+\newcommand{\papertitle}{
+  \vspace*{40pt} % Add vertical space to push title down the page
+  \begin{center}
+    {\sc \LARGE\@title} % Title in small caps, large font
+    %\thanks{} % Optional acknowledgment
+    \vspace{10pt}
+    
+    % {\sc \@class} % Class name in small caps
+    % \vspace{3pt}
+    
+    {\sc \@pset} % Problem set or project type
+    \vspace{3pt}
+    
+    {\it \@author} % Author in italics
+    \vspace{2pt}
+    
+    {\@date} % Date
+    \vspace{20pt}
+  \end{center}
+  \thispagestyle{empty} % No page number on title page
+  % \vspace{.1in} % Optional spacing (commented out by default)
+}
+
+% Command to set document header with author name
+\newcommand{\setheader}[1]{
+  \rhead{#1} % Right header
+  \renewcommand{\sectionmark}[1]{\markright{\thesection\ ##1}} % Left header command
+  \lhead{\nouppercase{$\S$\rightmark}} % Left header
+}
+
+% Sub-section spacing configuration
+\titlespacing*{\subsection}{\parindent}{.25in}{\wordsep} % Reduces spacing after headings
+
+%% ==========================================================
+%% =================== THEOREM ENVIRONMENTS ================
+%% ==========================================================
+
+%% ============ Proofs ==============
+
+%% Hilbert-style proof environment and commands
+\newcounter{hilbertline}
+\newenvironment{hilbert}{%
+  \setcounter{hilbertline}{0}%
+  \begin{list}{\arabic{hilbertline}.}%
+    {\usecounter{hilbertline}%
+     \setlength{\labelsep}{1em}%
+     \setlength{\leftmargin}{3em}%
+     \setlength{\itemsep}{0.5ex}%
+     \setlength{\parsep}{0pt}}%
+  \def\@inhilbert{true}% Mark that we're in hilbert environment
+}{%
+  \end{list}%
+}
+
+% Command for Hilbert-style proof lines with rule labels
+\newcommand{\from}[2]{%
+  \item $#2$ \hfill \textbf{#1}%
+}
+
+%% ============ Theorem Environments ==============
+
+% Theorem environment - for major results
+\newtheoremstyle{Tthm}
+{.3in}                % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font (default is "\upshape")
+{}                    % Indent amount
+{\bfseries}           % Theorem head font (default is \mdseries)
+{}                    % Punctuation after theorem head (default: no punctuation)
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Tthm}
+\newtheorem{Tthm}{}   % Theorem counter
+\renewcommand{\theTthm}{Theorem \arabic{section}.\arabic{Tthm}}% Section-based numbering
+
+% Lemma environment - for supporting propositions
+\newtheoremstyle{Lthm}
+{.3in}                % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font
+{}                    % Indent amount
+{\bfseries}           % Theorem head font
+{}                    % Punctuation after theorem head
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Lthm}
+\newtheorem{Lthm}{}   % Lemma counter
+\renewcommand{\theLthm}{Lemma \arabic{section}.\arabic{Lthm}}% Section-based numbering
+
+% Corollary environment - for results that follow directly from theorems
+\newtheoremstyle{Cthm}
+{.3in}                % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font
+{}                    % Indent amount
+{\bfseries}           % Theorem head font
+{}                    % Punctuation after theorem head
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Cthm}
+\newtheorem{Cthm}{}[] % Corollary counter
+\renewcommand{\theCthm}{Corollary \arabic{section}.\arabic{Cthm}}% Section-based numbering
+
+% Rule environment - for inference rules
+\newtheoremstyle{Rthm}
+{}                    % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font
+{}                    % Indent amount
+{\bfseries}           % Theorem head font
+{}                    % Punctuation after theorem head
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Rthm}
+\newtheorem{Rthm}{}[] % Rule counter
+\renewcommand{\theRthm}{Rule \arabic{section}.\arabic{Rthm}}% Section-based numbering
+
+% Proposition environment
+\newtheoremstyle{Pthm}
+{}                    % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font
+{}                    % Indent amount
+{\bfseries}           % Theorem head font
+{}                    % Punctuation after theorem head
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Pthm}
+\newtheorem{Pthm}{}[subsection]% Proposition counter (resets every subsection)
+\renewcommand{\thePthm}{Proposition \arabic{section}.\arabic{Pthm}}% Section-based numbering
+
+% Definition environment
+\newtheoremstyle{Dthm}
+{}                    % Space above
+{}                    % Space below
+{\normalfont}         % Theorem body font
+{}                    % Indent amount
+{\bfseries}           % Theorem head font
+{}                    % Punctuation after theorem head
+{4pt}                 % Space after theorem head
+{}                    % Theorem head spec
+\theoremstyle{Dthm}
+\newtheorem{Dthm}{}[subsection]% Definition counter (resets every subsection)
+\renewcommand{\theDthm}{Definition \arabic{section}.\arabic{Dthm}}% Section-based numbering
+
+\makeatother

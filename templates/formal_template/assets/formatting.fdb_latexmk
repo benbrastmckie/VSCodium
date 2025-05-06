@@ -1,0 +1,12 @@
+# Fdb version 4
+["pdflatex"] 1746489337.90402 "/home/benjamin/Documents/Philosophy/Teaching/MIT/ModalHistoryPrivate/final_projects/latex_example/assets/formatting.sty" "formatting.pdf" "formatting" 1746489338.09205 2
+  "/home/benjamin/.texlive2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1717968967 8222000 39528c6b94bef4461be6c5935aa3bb8f ""
+  "/home/benjamin/Documents/Philosophy/Teaching/MIT/ModalHistoryPrivate/final_projects/latex_example/assets/formatting.sty" 1746489337.76941 7513 9a22c8ef3b4f0c4b0fbd335482d5d77b ""
+  "/nix/store/axjdr5qxf4arirf2kqjf1wxfs3yk7ca8-texlive-combined-full-2023-final/share/texmf-var/web2c/texmf.cnf" 1 43155 8c7bb5bd0f60b5edbd9e20efe1b00841 ""
+  "formatting.aux" 1746489337.90341 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "formatting.sty" 1746489337.76941 7513 9a22c8ef3b4f0c4b0fbd335482d5d77b ""
+  (generated)
+  "formatting.aux"
+  "formatting.log"
+  "formatting.pdf"
+  (rewritten before read)

@@ -1,0 +1,293 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Final Project Template
+%% Course: The Modern History of Modal Logic at MIT
+%% Last Updated: May 2025
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper]{article}  % Document class with paper and font size
+
+%% Import style files - problem_set.sty contains most formatting
+\usepackage{assets/formatting}      % Main styling package
+\usepackage{assets/notation}         % Mathematical notation
+
+%% Document information
+\title{Project Title}                                % Document title
+\class{The Modern History of Modal Logic}             % Document title
+\author{Your Name}                                    % Author name (optional)
+\pset{--- Final Project ---}                                  % Course/assignment information
+\date{\today}                                         % Current date
+\setheader{MIT, The Modern History of Modal Logic}    % Set page header
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INSTRUCTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Please maintain the convention of one sentence for each numbered line.
+% Cite any texts or textbooks you referred to throughout.
+% Good to leave white space between sections to improve readability
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Print title
+\papertitle
+
+\begin{abstract}
+\noindent
+  Your abstract goes here.
+  This should be a brief summary of your project, outlining the problem and addressed and key findings.
+  (3 - 5 sentences)
+\end{abstract}
+\vspace{20pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MAIN CONTENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypsection{Introduction}
+  \label{sec:intro}
+
+% Your content goes here
+
+You may want to cite \citet{Carnap1947}, or include the page number where \citet[p.~7]{Prior1967} credits \citepos{Mctaggart1908} (passive) argument that time is unreal, but only if relevant.
+
+
+
+
+
+\hypsection{Using Formal Notation}
+  \label{sec:notation}
+
+%% MATHEMATICAL NOTATION
+% The notation.sty package provides many useful symbols
+% For example, you can use \always for the box operator and \sometimes for the diamond
+
+This is similar to the problem sets.
+For instance, $\Box \varphi \rightarrow \varphi$ is the T axiom.
+% You can also reference specific modal systems
+Use the appropriate commands defined in \texttt{notation.sty} such as $\K$, or define new commands as convenient.
+% Additional symbols for other logics are also available
+In tense logic, we use $\past$ for ``it was the case that'' and $\future$ for ``it is going to be the case that''.
+And so on.
+
+
+
+
+
+\hypsection{Using Theorem Environments}
+  \label{sec:theorems}
+
+%% DEFINITION ENVIRONMENT
+% Use the Dthm environment for formal definitions
+% The definition number is automatically generated as Definition section.number
+
+\begin{Dthm}{(Kripke Frame)} \label{def:kripke}
+  A \emph{Kripke frame} is a pair $\F = \tuple{\W, R}$ where:
+  \begin{enumerate}
+    \item $\W$ is a non-empty set of possible worlds
+    \item $R \subseteq \W \times \W$ is an accessibility relation on $\W$
+  \end{enumerate}
+\end{Dthm}
+
+% You can reference definitions elsewhere in your text:
+\noindent
+As we can see in \ref{def:kripke}, a Kripke frame consists of two components.
+
+
+
+
+%% LEMMA ENVIRONMENT  
+% Use the Lthm environment for lemmas that support your theorems
+% The lemma number is automatically generated as Lemma section.number
+
+\begin{Lthm} \label{lem:minor} % Always add a label for cross-referencing
+  A well-formed formula $\metaA$ is a theorem of $\K$ \textit{iff} \ldots
+\end{Lthm}
+
+\begin{proof}
+  This is a proof of a lemma.
+
+\end{proof}
+
+% You can cite lemmas using \ref:
+\ref{lem:minor} establishes an important cornerstone of...
+
+
+
+
+%% THEOREM ENVIRONMENT
+% Use the Tthm environment for theorems
+% The theorem number is automatically generated as Theorem section.number
+
+\begin{Tthm}{(Optional Name)} \label{thm:example} % Always add a label for cross-referencing
+  For any modal system $\K$, if $\metaA$ is a theorem, then $\Box\metaA$ is also a theorem.
+\end{Tthm}
+
+\begin{proof}
+  We know by \ref{lem:minor}...
+
+\end{proof}
+
+% To reference the theorem elsewhere in your text:
+As shown in \ref{thm:example}, the necessitation rule is fundamental to normal modal systems.
+
+
+
+
+%% COROLLARY ENVIRONMENT
+% Use the Cthm environment for results that follow directly from a theorem
+% The corollary number is automatically generated as Corollary section.number
+
+\begin{Cthm} \label{cor:s5}
+  In the modal system $\Sfive$, if $\Diamond\metaA$ is true at some world, then \ldots
+\end{Cthm}
+
+
+
+
+%% RULE ENVIRONMENT
+% Use the Rthm environment for inference rules
+% The rule number is automatically generated as Rule number
+
+\begin{Rthm}{(Some Inference)} \label{rule:mp}
+  From $\metaA$ and $\metaA \eif \metaB$, we may infer $\metaB$.
+\end{Rthm}
+
+% You can create a proof using the hilbert environment
+\begin{hilbert}
+  \from{Premise}{p \eand q}
+  \from{Premise}{p \eif r}
+  \from{$\eand$-Elimination}{p}
+  \from{Modus Ponens}{r}
+\end{hilbert}
+
+
+
+
+\hypsection{Modal Logic Diagrams}
+  \label{sec:diagrams}
+
+% This section demonstrates how to create Kripke frame diagrams using TikZ
+
+% The notation.sty file includes useful TikZ configurations for modal logic diagrams
+% World styling and arrow styling are predefined
+
+%% Basic reflexive world diagram (System T)
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    % Create a world with reflexive arrow
+    \node[world] (w) at (0,0) {$w$};
+    \draw[arrow, loop above] (w) to (w);
+    
+    % Add a label for the model
+    \node[above=0.5cm of w] {System T: Reflexive Accessibility};
+  \end{tikzpicture}
+  \caption{A model with a single reflexive world, characteristic of System T.}
+  \label{fig:t-model}
+\end{figure}
+
+%% S4 model diagram (transitive relation)
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    % Create three worlds in a row
+    \node[world] (w1) at (0,0) {$w_1$};
+    \node[world] (w2) at (2,0) {$w_2$};
+    \node[world] (w3) at (4,0) {$w_3$};
+    
+    % Add arrows showing accessibility
+    \draw[arrow] (w1) to (w2);
+    \draw[arrow] (w2) to (w3);
+    \draw[arrow, bend right=40] (w1) to (w3); % Transitive arrow
+    
+    % Add reflexive arrows
+    \draw[arrow, loop above] (w1) to (w1);
+    \draw[arrow, loop above] (w2) to (w2);
+    \draw[arrow, loop above] (w3) to (w3);
+    
+    % Add a label for the model
+    \node[below=0.5cm of w2] {System S4: Reflexive and Transitive Accessibility};
+  \end{tikzpicture}
+  \caption{A model with transitive accessibility relation, characteristic of System S4.}
+  \label{fig:s4-model}
+\end{figure}
+
+%% S5 model diagram (equivalence relation)
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    % Create three worlds in a triangle
+    \node[world] (w1) at (0,0) {$w_1$};
+    \node[world] (w2) at (3,0) {$w_2$};
+    \node[world] (w3) at (1.5,2) {$w_3$};
+    
+    % Add two-way arrows between all worlds (symmetry)
+    \draw[arrow, bend left=15] (w1) to (w2);
+    \draw[arrow, bend left=15] (w2) to (w1);
+    \draw[arrow, bend left=15] (w1) to (w3);
+    \draw[arrow, bend left=15] (w3) to (w1);
+    \draw[arrow, bend left=15] (w2) to (w3);
+    \draw[arrow, bend left=15] (w3) to (w2);
+    
+    % Add reflexive arrows (optional - often omitted in S5 diagrams)
+    % \draw[arrow, loop left] (w1) to (w1);
+    % \draw[arrow, loop right] (w2) to (w2);
+    % \draw[arrow, loop above] (w3) to (w3);
+    
+    % Add a label for the model
+    \node[above=0.5cm of w3] {System S5: Equivalence Relation};
+  \end{tikzpicture}
+  \caption{A model where all worlds access each other, characteristic of System S5.}
+  \label{fig:s5-model}
+\end{figure}
+
+%% Branching time model
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    % Create worlds representing timestamps
+    \node[world] (past) at (0,0) {$t_0$};
+    \node[world] (present) at (2,0) {$t_1$};
+    \node[world] (future1) at (4,1) {$t_2a$};
+    \node[world] (future2) at (4,-1) {$t_2b$};
+    
+    % Add arrows showing temporal accessibility
+    \draw[arrow] (past) to (present);
+    \draw[arrow] (present) to (future1);
+    \draw[arrow] (present) to (future2);
+    
+    % Add a label for the model
+    \node[below=1.25cm of present] {Branching Time Model};
+  \end{tikzpicture}
+  \caption{A branching time model with a single past and multiple possible futures.}
+  \label{fig:branching-time}
+\end{figure}
+
+% Example of referencing a figure
+As shown in Figure \ref{fig:s5-model}, System S5 can be represented as a fully connected graph where each world is accessible from every other world.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\begin{small}                                          % Smaller text for bibliography
+  \singlespacing                                       % Single-spaced bibliography
+  \bibliographystyle{assets/bib_style}              % Bibliography style
+  \setlength{\bibsep}{0.5pt}                           % Spacing between entries
+  \bibliography{assets/modal_history}               % Bibliography database
+  \thispagestyle{empty}                                % No page number
+\end{small}
+
+\end{document}

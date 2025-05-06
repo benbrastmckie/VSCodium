@@ -1,0 +1,5 @@
+PWD /home/benjamin/Documents/Philosophy/Teaching/MIT/ModalHistoryPrivate/final_projects/latex_example/assets
+INPUT /nix/store/axjdr5qxf4arirf2kqjf1wxfs3yk7ca8-texlive-combined-full-2023-final/share/texmf-var/web2c/texmf.cnf
+INPUT /home/benjamin/.texlive2023/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/benjamin/Documents/Philosophy/Teaching/MIT/ModalHistoryPrivate/final_projects/latex_example/assets/formatting.sty
+OUTPUT formatting.log
