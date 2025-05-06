@@ -133,6 +133,8 @@ To be continued...
 
 ## [Templates](#Table-of-Contents)
 
+I have included a number of LaTeX templates [here](templates/).
+
 To be continued... 
 
 > **Note:** If you are aware of a good plugin for managing template files, please feel free to submit a pull request by editing this [README.md](https://github.com/benbrastmckie/VSCodium/blob/master/README.md).
