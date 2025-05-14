@@ -1,6 +1,6 @@
 # Git
 
-[Git](https://git-scm.com/) is an extremely powerful and versatile tool for version controlling projects, managing the development of selected contents of your project's root directory, keeping their entire history backed up and synchronized between your local machine, a remote repository on GitHub or elsewhere, as well as the local machines of the other collaborators on the project if any.
+[Git](https://git-scm.com/) is a powerful and versatile tool for version controlling projects, managing the development of selected contents of your project's root directory, keeping their entire history backed up and synchronized between your local machine, a remote repository on GitHub or elsewhere, as well as the local machines of any other collaborators on the project.
 The following sections will introduce some of the most basic functionality that Git provides, describing specific functions that Git provides for maintaining your configuration and version controlling your projects, perhaps in collaboration with others:
 
 - [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up.
