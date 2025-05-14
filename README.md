@@ -62,7 +62,7 @@ You can even install a NeoVim plugin (by asvetliakov) to simulate the Vim motion
 Here are some additional [resources](https://github.com/benbrastmckie/.config/blob/master/CheatSheet.md#Learning-Vim).
 If you are serious about learning to use the Vim motions, you would do best to use [NeoVim](https://github.com/benbrastmckie/.config).
 
-## [Configuration](#Table-of-Contents)
+### [Configuration](#Table-of-Contents)
 
 > **NOTE:** If you are familiar with Git or interested in giving it a try, the best way to proceed is to fork this repository, using Git to clone your fork onto your machine.
 > These details will be described in the documentation for [Git](https://github.com/benbrastmckie/VSCodium/blob/master/docs/git.md).
@@ -76,24 +76,383 @@ Save the document with `ctrl + s`, confirming that the changes have taken place 
 
 This completes the basic configuration of VSCodium.
 
-## [Customization](#Table-of-Contents)
+### [Customization](#Table-of-Contents)
 
 In order to get a better sense of what the options are within VSCodium, click the settings gear in the bottom left corner.
 By scrolling through, you can explore the many different features that you can change about VSCodium where the list will get longer with each plugin that you add.
-In particular, some popular themes include 'Gruvbox Theme', 'Tokyo Night', 'Atom One Dark', and 'Catppuccin'.
-You can switch between the themes that you have installed with `ctrl + shift + p` and typing 'Color Theme'.
 
 Although the settings menu is a nice way to see all the options at once, this is not the easiest way to save or reproduce your configuration.
 However, any changes that you make in the settings menu will be stored in the `settings.json` file.
 It is by backing up this settings file that you can easily reproduce your configuration without having to remember what settings you had before or scroll through endless options.
+
 Although you could attempt to backup `settings.json` manually, the Git integration included in VSCodium provides an elegant way to stay backed up as you make changes to your configuration.
 These details are described in the documentation provided for [Git](https://github.com/benbrastmckie/VSCodium/blob/master/docs/git.md).
 
-A further avenue for exploring the different ways of customizing VSCodium is to use ChatGPT.
-For instance, if there is something that you would like to change about VSCodium, you can ask ChatGPT what you should include in `settings.json` in order to make that change.
-In case ChatGPT hallucinates, the false setting will not break anything, but rather will be dimmed with a warning that this setting does not exist.
+A further avenue for exploring the different ways of customizing VSCodium is to use an LLM.
+For instance, if there is something that you would like to change about VSCodium, you can ask what you should include in `settings.json` in order to make that change.
+
 You can easily remove any false settings by deleting those lines from your configuration.
 You may also find helpful tutorials on YouTube.
+
+### Themes
+
+VSCodium's appearance can be completely transformed with themes, which affect not just colors but also icons and the overall user experience. Customizing your theme can reduce eye strain during long writing sessions and create a more aesthetically pleasing environment for academic writing.
+
+#### Finding and Installing Themes
+
+1. **Browse Available Themes**:
+   - Open the Extensions panel (`Ctrl+Shift+X`)
+   - Type "theme" in the search box
+   - Use the filters to sort by popularity or rating
+   - Preview themes by clicking on them to see screenshots
+
+2. **Recommended Themes for Academic Writing**:
+   - **Gruvbox Theme**: Warm, retro colors that are easy on the eyes for long writing sessions
+   - **Tokyo Night**: Elegant dark theme with subtle blues and purples
+   - **Atom One Dark**: Clean, modern interface with good contrast
+   - **Catppuccin**: Pastel theme with multiple variations (Mocha, Macchiato, Frappé, Latte)
+   - **Dracula**: Popular dark theme with vibrant accent colors
+   - **GitHub Theme**: Light and dark variants matching GitHub's appearance
+   - **Winter is Coming**: High-contrast theme with several color variants
+   - **Nord**: Arctic-inspired cool color palette
+
+3. **Install a Theme**:
+   - Click the "Install" button on the theme's extension page
+   - VSCodium may require a reload after installation
+
+#### Switching Between Themes
+
+1. **Using Command Palette**:
+   - Press `Ctrl+Shift+P` to open the Command Palette
+   - Type "Color Theme" and select "Preferences: Color Theme"
+   - Browse the list of installed themes
+   - Themes are previewed in real-time as you navigate the list
+
+2. **Using Settings**:
+   - Click the gear icon in the bottom left corner
+   - Select "Color Theme" from the menu
+   - Choose your preferred theme from the list
+
+3. **Quick Switching for Different Times of Day**:
+   - Consider setting keybindings to switch between light and dark themes
+   - Example keybinding for your `keybindings.json`:
+   ```json
+   [
+     {
+       "key": "ctrl+alt+l",
+       "command": "workbench.action.selectTheme",
+       "args": { "theme": "GitHub Light" }
+     },
+     {
+       "key": "ctrl+alt+d",
+       "command": "workbench.action.selectTheme",
+       "args": { "theme": "Tokyo Night" }
+     }
+   ]
+   ```
+
+#### Customizing Themes
+
+1. **Fine-Tuning Colors**:
+   - Open your `settings.json` file (`Ctrl+Shift+P` → "Preferences: Open User Settings (JSON)")
+   - Add a `workbench.colorCustomizations` section:
+   ```json
+   "workbench.colorCustomizations": {
+     "[Tokyo Night]": {
+       "editor.background": "#1a1b26",
+       "editor.foreground": "#a9b1d6",
+       "activityBar.background": "#1a1b26",
+       "sideBar.background": "#16161e",
+       "editor.lineHighlightBackground": "#292e42"
+     }
+   }
+   ```
+
+2. **Customizing Syntax Highlighting**:
+   - Adjust specific syntax elements with `editor.tokenColorCustomizations`:
+   ```json
+   "editor.tokenColorCustomizations": {
+     "[Gruvbox Dark Hard]": {
+       "comments": "#928374",
+       "strings": "#b8bb26",
+       "functions": "#fabd2f",
+       "keywords": "#fb4934",
+       "variables": "#83a598",
+       "textMateRules": [
+         {
+           "scope": "entity.name.type",
+           "settings": {
+             "foreground": "#d3869b"
+           }
+         }
+       ]
+     }
+   }
+   ```
+
+3. **Creating Theme-Specific Settings**:
+   - Apply specific settings only when using a particular theme:
+   ```json
+   "[GitHub Light]": {
+     "editor.fontSize": 16,
+     "editor.lineHeight": 1.6
+   },
+   "[Tokyo Night]": {
+     "editor.fontSize": 15,
+     "editor.lineHeight": 1.5
+   }
+   ```
+
+#### Optimizing Themes for Academic Writing
+
+1. **Font Considerations**:
+   - Install a programming font with ligatures for better readability:
+     - Fira Code, JetBrains Mono, Cascadia Code, or Iosevka
+   - Configure the font in settings:
+   ```json
+   "editor.fontFamily": "'JetBrains Mono', 'Fira Code', Consolas, monospace",
+   "editor.fontLigatures": true,
+   "editor.fontSize": 15,
+   "editor.lineHeight": 1.6
+   ```
+
+2. **Visual Enhancements**:
+   - Enable smooth cursor animation for more pleasant writing:
+   ```json
+   "editor.cursorSmoothCaretAnimation": "on",
+   "editor.cursorBlinking": "phase"
+   ```
+   
+   - Configure line highlighting for better focus:
+   ```json
+   "editor.renderLineHighlight": "all",
+   "editor.occurrencesHighlight": true
+   ```
+
+3. **LaTeX-Specific Theme Settings**:
+   - Some themes offer specific settings for LaTeX syntax highlighting
+   - Add these LaTeX-specific customizations to improve the visualization of LaTeX elements:
+   ```json
+   "editor.tokenColorCustomizations": {
+     "[Tokyo Night]": {
+       "textMateRules": [
+         {
+           "scope": "support.function.latex",
+           "settings": {
+             "foreground": "#bb9af7"
+           }
+         },
+         {
+           "scope": "support.function.section.latex",
+           "settings": {
+             "foreground": "#f7768e",
+             "fontStyle": "bold"
+           }
+         }
+       ]
+     }
+   }
+   ```
+
+By selecting and customizing themes to suit your preferences and writing needs, you can create an ideal environment for academic writing in VSCodium that reduces eye strain and enhances productivity.
+
+### Custom Keyboard Shortcuts
+
+One of VSCodium's most powerful customization features is the ability to create custom keyboard shortcuts, which can dramatically improve your workflow for academic writing and LaTeX editing.
+
+#### Viewing and Editing Keyboard Shortcuts
+
+1. **Open the Keyboard Shortcuts Editor**:
+   - Press `Ctrl+K Ctrl+S` (press `Ctrl+K`, release, then press `Ctrl+S`)
+   - Or via Command Palette (`Ctrl+Shift+P`): type "Preferences: Keyboard Shortcuts"
+
+2. **In the Keyboard Shortcuts Editor**:
+   - Browse all available commands
+   - Search for specific actions or existing shortcuts
+   - See what keys are already assigned
+   - Edit or create new bindings
+
+#### Creating Custom Shortcuts
+
+1. **Using the GUI**:
+   - Locate the command you want to assign a shortcut to
+   - Click the `+` icon that appears when you hover over the command 
+   - Press the key combination you want to use
+   - Press Enter to confirm
+
+2. **Using JSON for Advanced Configuration**:
+   - Open the keybindings JSON file by clicking the `{}` icon in the top-right of the shortcuts editor
+   - Or via Command Palette: "Preferences: Open Keyboard Shortcuts (JSON)"
+   - Add your custom shortcuts in the JSON format
+
+#### Keyboard Shortcuts JSON Format
+
+The `keybindings.json` file uses the following format:
+
+```json
+[
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.build",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "latex-workshop.build",
+    "when": "editorLangId == 'latex'"
+  },
+  {
+    "key": "ctrl+k p",
+    "command": "pandoc.renderDocument",
+    "when": "editorLangId == 'markdown'"
+  }
+]
+```
+
+Each entry requires:
+- `key`: The key combination (required)
+- `command`: The command to execute (required)
+- `when`: Context when the binding is active (optional but recommended)
+
+To remove an existing keybinding, add a `-` before the command:
+
+```json
+{
+  "key": "ctrl+b",
+  "command": "-editor.action.toggleBold",
+  "when": "editorTextFocus"
+}
+```
+
+#### Context-Specific Keybindings for Academic Writing
+
+For academic writing, you can create shortcuts that only work in specific file types using the `when` clause:
+
+```json
+// LaTeX-specific shortcuts
+{
+  "key": "ctrl+alt+b",
+  "command": "editor.action.insertSnippet",
+  "args": { "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}" },
+  "when": "editorLangId == 'latex'"
+},
+
+// Markdown-specific shortcuts
+{
+  "key": "ctrl+alt+b",
+  "command": "editor.action.insertSnippet",
+  "args": { "snippet": "**${TM_SELECTED_TEXT}$0**" },
+  "when": "editorLangId == 'markdown'"
+}
+```
+
+Common context conditions include:
+- `editorTextFocus`: When the text editor has focus
+- `editorHasSelection`: When text is selected
+- `resourceExtname == .tex`: When a LaTeX file is open
+- `editorLangId == 'latex'`: When editing LaTeX
+- `editorLangId == 'markdown'`: When editing Markdown
+
+#### Useful Academic Writing Shortcuts
+
+Here are some examples of helpful keyboard shortcuts for academic writing:
+
+1. **LaTeX Formatting Shortcuts**:
+```json
+[
+  {
+    "key": "ctrl+alt+b",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "\\textbf{${TM_SELECTED_TEXT}$0}" },
+    "when": "editorTextFocus && editorLangId == 'latex'"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "editor.action.insertSnippet", 
+    "args": { "snippet": "\\textit{${TM_SELECTED_TEXT}$0}" },
+    "when": "editorTextFocus && editorLangId == 'latex'"
+  },
+  {
+    "key": "ctrl+alt+m",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "\\begin{math}${TM_SELECTED_TEXT}$0\\end{math}" },
+    "when": "editorTextFocus && editorLangId == 'latex'"
+  }
+]
+```
+
+2. **Markdown Shortcuts**:
+```json
+[
+  {
+    "key": "ctrl+alt+b",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "**${TM_SELECTED_TEXT}$0**" },
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "*${TM_SELECTED_TEXT}$0*" },
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "editor.action.insertSnippet",
+    "args": { "snippet": "`${TM_SELECTED_TEXT}$0`" },
+    "when": "editorTextFocus && editorLangId == 'markdown'"
+  }
+]
+```
+
+3. **Pandoc Document Conversion**:
+```json
+[
+  {
+    "key": "ctrl+alt+p",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "pandoc \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.pdf\" --pdf-engine=xelatex\n" },
+    "when": "editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+alt+d",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "pandoc \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.docx\"\n" },
+    "when": "editorLangId == 'markdown'"
+  }
+]
+```
+
+#### Tips for Academic Writing Keybindings
+
+1. **Use consistent patterns across file types**:
+   - Maintain the same key combinations for similar actions (like formatting)
+   - For example, use `Ctrl+Alt+B` for bold in both LaTeX and Markdown
+
+2. **Leverage snippets in your keybindings**:
+   - Create shortcuts that insert frequently used structures
+   - Example: Create a shortcut for inserting a new theorem environment
+
+3. **Document your keybindings**:
+   - Add comments to your JSON file to remember what each shortcut does
+   ```json
+   // Citation shortcut
+   {
+     "key": "ctrl+alt+c",
+     "command": "editor.action.insertSnippet",
+     "args": { "snippet": "\\cite{$0}" },
+     "when": "editorLangId == 'latex'"
+   }
+   ```
+
+4. **Backup your keybindings file**:
+   - Located at:
+     - Windows: `%APPDATA%\VSCodium\User\keybindings.json`
+     - macOS: `~/Library/Application Support/VSCodium/User/keybindings.json`
+     - Linux: `~/.config/VSCodium/User/keybindings.json`
+   - Include it in your Git backup alongside settings.json
+
+Custom keyboard shortcuts can significantly enhance your academic writing productivity in VSCodium, especially when working with LaTeX, Markdown, and Pandoc for document conversion.
 
 # [Toolchain](#Table-of-Contents)
 
