@@ -1,19 +1,29 @@
 # [Introduction](#Table-of-Contents)
 
-This repository gathers resources for using [VSCodium](https://vscodium.com/) (the open source and **private** but otherwise identical version of [VS Code](https://code.visualstudio.com/)) to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), or any programming languages that you might want to use.
+This repository gathers resources for using [VSCodium](https://vscodium.com/) (the open source and **private** fork of [VS Code](https://code.visualstudio.com/)) to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), [Python](https://www.python.org/), or any programming languages that you might want to use.
+
+## Motivation
+
 VSCodium offers a nice suite of features while being extremely accessible and easy to configure.
-By contrast, TexShop and TexMaker are painfully austere, offering none of the resources of a modern text editor (e.g., LSP support, snippets, Git integration, syntax highlighting, etc.), Overleaf is limited to the browser and requires internet access, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
+By contrast, TexShop and TexMaker do not offer the resources provided by modern IDEs (e.g., LSP support, snippets, Git integration, syntax highlighting, etc.), Overleaf is limited to the browser and requires internet access, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
 
 The instructions below aim to streamline the process of adopting VSCodium as your daily driver for composing and editing text of all kinds.
-Even if you are new to LaTeX and Mardown or do not already have LaTeX installed, this configuration provides a place to start with all the information and instructions that you will need in one place.
+Even if you are new to LaTeX, this configuration provides a place to start with all the information and instructions that you will need in one place.
 The configuration is modular and easy to extend to include further utilities for writing, taking notes, managing your workflow, staying organized, or for working with other languages such as Python etc. (there is a large ecosystem of plugins).
 
-Further resources will also be provided for how to use [Zotero](https://www.zotero.org/) to manage your references with associated PDFs, providing citation key autocompletion within VSCodium.
-Additionally, information will be included for how to use [Git](https://git-scm.com/) (a sophisticated version control software that is widely used and already integrated into VSCodium) to manage your projects, backup your work as you go, work on the same project from multiple computers, collaborate with others, and maintain your configuration of VSCodium.
-Note that if you want to collaborate with others using Overleaf, it is possible to [add Overleaf projects as a remote](https://www.overleaf.com/learn/how-to/Git_integration#Synchronizing_with_another_remote) from which you can easily push and pull changes without leaving VSCodium.
+### Topics
 
-This repository also aims to provide community support.
-For instance, if you run into trouble you can open an issue by clicking the [issues tab](https://github.com/benbrastmckie/VSCodium/issues) above, checking first to see that your issue was not already answered (search for both open and closed issues).
+Resources will be provided for how to use the following with VSCodium:
+
+- [LaTeX](https://www.latex-project.org/): A document preparation system for high-quality typesetting
+- [Zotero](https://www.zotero.org/): A free reference manager to organize your research papers and citations
+- [Git](https://git-scm.com/): Version control system for tracking changes and collaborating with others
+- [Python](https://www.python.org/): Popular programming language for data analysis and scientific computing
+- [Jupyter Notebooks](https://jupyter.org/): Interactive computing environment for data science and research
+
+### Issues
+
+If you run into trouble you can open an issue by clicking the [issues tab](https://github.com/benbrastmckie/VSCodium/issues) above, checking first to see that your issue was not already answered (search for both open and closed issues).
 Since future users may find the responses to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but to contribute to the project by expanding its surrounding documentation.
 With this in mind, make sure to appropriately name the issue you create, providing a careful description of the problem and what you have tried already.
 It is also important to stay on topic, opening new issues if you have separate problems rather than lumping them altogether.
@@ -28,16 +38,26 @@ If you feel that certain information is missing or would otherwise be helpful to
 
 ## [Table of Contents](#Introduction)
 
+> **Note:** To facilitate navigation, section headers are linked back to the table of contents.
+
 This guide covers the installation and configuration of VSCodium along with a variety of tools for academic writing and research.
 
+### Main Sections
+
+- [Introduction](#Introduction): Overview of the VSCodium academic writing setup
+  - [Motivation](#Motivation): Why choose VSCodium over other editors
+  - [Topics](#Topics): Key technologies covered in this guide
+  - [Issues](#Issues): How to get help and contribute
 - [Installation](#Installation): Install VSCodium and essential extensions
 - [Configuration](#Configuration): Add the `settings.json` file
 - [Customization](#Customization): Personalize your VSCodium environment
+  - [Themes](#Themes): Visual customization options
+  - [Custom Keyboard Shortcuts](#Custom-Keyboard-Shortcuts): Improve your workflow
 - [Toolchain](#Toolchain): A comprehensive collection of tools for academic writing
 
 ### Extended Documentation
 
-You can find further documentation here:
+You can find detailed guides on specific topics here:
 
 - **[LaTeX Guide](docs/latex.md)**: Complete setup and configuration for LaTeX document preparation
 - **[Zotero Integration](docs/zotero.md)**: Connect your reference manager with VSCodium
@@ -47,7 +67,36 @@ You can find further documentation here:
 - **[Tools Reference](docs/tools.md)**: Detailed guide to Markdown, Templates, Snippets, Pandoc, Python, and Jupyter
 - **[Jupyter Notebooks](docs/jupyter.md)**: Interactive computing and data visualization
 
-> **Note:** To facilitate navigation, section headers are linked back to the table of contents.
+### Directory Structure
+
+This repository is organized as follows:
+
+```
+VSCodium/
+├── README.md                     # Main documentation
+├── settings.json                 # Main configuration file
+├── docs/                         # Detailed documentation
+│   ├── git.md                    # Git integration guide
+│   ├── jupyter.md                # Jupyter notebooks
+│   ├── keymaps.md                # Keyboard shortcuts
+│   ├── latex.md                  # LaTeX setup and usage
+│   ├── themes.md                 # Theme configuration
+│   ├── tools.md                  # Tools reference
+│   └── zotero.md                 # Zotero integration
+├── images/                       # Screenshots and images
+│   └── latex.png                 # LaTeX editor screenshot
+├── templates/                    # LaTeX templates
+│   ├── Glossary.tex              # Template for glossaries
+│   ├── HandOut.tex               # Handout template
+│   ├── Letter.tex                # Letter template
+│   ├── PhilBeamer.tex            # Beamer presentation
+│   ├── PhilPaper.tex             # Academic paper template
+│   ├── formal_template/          # Formal paper structure
+│   └── subfiles_template/        # Multi-file document template
+└── texmf/                        # TeX resources
+    ├── bibtex/                   # Bibliography resources
+    └── tex/                      # LaTeX classes and styles
+```
 
 ## [Installation](#Table-of-Contents)
 
