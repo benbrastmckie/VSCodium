@@ -2,7 +2,7 @@
 
 This repository gathers resources for using [VSCodium](https://vscodium.com/) (the open source and **private** fork of [VS Code](https://code.visualstudio.com/)) to write in [LaTeX](https://www.latex-project.org/), [Markdown](https://www.markdownguide.org/), [Python](https://www.python.org/), or any programming languages that you might want to use.
 
-## Motivation
+## [Motivation](#Table-of-Contents)
 
 VSCodium offers a nice suite of features while being extremely accessible and easy to configure.
 By contrast, TexShop and TexMaker do not offer the resources provided by modern IDEs (e.g., LSP support, snippets, Git integration, syntax highlighting, etc.), Overleaf is limited to the browser and requires internet access, and [NeoVim](https://github.com/benbrastmckie/.config) is much more difficult to install, configure, and learn to use.
@@ -11,7 +11,7 @@ The instructions below aim to streamline the process of adopting VSCodium as you
 Even if you are new to LaTeX, this configuration provides a place to start with all the information and instructions that you will need in one place.
 The configuration is modular and easy to extend to include further utilities for writing, taking notes, managing your workflow, staying organized, or for working with other languages such as Python etc. (there is a large ecosystem of plugins).
 
-### Topics
+### [Topics](#Table-of-Contents)
 
 Resources will be provided for how to use the following with VSCodium:
 
@@ -21,7 +21,7 @@ Resources will be provided for how to use the following with VSCodium:
 - [Python](https://www.python.org/): Popular programming language for data analysis and scientific computing
 - [Jupyter Notebooks](https://jupyter.org/): Interactive computing environment for data science and research
 
-### Issues
+### [Issues](#Table-of-Contents)
 
 If you run into trouble you can open an issue by clicking the [issues tab](https://github.com/benbrastmckie/VSCodium/issues) above, checking first to see that your issue was not already answered (search for both open and closed issues).
 Since future users may find the responses to your issue helpful, GitHub issues are a nice way to not only solve the problems that you are facing, but to contribute to the project by expanding its surrounding documentation.
@@ -32,7 +32,7 @@ If you find any errors in this documentation, you are welcome to submit a pull r
 That way your changes will be able to be easily reviewed and integrated into the project.
 If you feel that certain information is missing or would otherwise be helpful to include as a part of this project, don't hesitate to create an issue with your suggestions.
 
-### LaTeX Screenshot
+### [LaTeX Screenshot](#Table-of-Contents)
 
 ![Screenshot of the configuration](images/latex.png)
 
