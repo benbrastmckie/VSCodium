@@ -91,14 +91,24 @@ You can then move this directory to `~/Library/`.
 
 Windows does not come with Git installed by default.
 Go to the [Git Website](https://git-scm.com/) to download and install the version for Windows.
-Once the installation is complete, open the terminal and run `git --version` to confirm that the installation was successful.
+Once the installation is complete, open Command Prompt and run `git --version` to confirm that the installation was successful.
 
-To clone this repository and move the `texmf` directory to the appropriate location, run the following commands in the terminal:
+With Windows, there might not already be a `texmf` directory, and you might have to create it on your own. To do so, first figure out where Windows thinks you should have it:
+
+```
+kpsewhich -var-value TEXMFHOME
+```
+Then either go to Windows Explorer and create the folder if it doesn't exist, the old school way, or do it via cmd:
+```
+2>nul md "[INSERT YOUR FOLDER PATH FROM ABOVE HERE but convert the / to \, e.g. C:\Users\benbrastmckie\texmf]"
+```
+
+Then, clone this repository and move the `texmf` directory to the appropriate location, run the following commands in the terminal:
 
 ```
 cd ~/Downloads
 git clone https://github.com/benbrastmckie/VSCodium.git
-move VSCodium/texmf ~/texmf
+move "VSCodium\texmf\*." "[INSERT YOUR FOLDER PATH FROM ABOVE HERE WITH A BACKSLASH AT THE END, e.g. C:\Users\benbrastmckie\texmf\]"
 tree /F
 ```
 
