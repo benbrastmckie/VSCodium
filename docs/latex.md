@@ -106,7 +106,7 @@ Then either go to Windows Explorer and create the folder if it doesn't exist, th
 Then, clone this repository and move the `texmf` directory to the appropriate location, run the following commands in the terminal:
 
 ```
-cd ~/Downloads
+cd Downloads
 git clone https://github.com/benbrastmckie/VSCodium.git
 move "VSCodium\texmf\*." "[INSERT YOUR FOLDER PATH FROM ABOVE HERE WITH A BACKSLASH AT THE END, e.g. C:\Users\benbrastmckie\texmf\]"
 tree /F
