@@ -96,7 +96,7 @@ Once the installation is complete, open the terminal and run `git --version` to 
 To clone this repository and move the `texmf` directory to the appropriate location, run the following commands in the terminal:
 
 ```
-cd ~/Downloads
+cd Downloads
 git clone https://github.com/benbrastmckie/VSCodium.git
 move VSCodium/texmf ~/texmf
 tree /F
