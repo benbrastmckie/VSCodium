@@ -1,28 +1,65 @@
 # Claude Code Installation Guide
 
-This document provides comprehensive installation instructions for Claude Code CLI and the VS Codium extension.
+This document provides installation instructions for Claude Code CLI and the VS Codium extension.
+
+## Why Use Claude Code for LaTeX?
+
+Claude Code can significantly enhance your LaTeX workflow by helping with tasks that are often time-consuming or require looking up documentation:
+
+**Configuration and Build Management:**
+- Customize your `.latexmkrc` file with advanced build configurations
+- Debug compilation issues and error messages
+- Set up complex build chains for multi-file projects
+- Configure PDF viewer settings and synctex integration
+
+**LaTeX Code Assistance:**
+- Define custom commands (`\newcommand`) and environments (`\newenvironment`)
+- Create complex macros for repeated formatting patterns
+- Write and debug TikZ diagrams and PGFPlots code
+- Generate bibliography styles and customize citations
+- Build custom document classes (`.cls` files) and packages (`.sty` files)
+
+**Automation and Scripting:**
+- Write shell scripts to automate document compilation workflows
+- Create build scripts that handle multiple LaTeX projects
+- Generate automated testing for LaTeX macros
+- Parse and process LaTeX log files for error reporting
+
+**Documentation and Learning:**
+- Explain unfamiliar LaTeX packages and their options
+- Suggest best practices for document structure
+- Help troubleshoot package conflicts
+- Convert between different LaTeX syntaxes (e.g., traditional vs. modern approaches)
+
+**Project Management:**
+- Organize multi-file LaTeX projects with subfiles
+- Set up Git workflows for collaborative LaTeX writing
+- Create templates for papers, dissertations, or presentations
+- Manage bibliographies and citation databases
+
+Whether you're writing a simple article or a complex dissertation, Claude Code acts as an AI assistant that understands LaTeX syntax, best practices, and can help you write cleaner, more maintainable documents.
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [CLI Installation](#cli-installation)
-  - [macOS](#macos)
-  - [Windows](#windows)
-  - [Linux](#linux)
-    - [Ubuntu](#ubuntu)
-    - [Arch Linux](#arch-linux)
-    - [NixOS](#nixos)
-- [VS Codium Extension](#vs-codium-extension)
-- [Configuration](#configuration)
-- [Verification](#verification)
-- [Troubleshooting](#troubleshooting)
+- [Why Use Claude Code for LaTeX?](#why-use-claude-code-for-latex) - Benefits for LaTeX workflows, scripting, and configuration
+- [Prerequisites](#prerequisites) - What you need before installing
+- [CLI Installation](#cli-installation) - Installing Claude Code from the terminal
+  - [macOS](#macos) - Installation using Homebrew
+  - [Windows](#windows) - Installation using PowerShell
+  - [Linux](#linux) - Installation for Ubuntu, Arch, and NixOS
+- [VS Codium Extension](#vs-codium-extension) - Installing the editor extension
+- [Authentication](#authentication) - Setting up subscription or API key
+- [Verification](#verification) - Testing your installation
+- [Troubleshooting](#troubleshooting) - Common issues and solutions
 
 ## Prerequisites
 
 Before installing Claude Code, ensure you have:
 
 - An active internet connection
-- An Anthropic API key (obtain from [console.anthropic.com](https://console.anthropic.com))
+- A **Claude Code subscription** (recommended) from [console.anthropic.com](https://console.anthropic.com)
+  - Provides predictable monthly costs and unlimited usage within plan limits
+  - Alternatively, you can use an **API key** for pay-as-you-go pricing
 - Administrative/sudo privileges (for some installation methods)
 
 ## CLI Installation
@@ -31,106 +68,49 @@ Before installing Claude Code, ensure you have:
 
 ### macOS
 
-Claude Code offers multiple installation methods for macOS. Choose the one that best fits your workflow:
-
-#### Option 1: Homebrew (Recommended)
-
-The simplest installation method using Homebrew:
+Install using Homebrew (the simplest method):
 
 ```bash
 brew install --cask claude-code
 ```
 
-#### Option 2: Native Binary
-
-Install using the official installation script:
+**If you don't have Homebrew installed**, install it first:
 
 ```bash
-curl -fsSL https://claude.ai/install.sh | bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-
-This method:
-- Does not require Node.js
-- Provides faster performance
-- Enables automatic updates
-- Is the officially recommended installation method
-
-#### Option 3: npm (Legacy)
-
-If you prefer using npm and have Node.js 18+ installed:
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-**Note:** Do NOT use `sudo` with npm installation as it causes permission issues.
 
 ### Windows
 
-#### Option 1: PowerShell (Recommended)
-
-Open PowerShell and run:
+Install using PowerShell (recommended):
 
 ```powershell
 irm https://claude.ai/install.ps1 | iex
 ```
 
-#### Option 2: Command Prompt
-
-Open CMD and run:
-
-```cmd
-curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
-```
-
-#### Option 3: WSL (Recommended for Advanced Users)
-
-For better integration and performance, install Ubuntu 20.04+ or Debian 10+ through WSL, then follow the [Ubuntu installation instructions](#ubuntu).
+**For advanced users**: If you prefer a Linux environment, install WSL with Ubuntu and follow the [Linux installation](#linux) instructions.
 
 ### Linux
 
-#### Ubuntu
+#### Ubuntu/Debian
 
-Run the native installation script:
+Install using the official script:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-**Supported versions:** Ubuntu 20.04 and later
-
-Alternatively, if you prefer package management:
-
-```bash
-# Add repository (if available)
-# sudo apt update
-# sudo apt install claude-code
-```
-
-Or use npm (requires Node.js 18+):
-
-```bash
-npm install -g @anthropic-ai/claude-code
-```
+**Supported versions:** Ubuntu 20.04 and later, Debian 10+
 
 #### Arch Linux
 
-Claude Code is available in the AUR:
+Install from the AUR using yay:
 
 ```bash
-# Using yay
 yay -S claude-code
-
-# Using paru
-paru -S claude-code
-
-# Manual installation
-git clone https://aur.archlinux.org/claude-code.git
-cd claude-code
-makepkg -si
 ```
 
-**Note:** After installation, Claude Code will attempt to enable automatic updates. To disable this message:
+**Note:** After installation, Claude Code attempts to enable automatic updates. To disable:
 
 ```bash
 claude config set -g autoUpdates disabled
@@ -138,9 +118,7 @@ claude config set -g autoUpdates disabled
 
 #### NixOS
 
-Claude Code has been merged into nixos-unstable as of March 2025.
-
-**Option 1: Add to configuration.nix**
+Add to your `configuration.nix`:
 
 ```nix
 environment.systemPackages = with pkgs; [
@@ -154,30 +132,13 @@ Then rebuild:
 sudo nixos-rebuild switch
 ```
 
-**Option 2: Nix Flakes**
-
-For always up-to-date versions, use the community flake:
-
-```nix
-{
-  inputs.claude-code.url = "github:sadjow/claude-code-nix";
-  # ...
-}
-```
-
-**Option 3: Nix Shell**
-
-For temporary usage without installation:
-
-```bash
-nix-shell -p claude-code
-```
+**Note:** Claude Code has been available in nixos-unstable since March 2025.
 
 ## VS Codium Extension
 
 ### Installation from Open VSX
 
-VS Codium uses Open VSX Registry by default. Install Claude Code extension:
+VS Codium uses Open VSX Registry by default:
 
 1. Open VS Codium
 2. Click Extensions icon (or press `Ctrl+Shift+X`)
@@ -190,65 +151,85 @@ VS Codium uses Open VSX Registry by default. Install Claude Code extension:
 codium --install-extension Anthropic.claude-code
 ```
 
-### Manual Installation
+### Manual Installation (if needed)
 
-If the extension is not available on Open VSX or you want the latest version:
+If the extension is not available on Open VSX:
 
-1. Download the `.vsix` file from the VS Code Marketplace or GitHub releases
-2. Open VS Codium
-3. Go to Extensions view
-4. Click the `...` menu (top right of Extensions view)
-5. Select "Install from VSIX..."
-6. Navigate to and select the downloaded `.vsix` file
+1. Download the `.vsix` file from [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
+2. Open VS Codium → Extensions view
+3. Click the `...` menu (top right)
+4. Select "Install from VSIX..."
+5. Navigate to and select the downloaded file
 
-### Configuration
+## Authentication
 
-After installing the extension, configure it:
+After installation, you need to authenticate Claude Code. There are two options:
 
-1. Open VS Codium Settings (`Ctrl+,` or `Cmd+,`)
-2. Search for "Claude Code"
-3. Set your Anthropic API key:
-   - Click "Edit in settings.json"
-   - Or use the GUI to add your API key
+### Option 1: Claude Code Subscription (Recommended)
 
-## Configuration
+If you have a **Claude Code subscription**:
 
-### API Key Setup
+**For CLI:**
+```bash
+# Sign in to your Anthropic account
+claude auth login
+```
 
-After installing Claude Code, configure your API key:
+This will open your browser to authenticate. Once signed in, Claude Code will use your subscription automatically.
+
+**For VS Codium Extension:**
+
+1. Open VS Codium
+2. Click the Claude Code icon in the sidebar
+3. Sign in when prompted
+4. The extension will use your Claude Code subscription
+
+**Benefits:**
+- Unlimited usage within plan limits
+- Predictable monthly costs
+- No per-request billing
+- Simple authentication
+
+**Get a subscription**: Visit [console.anthropic.com](https://console.anthropic.com)
+
+### Option 2: API Key (Pay-as-you-go)
+
+If you prefer pay-as-you-go pricing with an **API key**:
+
+**For CLI:**
 
 ```bash
+# Set your API key
 claude config set apiKey YOUR_API_KEY_HERE
 ```
 
-Or set it as an environment variable:
+Or use an environment variable:
 
 ```bash
 # Add to ~/.bashrc, ~/.zshrc, or equivalent
 export ANTHROPIC_API_KEY="your-api-key-here"
 ```
 
-### VS Codium Settings
+**For VS Codium Extension:**
 
-The following settings are recommended for optimal Claude Code experience. These will be added to your `settings.json`.
+Create or edit `~/.claude/config.json`:
 
-### Verify Installation
-
-Check that Claude Code is installed correctly:
-
-```bash
-# Check version
-claude --version
-
-# Test connection
-claude auth status
+```json
+{
+  "primaryApiKey": "your-api-key-here"
+}
 ```
 
-For the VS Codium extension:
+**Platform-specific paths:**
+- **macOS/Linux**: `~/.claude/config.json`
+- **Windows**: `%USERPROFILE%\.claude\config.json`
 
-1. Open VS Codium
-2. Check the Extensions view to confirm Claude Code is enabled
-3. Look for the Claude icon in the sidebar
+**Important:**
+- API usage is billed per request based on token consumption
+- Monitor usage at [console.anthropic.com](https://console.anthropic.com)
+- Never commit API keys to version control
+
+**Get an API key**: Visit [console.anthropic.com](https://console.anthropic.com)
 
 ## Verification
 
@@ -257,11 +238,11 @@ For the VS Codium extension:
 Test your installation:
 
 ```bash
-# Display help
-claude --help
+# Check version
+claude --version
 
-# Check configuration
-claude config list
+# Check authentication status
+claude auth status
 
 # Run a simple prompt
 claude "Hello, can you help me code?"
@@ -280,39 +261,35 @@ claude "Hello, can you help me code?"
 
 **Command not found**
 
-If `claude` command is not recognized after installation:
+If the `claude` command is not recognized:
 
 ```bash
 # macOS/Linux: Add to PATH
 export PATH="$HOME/.claude/bin:$PATH"
 
-# Add to shell config for persistence
+# Make persistent by adding to shell config
 echo 'export PATH="$HOME/.claude/bin:$PATH"' >> ~/.bashrc  # or ~/.zshrc
 source ~/.bashrc  # or ~/.zshrc
 ```
 
-**Permission errors**
-
-If you encounter permission errors:
+**Authentication errors**
 
 ```bash
-# Never use sudo with npm installation
-npm install -g @anthropic-ai/claude-code  # NOT: sudo npm install
+# Check authentication status
+claude auth status
 
-# For native installation, ensure proper permissions
-chmod +x ~/.claude/bin/claude
+# Re-authenticate with subscription
+claude auth login
+
+# Or verify API key is set correctly
+claude config list
 ```
 
-**Homebrew symlink issues (macOS)**
-
-If you installed via npm and then Homebrew, you may have conflicts:
+**Permission errors**
 
 ```bash
-# Remove npm installation
-npm uninstall -g @anthropic-ai/claude-code
-
-# Reinstall with Homebrew
-brew reinstall --cask claude-code
+# Ensure proper permissions for the binary
+chmod +x ~/.claude/bin/claude
 ```
 
 ### Extension Issues
@@ -320,26 +297,20 @@ brew reinstall --cask claude-code
 **Extension not appearing in VS Codium**
 
 1. Check that Open VSX is configured:
-   - Open Settings
+   - Open Settings (`Ctrl+,`)
    - Search for "extension gallery"
    - Verify Open VSX URL is set
-
 2. Try manual installation from `.vsix` file
 
-**API Key not recognized**
+**Authentication not working**
 
-Ensure your API key is properly set in VS Codium settings:
-
-```json
-{
-  "claude-code.apiKey": "your-api-key-here"
-}
-```
+1. **For subscriptions**: Ensure you're signed in by clicking the Claude Code icon and following the sign-in prompt
+2. **For API keys**: Verify `~/.claude/config.json` exists and contains your API key
+3. Restart VS Codium after adding credentials
 
 **Extension version outdated**
 
-Note: Open VSX versions may lag behind the Microsoft Marketplace. To get the latest:
-
+Note: Open VSX versions may lag behind. To get the latest:
 1. Download `.vsix` from [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
 2. Install manually as described above
 
@@ -347,58 +318,58 @@ Note: Open VSX versions may lag behind the Microsoft Marketplace. To get the lat
 
 **WSL on Windows**
 
-If using WSL, ensure you're running commands in the WSL terminal, not Windows CMD/PowerShell.
+Ensure you're running commands in the WSL terminal, not Windows CMD/PowerShell.
 
-**NixOS Updates**
-
-If `claude-code` is outdated on NixOS stable:
+**macOS Homebrew issues**
 
 ```bash
-# Switch to unstable channel for latest version
-nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-nix-channel --update
+# Update Homebrew first
+brew update
+
+# Reinstall if needed
+brew reinstall --cask claude-code
 ```
 
-**Arch Linux AUR Build Failures**
-
-If the AUR package fails to build:
+**Arch Linux AUR build failures**
 
 ```bash
 # Clear package cache
 yay -Sc
-# Or paru -Sc
 
 # Retry installation
 yay -S claude-code
 ```
 
-## Additional Resources
+**NixOS outdated package**
 
-- [Official Claude Code Documentation](https://code.claude.com/docs)
-- [GitHub Repository](https://github.com/anthropics/claude-code)
-- [VS Code Extension Page](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
-- [Open VSX Registry](https://open-vsx.org/extension/Anthropic/claude-code)
-- [Community Support](https://github.com/anthropics/claude-code/issues)
+```bash
+# Switch to unstable channel for latest version
+nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+nix-channel --update
+sudo nixos-rebuild switch
+```
 
 ## Updates
 
-Claude Code automatically keeps itself up to date by default. To disable automatic updates:
+Claude Code automatically keeps itself up to date by default.
+
+**To disable automatic updates:**
 
 ```bash
 claude config set -g autoUpdates disabled
 ```
 
-To manually update:
+**To manually update:**
 
 ```bash
-# Homebrew
+# macOS
 brew upgrade --cask claude-code
 
-# Native installer (if auto-updates disabled)
-curl -fsSL https://claude.ai/install.sh | bash
+# Windows
+irm https://claude.ai/install.ps1 | iex
 
-# npm
-npm update -g @anthropic-ai/claude-code
+# Linux (Ubuntu/Debian)
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Arch Linux
 yay -Syu claude-code
@@ -407,4 +378,17 @@ yay -Syu claude-code
 sudo nixos-rebuild switch --upgrade
 ```
 
-For the VS Codium extension, updates are managed through the Extensions view.
+**VS Codium Extension**: Updates are managed through the Extensions view.
+
+## Additional Resources
+
+- [Official Claude Code Documentation](https://code.claude.com/docs)
+- [GitHub Repository](https://github.com/anthropics/claude-code)
+- [VS Code Extension Page](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)
+- [Open VSX Registry](https://open-vsx.org/extension/Anthropic/claude-code)
+- [Community Support](https://github.com/anthropics/claude-code/issues)
+- [Terminal Guide](terminal.md) - Help with using the terminal
+
+---
+
+← [Back to Documentation Index](README.md)
