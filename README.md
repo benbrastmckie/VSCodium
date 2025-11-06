@@ -49,7 +49,7 @@ This guide covers the installation and configuration of VSCodium along with a va
   - [Topics](#Topics): Key technologies covered in this guide
   - [Issues](#Issues): How to get help and contribute
 - [Installation](#Installation): Install VSCodium and essential extensions
-- [Configuration](#Configuration): Add the `settings.json` file
+- [Configuration](#Configuration): Add the configuration files
 - [Customization](#Customization): Personalize your VSCodium environment
   - [Themes](#Themes): Visual customization options
   - [Custom Keyboard Shortcuts](#Custom-Keyboard-Shortcuts): Improve your workflow
@@ -57,11 +57,15 @@ This guide covers the installation and configuration of VSCodium along with a va
 
 ### Extended Documentation
 
+For a complete overview of all available documentation, see the **[Documentation Index](docs/README.md)**.
+
 You can find detailed guides on specific topics here:
 
+- **[Terminal Guide](docs/terminal.md)**: How to open and use the terminal on macOS, Windows, and Linux (start here if you're new to the command line)
 - **[LaTeX Guide](docs/latex.md)**: Complete setup and configuration for LaTeX document preparation
 - **[Zotero Integration](docs/zotero.md)**: Connect your reference manager with VSCodium
 - **[Git Workflow](docs/git.md)**: Version control and collaboration
+- **[Claude Code Installation](docs/claude-code.md)**: AI coding assistant setup for macOS, Windows, and Linux
 - **[Theme Gallery](docs/themes.md)**: Visual customization options for your editor
 - **[Keyboard Shortcuts](docs/keymaps.md)**: Custom keybindings for improved productivity
 - **[Tools Reference](docs/tools.md)**: Detailed guide to Markdown, Templates, Snippets, Pandoc, Python, and Jupyter
@@ -74,8 +78,12 @@ This repository is organized as follows:
 ```
 VSCodium/
 ├── README.md                     # Main documentation
-├── settings.json                 # Main configuration file
+├── assets/                       # Configuration files and resources
+│   ├── README.md                 # Assets documentation
+│   ├── settings.json             # Main VSCodium configuration
+│   └── .latexmkrc                # LaTeX build configuration
 ├── docs/                         # Detailed documentation
+│   ├── claude-code.md            # Claude Code installation guide
 │   ├── git.md                    # Git integration guide
 │   ├── jupyter.md                # Jupyter notebooks
 │   ├── keymaps.md                # Keyboard shortcuts
@@ -123,9 +131,13 @@ If you are serious about learning to use the Vim motions, you would do best to u
 > In addition to streamlining the process, this method will allow you to easily backup your configuration as you make changes, tracking its complete history.
 > Alternatively, the following brute-force method is very easy, but does not backup your configuration (this can be added later with a little extra hassle).
 
+The main configuration files are located in the [assets](assets/) directory. For complete documentation of all available configuration files, see the [Assets README](assets/README.md).
+
+### Settings.json Configuration
+
 Open VSCodium and hit `ctrl + shift + p`, typing 'Preferences: Open User Settings (JSON)'.
-This will open the `settings.json` file where you can declare your configuration.
-Replace the entire contents of `settings.json` (including the empty braces) with the entire contents of [this](https://github.com/benbrastmckie/VSCodium/blob/master/settings.json) file.
+This will open your user `settings.json` file where you can declare your configuration.
+Replace the entire contents (including the empty braces) with the entire contents of the [settings.json](https://github.com/benbrastmckie/VSCodium/blob/master/assets/settings.json) file from the assets directory.
 Save the document with `ctrl + s`, confirming that the changes have taken place (e.g., note that the theme should change).
 
 This completes the basic configuration of VSCodium.

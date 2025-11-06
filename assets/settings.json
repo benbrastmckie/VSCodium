@@ -48,5 +48,5 @@
   "workbench.colorTheme": "Two Monokai Darker",
   "editor.minimap.enabled": false,
   "editor.wordWrap": "on",
-  "editor.wrappingIndent": "indent",
+  "editor.wrappingIndent": "indent"
 }

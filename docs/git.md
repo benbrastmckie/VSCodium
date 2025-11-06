@@ -3,6 +3,8 @@
 [Git](https://git-scm.com/) is a powerful and versatile tool for version controlling projects, managing the development of selected contents of your project's root directory, keeping their entire history backed up and synchronized between your local machine, a remote repository on GitHub or elsewhere, as well as the local machines of any other collaborators on the project.
 The following sections will introduce some of the most basic functionality that Git provides, describing specific functions that Git provides for maintaining your configuration and version controlling your projects, perhaps in collaboration with others:
 
+> **Note for beginners**: This guide includes terminal commands and assumes basic familiarity with the command line. If you're new to using the terminal, see our [Terminal Guide](terminal.md) first.
+
 - [Forking the Repository](#Forking-the-Repository): make a copy of this repository to stay backed up.
 - [Version Control](#Version-Control): using Git to backup and collaborate on projects.
 - [Collaborating with Git](#Collaborating-with-Git): how to use Git to collaborate on projects with others.
@@ -49,16 +51,13 @@ Once you have opened the right directory in the "Explorer" tab, open the "Source
 You can then add a remote by clicking the three dots in the top right of the "Source Control" panel, selecting `remote -> add`.
 You can then enter the address copied to the clipboard from before, naming the remote "VSCodium" or whatever you like.
 
-> **Note:** If you have not yet made changes to your configuration `settings.json` file, you can ignore this note. 
-> If, however, you have already made changes to the `settings.json` file on your machine, you will want to save those before proceeding.
-> Otherwise, when you pull down your fork of this repository, you will overwrite current `settings.json` file.
-> Although this won't break anything, you will lose the changes that you have already made (though you could always revert to the older commit).
-> If you have made changes to your `settings.json` file that you want to preserve, one easy way to avoid losing changes is to temporarily rename `settings.json` as `save.settings.json`.
-> That way, when you pull down the repository it will not replace your configuration.
-> After pulling down the configuration, you can go on to delete the `settings.json` file that you just pulled down, changing the name of `save.settings.json` back to `settings.json`.
+> **Note:** If you have not yet made changes to your user `settings.json` file, you can ignore this note.
+> If, however, you have already made changes to your `settings.json` file, you will want to save those before copying the repository's configuration.
+> Create a backup by temporarily renaming your user `settings.json` as `save.settings.json`.
+> After pulling down the repository and copying `assets/settings.json` to your user directory, you can compare the two files and merge any custom settings you want to preserve.
 
 If you have not done so already, you will also need to configure Git by adding your email (whatever you used to open a GitHub account).
-To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following two commands, replacing "Your Name" and "your.email@example" with the same information you provided in your GitHub account:
+To do so, open the terminal in VSCodium with `ctrl + backtick` and enter the following two commands, replacing "Your Name" and "your.email@example" with the same information you provided in your GitHub account.
 
 ```
 git config --global user.name "Your Name"
@@ -69,7 +68,16 @@ Once this information has been provided, you should be able to push the changes 
 To do so, look in the bottom left corner of VSCodium where you will see the branch that you are on currently, clicking the current branch and changing to "Master".
 Next, click on the three dots in the top right corner of the "Source Control" tab to select `Pull, Push -> Pull`.
 By changing back to the "Explorer" tab you should be able to see a host of new files that you have just pulled down.
-Open `settings.json` to confirm that this file has been populated with settings.
+
+After pulling, you'll need to copy the configuration file to the correct location:
+- Navigate to the `assets` folder in the Explorer tab
+- Open `assets/settings.json`
+- Copy its entire contents
+- Open your user `settings.json` file (in the root of your User directory)
+- Replace all contents with what you copied
+- Save the file
+
+Confirm that the changes have taken place (e.g., note that the theme should change).
 
 If you go on to make any changes to your configuration, you can save the changes and then open the "Source Control" tab, adding a message, and "committing" your changes (this creates a save point in its history).
 Once committed, you can click "Sync" to automatically pull and push changes from/to your remote.
@@ -120,21 +128,34 @@ ls -a
 ```
 
 The `git remote -v` command is optional but will confirm that you succeeded in adding a remote.
-The final command should show the new `settings.json` file along with the `.git` directory you initialized.
-If you wanted to preserve your previously saved settings, you can now run the following commands:
+The final `ls -a` command should show the new repository files including the `assets/` directory and `.git` directory you initialized.
+
+Now copy the configuration file from the repository to your user settings location:
 
 ```
-rm settings.json
-mv save.settings.json settings.json
+cp assets/settings.json settings.json
 ```
 
-If you make any changes to your configuration in the future, you can push these up to your repository with:
+If you wanted to preserve and merge your previously saved settings, you can compare the two files:
 
 ```
-git add settings.json 
-git commit -m "commit message of your choice"
+# View your old settings
+cat save.settings.json
+# Compare with new settings and manually merge any custom configurations you want to keep
+```
+
+If you make any changes to your configuration in the future, you should update the repository's copy and push it:
+
+```
+# Copy your updated settings back to the repository
+cp settings.json assets/settings.json
+# Stage, commit, and push the changes
+git add assets/settings.json
+git commit -m "Update settings configuration"
 git push origin master
 ```
+
+This ensures your repository stays in sync with your actual VSCodium configuration.
 
 Although it is good to know how to push and pull changes manually, VSCodium will automate all of this for you as described above in [Option 1](#Option-1-VSCodium)
 

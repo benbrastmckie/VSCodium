@@ -4,6 +4,8 @@ This document will provide information for installing LaTeX and setting up the `
 When relevant, the instructions will be divided by operating system.
 If your operating system is not represented, or you are having trouble with any of the commands, consider opening an issue above, checking to make sure that your issue has not already been raised (search for both "open" and "closed" issues).
 
+> **Note for beginners**: Many instructions in this guide use terminal commands. If you're new to using the terminal, see our [Terminal Guide](terminal.md) for help opening and using the terminal on your operating system.
+
 ## Installation
 
 If you have not already set up LaTeX, you will have to install [MacTex](https://www.tug.org/mactex/) if you are on MacOS, [TexLive](https://www.tug.org/texlive/windows.html) if you are on Windows, or run the following if you are on Debian or Arch Linux, respectively:
@@ -15,7 +17,7 @@ sudo pacman -S texlive-most
 
 It is preferable to install the "full" as opposed to "basic" set of LaTeX packages so that you never need to think about what `.sty` files you have installed ("full" should be installed by default if you are not presented with an option).
 
-If you have installed LaTeX in the past but are uncertain whether you have the right packages installed, you can run the following commands line by line in the terminal (on MacOS, hit `Cmd + Space` and type 'terminal', hitting `return`):
+If you have installed LaTeX in the past but are uncertain whether you have the right packages installed, you can run the following commands line by line in the terminal:
 
 ```
 latexmk -v
@@ -129,3 +131,167 @@ You are now free to delete the remnants of the 'VSCodium' repository that you cl
 ```
 rm -r ~/Downloads/VSCodium
 ```
+
+## Latexmk Configuration
+
+The `.latexmkrc` file allows you to customize how LaTeX compiles your documents, providing powerful control over the build process.
+A reference configuration file is provided in [`assets/.latexmkrc`](https://github.com/benbrastmckie/VSCodium/blob/master/assets/.latexmkrc) with optimized settings for organizing build artifacts.
+
+### Key Features
+
+The provided `.latexmkrc` configuration includes:
+
+- **Build Directory Organization**: All auxiliary files (`.aux`, `.log`, `.synctex.gz`, etc.) are automatically created in a `build/` subdirectory, keeping your project root clean.
+- **Draft Mode Support**: Enable faster compilation during editing by setting `LATEXMK_DRAFT_MODE=1`.
+- **Automatic Cleanup**: Failed builds automatically clean auxiliary files to prevent corruption from propagating.
+- **File Watcher Debounce**: 2-second delay after file changes prevents race conditions during rapid saves.
+- **Compilation Loop Prevention**: Maximum of 5 recompilation attempts to avoid infinite loops.
+- **Build Logging**: Success and failure events are logged to `build/compile.log` for diagnostics.
+
+### Installation Options
+
+You can use the `.latexmkrc` file either globally (for all your LaTeX projects) or locally (per-project basis).
+
+#### Global Installation
+
+To apply these settings to all your LaTeX projects, copy the file to your home directory:
+
+**MacOS and Linux:**
+
+```bash
+cp assets/.latexmkrc ~/.latexmkrc
+```
+
+**Windows:**
+
+```cmd
+copy assets\.latexmkrc %USERPROFILE%\.latexmkrc
+```
+
+With a global `.latexmkrc`, all LaTeX projects will use the `build/` directory for auxiliary files by default.
+
+#### Local Installation (Per-Project)
+
+To apply settings to a specific project, copy the file to the project's root directory:
+
+**MacOS and Linux:**
+
+```bash
+cp assets/.latexmkrc /path/to/your/project/.latexmkrc
+```
+
+**Windows:**
+
+```cmd
+copy assets\.latexmkrc C:\path\to\your\project\.latexmkrc
+```
+
+Local `.latexmkrc` files override global settings, allowing per-project customization.
+
+### Usage Examples
+
+**Standard compilation:**
+
+```bash
+latexmk -pdf document.tex
+```
+
+This will compile `document.tex` and place all auxiliary files in the `build/` subdirectory.
+
+**Draft mode (faster compilation):**
+
+```bash
+LATEXMK_DRAFT_MODE=1 latexmk -pdf document.tex
+```
+
+**Continuous preview mode:**
+
+```bash
+latexmk -pvc -pdf document.tex
+```
+
+This watches for file changes and automatically recompiles (with 2-second debounce).
+
+**Clean auxiliary files:**
+
+```bash
+latexmk -c
+```
+
+Removes all generated auxiliary files from the `build/` directory.
+
+**Clean all generated files (including PDF):**
+
+```bash
+latexmk -C
+```
+
+### VS Codium Integration
+
+The LaTeX Workshop extension in VS Codium automatically respects `.latexmkrc` settings.
+With the provided configuration, the extension will:
+
+- Create a `build/` directory automatically
+- Place all auxiliary files in `build/`
+- Keep your project root clean with only source files
+- Use the configured PDF viewer settings
+
+No additional VS Codium configuration is needed - the extension reads `.latexmkrc` automatically.
+
+### Customization
+
+You can modify the `.latexmkrc` file to suit your workflow:
+
+**Change build directory name:**
+
+```perl
+$out_dir = 'output';    # Use 'output' instead of 'build'
+$aux_dir = 'output';
+```
+
+**Use biber instead of bibtex:**
+
+```perl
+$bibtex_use = 2;  # Use biber (for biblatex)
+```
+
+**Adjust debounce delay:**
+
+```perl
+$sleep_time = 3;  # Wait 3 seconds instead of 2
+```
+
+**Disable draft mode:**
+
+Remove or comment out the draft mode section if not needed.
+
+### Troubleshooting
+
+**Build directory not created:**
+
+If the `build/` directory isn't automatically created, run:
+
+```bash
+mkdir -p build
+```
+
+**VS Codium not using .latexmkrc:**
+
+Ensure your VS Codium LaTeX Workshop settings use `latexmk`:
+
+```json
+"latex-workshop.latex.recipes": [
+  {
+    "name": "latexmk",
+    "tools": ["latexmk"]
+  }
+]
+```
+
+**Auxiliary files still in root directory:**
+
+Check that you don't have conflicting settings in VS Codium's `settings.json` that override `$out_dir`.
+
+**Permission errors:**
+
+Ensure the project directory has write permissions for creating the `build/` subdirectory.
